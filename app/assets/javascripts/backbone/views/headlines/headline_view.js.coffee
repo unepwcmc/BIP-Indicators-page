@@ -4,14 +4,15 @@ class BIPIndicatorsPage.Views.Headlines.HeadlineView extends Backbone.View
   template: JST["backbone/templates/headlines/headline"]
 
   events:
-    "click .destroy" : "destroy"
+    "click .select-headline" : "select"
 
-  destroy: () ->
-    @model.destroy()
-    this.remove()
+  initialize: ->
+   @model.on('change', @render)
 
+  select: () ->
+    @model.select()
     return false
 
-  render: ->
+  render: =>
     $(@el).html(@template(@model.toJSON() ))
     return this

@@ -25,3 +25,9 @@ class BIPIndicatorsPage.Routers.IndicatorsRouter extends Backbone.Router
     # Headlines
     @headlinesView = new BIPIndicatorsPage.Views.Headlines.IndexView(headlines: @headlines)
     $("#headlines").html(@headlinesView.render().el)
+
+  filterByHeadline: (headline) ->
+    @indicators.filterByHeadline(headline)
+
+  filterByGoal: (goal) ->
+    @indicators.filterByGoal(goal)
