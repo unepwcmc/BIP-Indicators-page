@@ -329,9 +329,29 @@ more. To view a summary table of the indicator framework <a href="http://www.bip
       function resizeFrame(f) {
         f.style.height = f.contentWindow.document.body.scrollHeight + "px";
       }
+      function getCookie(c_name)
+      {
+      var i,x,y,ARRcookies=document.cookie.split(";");
+      for (i=0;i<ARRcookies.length;i++)
+      {
+        x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
+        y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
+        x=x.replace(/^\s+|\s+$/g,"");
+        if (x==c_name)
+          {
+          return unescape(y);
+          }
+        }
+      }
       setInterval(function(){
         resizeFrame(document.getElementById('indicator_explorer'));
       }, 3000);
+      
+      //get the lanuage version into account
+      var lng = getCookie('language');
+      lng = 'en-EN';
+      //load the iframe with the correct language version
+      //TODO document.getElementById('indicator_explorer').src = 'http://localhost:3000/' + lng;
     </script>
 
 							</td>
