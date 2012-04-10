@@ -31,3 +31,6 @@ class BIPIndicatorsPage.Routers.IndicatorsRouter extends Backbone.Router
 
   filterByGoal: (goal) ->
     @indicators.filterByGoal(goal)
+
+  filterByTarget: (target) ->
+    @indicators.filterByTarget(target)

@@ -13,6 +13,9 @@ class BIPIndicatorsPage.Models.Target extends Backbone.Model
     @trigger('unique:select:target')
     @set({'selected': true})
 
+    # Filter indicators by headline
+    router.filterByTarget(@)
+
   deselect: ->
     @set({'selected': false})
 

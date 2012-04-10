@@ -18,3 +18,7 @@ class BIPIndicatorsPage.Collections.IndicatorsCollection extends Backbone.Collec
       indicator.set({'show': (indicator.get('headline_id') == headline.get('id') )})
 
   filterByGoal: (goal) ->
+
+  filterByTarget: (target) ->
+    _.each @models, (indicator) ->
+      indicator.set({'show': (_.pluck(indicator.get('targets'), 'id').indexOf(target.get('id')) != -1 )})
