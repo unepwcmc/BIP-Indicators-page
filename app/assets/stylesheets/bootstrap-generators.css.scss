@@ -2,7 +2,8 @@
 @import "scss/bootstrap";
 
 body {
-  padding-top: $navbarHeight + 20px;
+  /* padding-top: $navbarHeight + 20px; */
+  padding-top: 20px !important;
   padding-bottom: 40px;
 }
 
