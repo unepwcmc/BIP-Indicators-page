@@ -11,7 +11,7 @@ class BIPIndicatorsPage.Views.Goals.IndexView extends Backbone.View
 
   addOne: (goal) =>
     view = new BIPIndicatorsPage.Views.Goals.GoalView({model : goal})
-    @$("tbody").append(view.render().el)
+    @$("#goals-container").append(view.render().el)
 
   render: =>
     $(@el).html(@template(goals: @options.goals.toJSON() ))

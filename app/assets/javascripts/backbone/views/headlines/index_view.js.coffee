@@ -11,7 +11,7 @@ class BIPIndicatorsPage.Views.Headlines.IndexView extends Backbone.View
 
   addOne: (headline) =>
     view = new BIPIndicatorsPage.Views.Headlines.HeadlineView({model : headline})
-    @$("tbody").append(view.render().el)
+    @$("#headlines-container").append(view.render().el)
 
   render: =>
     $(@el).html(@template(headlines: @options.headlines.toJSON() ))

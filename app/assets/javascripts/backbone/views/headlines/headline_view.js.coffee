@@ -6,8 +6,6 @@ class BIPIndicatorsPage.Views.Headlines.HeadlineView extends Backbone.View
   events:
     "click .destroy" : "destroy"
 
-  tagName: "tr"
-
   destroy: () ->
     @model.destroy()
     this.remove()

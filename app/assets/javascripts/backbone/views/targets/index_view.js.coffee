@@ -11,7 +11,7 @@ class BIPIndicatorsPage.Views.Targets.IndexView extends Backbone.View
 
   addOne: (target) =>
     view = new BIPIndicatorsPage.Views.Targets.TargetView({model : target})
-    @$("tbody").append(view.render().el)
+    @$("#targets-container").append(view.render().el)
 
   render: =>
     $(@el).html(@template(targets: @options.targets.toJSON() ))

@@ -6,8 +6,6 @@ class BIPIndicatorsPage.Views.Targets.TargetView extends Backbone.View
   events:
     "click .destroy" : "destroy"
 
-  tagName: "tr"
-
   destroy: () ->
     @model.destroy()
     this.remove()
