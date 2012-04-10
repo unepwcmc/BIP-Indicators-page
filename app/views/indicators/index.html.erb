@@ -6,13 +6,13 @@
  
 <div class="tab-content">
   <div class="tab-pane active" id="matrix">
-    <h1>Matrix</h1>
+    <div id="goals"></div>
   </div>
   <div class="tab-pane" id="graphic">
     <h1>Graphic</h1>
   </div>
   <div class="tab-pane" id="headlines">
-    <h1>Headlines</h1>
+    <div id="headlines"></div>
   </div>
 </div>
 
@@ -20,7 +20,7 @@
 
 <script type="text/javascript">
 $(function() {
-  window.router = new BIPIndicatorsPage.Routers.IndicatorsRouter({indicators: <%= @indicators.to_json.html_safe -%>, goals: <%= @goals.to_json.html_safe -%>, targets: <%= @targets.to_json.html_safe -%>, headlines: <%= @headlines.to_json.html_safe -%>, partners: <%= @partners.to_json.html_safe -%>});
+  window.router = new BIPIndicatorsPage.Routers.IndicatorsRouter({indicators: <%= @indicators.to_json.html_safe -%>, goals: <%= @goals.to_json(:include => :targets).html_safe -%>, headlines: <%= @headlines.to_json.html_safe -%>, partners: <%= @partners.to_json.html_safe -%>});
   Backbone.history.start();
 });
 </script>

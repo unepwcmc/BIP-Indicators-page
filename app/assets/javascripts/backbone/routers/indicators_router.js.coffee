@@ -3,29 +3,25 @@ class BIPIndicatorsPage.Routers.IndicatorsRouter extends Backbone.Router
     @indicators = new BIPIndicatorsPage.Collections.IndicatorsCollection()
     @indicators.reset options.indicators
 
+    # Goals
+    @goals = new BIPIndicatorsPage.Collections.GoalsCollection()
+    @goals.reset options.goals
+
+    # Headlines
+    @headlines = new BIPIndicatorsPage.Collections.HeadlinesCollection()
+    @headlines.reset options.headlines
+
   routes:
-    "/new"      : "newIndicator"
-    "/index"    : "index"
-    "/:id/edit" : "edit"
-    "/:id"      : "show"
     ".*"        : "index"
 
-  newIndicator: ->
-    @view = new BIPIndicatorsPage.Views.Indicators.NewView(collection: @indicators)
-    $("#indicators").html(@view.render().el)
-
   index: ->
-    @view = new BIPIndicatorsPage.Views.Indicators.IndexView(indicators: @indicators)
-    $("#indicators").html(@view.render().el)
+    @indicatorsView = new BIPIndicatorsPage.Views.Indicators.IndexView(indicators: @indicators)
+    $("#indicators").html(@indicatorsView.render().el)
 
-  show: (id) ->
-    indicator = @indicators.get(id)
+    # Goals
+    @goalsView = new BIPIndicatorsPage.Views.Goals.IndexView(goals: @goals)
+    $("#goals").html(@goalsView.render().el)
 
-    @view = new BIPIndicatorsPage.Views.Indicators.ShowView(model: indicator)
-    $("#indicators").html(@view.render().el)
-
-  edit: (id) ->
-    indicator = @indicators.get(id)
-
-    @view = new BIPIndicatorsPage.Views.Indicators.EditView(model: indicator)
-    $("#indicators").html(@view.render().el)
+    # Headlines
+    @headlinesView = new BIPIndicatorsPage.Views.Headlines.IndexView(headlines: @headlines)
+    $("#headlines").html(@headlinesView.render().el)
