@@ -30,6 +30,16 @@ class BIPIndicatorsPage.Routers.IndicatorsRouter extends Backbone.Router
     @indicators.filterByHeadline(headline)
 
   filterByGoal: (goal) ->
+    if typeof(goal) == 'string'
+      found_goals = _.filter(@goals.models, (iter_goal) ->
+        iter_goal.get('code') == goal
+      )
+      if found_goals.length == 1
+        goal = found_goals[0]
+      else
+        console.log("Error: #{found_goals.length} goals found. Should have found an unique goal for the given code.")
+        return false
+
     @indicators.filterByGoal(goal)
 
   filterByTarget: (target) ->
