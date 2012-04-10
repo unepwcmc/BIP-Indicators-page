@@ -27,11 +27,6 @@ ActiveRecord::Schema.define(:version => 20120410111345) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "headlines_indicators", :id => false, :force => true do |t|
-    t.integer "headline_id"
-    t.integer "indicator_id"
-  end
-
   create_table "indicators", :force => true do |t|
     t.integer  "headline_id"
     t.integer  "partner_id"
@@ -39,6 +34,11 @@ ActiveRecord::Schema.define(:version => 20120410111345) do
     t.integer  "position"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "indicators_targets", :id => false, :force => true do |t|
+    t.integer "target_id"
+    t.integer "indicator_id"
   end
 
   create_table "partners", :force => true do |t|
