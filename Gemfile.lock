@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/decioferreira/bootstrap-generators.git
+  revision: abaa1484065764f0d18a34c9d8d6ad4002cf1eda
+  specs:
+    bootstrap-generators (2.0.1)
+      railties (~> 3.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -122,6 +129,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-generators (~> 2.0)!
   coffee-rails (~> 3.2.1)
   jquery-rails
   rails (= 3.2.2)
