@@ -1,0 +1,86 @@
+.focalTable{
+
+}
+
+.focalTable a img{
+
+border:#FFFFFF thin solid;
+
+}
+
+
+.focalTable a:hover img{
+
+border:#00CC00 thin solid;
+
+}
+
+.sus a:hover img
+{
+border:#FF9900 thin solid;
+}
+
+.threatToB a:hover img{
+border:#CC0000 thin solid;}
+
+.ecoS a:hover img{
+border:#0066FF thin solid
+}
+
+.statusT a:hover img{
+border:#CC0099 thin solid}
+
+.statusA a:hover img{
+border:#999999 thin solid
+}
+statusR a:hover img{
+border:#00CC99 thin solid}
+
+
+#galdiv{
+			width:100%;
+			text-align:center;
+					
+}
+
+ul#gallery, ul#gallery li{
+			margin:0;
+			padding:0;
+			list-style:none;
+			}
+		ul#gallery{
+			width:100%;
+			height:75px;
+			position:relative;
+			background:#FFFFFF url(images/bg_preview.gif) no-repeat 50% 40%;
+			}			
+		ul#gallery li{
+			float:left;
+			display:inline;
+			margin-top:10px;
+			}								
+		ul#gallery a span{
+			display:none;
+			}
+		ul#gallery a:hover{
+			background:none;
+			z-index:100;
+			}	
+		ul#gallery a:hover span{
+			position:absolute;
+			text-decoration:none;
+			width:600px;
+			height:10px;
+			float:left;
+			top:0;
+			left:17%;
+			display:block;
+						
+			}	
+			ul#gallery a img{
+	border:none;
+	padding:2px;
+	background:#fff;
+	text-decoration:none;
+	vertical-align:middle;}			
+

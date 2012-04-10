@@ -1,0 +1,31 @@
+/*========================================================*/
+/*             CSS for DotNetNuke Containers              */
+/*                  by Evan O'Neil                        */
+/*              http://www.NukeVille.com                  */
+/*========================================================*/
+
+/*========================================================*/
+/*     Container Design Elements                          */
+/*========================================================*/
+
+
+/*-- conatiner title token             --*/ .EON_MI_OCF05Title { font-size: 11px; font-family: tahoma; color: #FFF; font-weight: bold; }
+/*-- container title cell              --*/ .EON_MI_OCF05Titletd { width:100%; padding: 0;}
+/*-- container actions cell            --*/ .EON_MI_OCF05Actionstd { width:0%; padding: 0;}
+/*-- container content pane            --*/ .EON_MI_OCF05Content { font-size: 11px; font-family: tahoma; color: #444; padding: 5px 0 0 0;}
+/*-- container Icons cell              --*/ .EON_MI_OCF05Icons { text-align:right; padding: 5px 0 7px 0; border-top: 1px solid #BBBBBB;}
+
+/*-- top center section                --*/ .RedBrdr05T { background: url(05Redt_Minimalist.png) top left repeat-x; vertical-align:middle; height: 28px; padding: 0 0 1px 0; }
+/*-- top left section                  --*/ .RedBrdr05TL { background: url(05Redtl_Minimalist.png) top left no-repeat; vertical-align:top; height: 28px; width:10px; padding: 0; }
+/*-- top right section                 --*/ .RedBrdr05tr { background: url(05Redtr_Minimalist.png) top right no-repeat; height: 28px; width:22px; vertical-align:middle; text-align:left; padding: 0 0 2px 0; }
+
+/*-- mid center section                --*/ .RedBrdr05M { background: url(05Redm_Minimalist.png); vertical-align:top; padding: 0; }
+/*-- mid left section                  --*/ .RedBrdr05ML { background: url(05Redml_Minimalist.png) bottom left repeat-y; vertical-align:top; width:10px; padding: 0; }
+/*-- mid right section                 --*/ .RedBrdr05MR { background: url(05Redmr_Minimalist.png) bottom right repeat-y; vertical-align:top; width:10px; padding: 0; }
+
+/*-- bottom center section             --*/ .RedBrdr05B { background: url(05Redb_Minimalist.png) bottom left repeat-x; vertical-align:top; height: 17px; padding: 8px 0 0 0; }
+/*-- bottom left section               --*/ .RedBrdr05BL { background: url(05Redbl_Minimalist.png) bottom left no-repeat; vertical-align:top; height: 17px; width:10px; padding: 0; }
+/*-- bottom right section              --*/ .RedBrdr05BR { background: url(05Redbr_Minimalist.png) bottom right no-repeat; vertical-align:top; height: 17px; width:10px; padding: 0; }
+
+/*========================================================*/
+

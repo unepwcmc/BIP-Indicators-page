@@ -7,7 +7,7 @@ require 'brightbox/passenger'
 set :domain, "unepwcmc-005.vm.brightbox.net"
 
 ## List of servers
-server "unepwcmc-005.vm.brightbox.net", :app, :web, :db, :primary => true, :jobs => true
+server "unepwcmc-005.vm.brightbox.net", :app, :web, :db, :primary => true
 
 set :branch, "master"
 

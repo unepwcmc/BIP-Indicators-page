@@ -8,7 +8,7 @@ set :default_stage, 'staging'
 
 load 'deploy/assets'
 
-set :application, "BIP_indicators_page"
+set :application, "bip"
 
 # If you are using Passenger mod_rails uncomment this:
 # namespace :deploy do
@@ -70,7 +70,7 @@ set :scm_username, "unepwcmc-read"
 # set :local_shared_dirs, %w(public/upload)
 # set :local_shared_files, %w(config/database.yml)
 
-set :local_shared_files, %w(config/database.yml)
+set :local_shared_files, %w(config/database.yml db/production.sqlite3)
 
 ## Global Shared Area
 # These are the list of files and directories that you want
@@ -150,7 +150,7 @@ default_run_options[:pty] = true
 # capistrano default tasks use to execute commands.
 # NB. This just affects the default recipes unless you use the
 # 'try_sudo' command to run your commands.
-# set :use_sudo, false
+set :use_sudo, true
 # set :runner, user## Passenger Configuration
 # Set the method of restarting passenger
 # Defaults to :hard which is used to instantly free up database connections

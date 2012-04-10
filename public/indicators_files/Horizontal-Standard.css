@@ -1,0 +1,46 @@
+/*========================================================*/
+/*         CSS for DotNetNuke Skin - Minimalist           */
+/*                   by Evan O'Neil                       */
+/*             http://www.NukeVille.com                   */
+/*========================================================*/
+
+/*========================================================*/
+/*    Design Elements                                     */
+/*========================================================*/
+
+/*-- main menu height               --*/ .MenuHeight { height:36px; padding-bottom: 0; }
+/*-- cell containing main menu      --*/ .MenuTD {  background: url(nav2-bg.gif) repeat-x top left; padding: 0 0 0 0; margin-bottom: 0; }
+/*-- main menu left end             --*/ .MenuLeft { width:18px; background: url(nav2-bg-l.gif) no-repeat top left; }
+/*-- main menu right end            --*/ .MenuRight { width:17px; background: url(nav2-bg-r.gif) no-repeat top left; }
+/*-- cell containing login          --*/ .LoginTD { width: 100%; vertical-align: middle; text-align: right; font-size: 7px; padding: 0 0 8px 0; }
+/*-- cell containing copyright      --*/ .CopyrightRow { height:20px; padding: 0 10px 0 10px; vertical-align: bottom; }
+
+/*========================================================*/
+/*     Main Menu and Module Menus                         */
+/*========================================================*/
+
+/*-- box that holds the menu        --*/ .MainMenu_MenuContainer { background: transparent; }
+/*-- bar that holds the menu        --*/ .MainMenu_MenuBar { height:36px; cursor: pointer; cursor: hand; background: transparent; }
+/*-- submenu container              --*/ .MainMenu_SubMenu, .ModuleTitle_SubMenu { margin: 0 0 0 0; filter:Alpha(Opacity=90);-moz-opacity:.90; }
+/*-- main menu idle item            --*/ .MainMenu_Idle TD{line-height:0;vertical-align:top;margin:0;padding:0;}
+/*-- main menu idle item left       --*/ .MainMenu_Idle TD DIV{background:url(nav2-div.gif) top right no-repeat;background-color:transparent;float:left;_float:none;margin:0;padding:0;}
+/*-- main menu idle item right      --*/ .MainMenu_Idle TD DIV DIV{background:url(dummy.gif) top left no-repeat;float:right;_float:none;margin:0;padding:0 1px;}
+/*-- main menu idle item middle     --*/ .MainMenu_Idle TD DIV DIV DIV{background:url(dummy.gif) top repeat-x;font-size:8pt;font-weight:700;color:#FFF;line-height:0pt;_line-height:1px;margin:0;padding:18px 10px 18px 10px;}
+/*-- main menu active item          --*/ .MainMenu_Selected TD, .MainMenu_BreadcrumbActive TD{vertical-align:top;line-height:0;margin:0;padding:0;}
+/*-- main menu active item left     --*/ .MainMenu_Selected TD DIV, .MainMenu_BreadcrumbActive TD DIV {background:url(nav2-div.gif) top right no-repeat;float:left;_float:none;margin:0;padding:0;}
+/*-- main menu active item right    --*/ .MainMenu_Selected TD DIV DIV, .MainMenu_BreadcrumbActive TD DIV DIV {background:url(nav2-active.gif) top left no-repeat;float:right;_float:none;margin:0;padding:0 1px;}
+/*-- main menu active item middle   --*/ .MainMenu_Selected TD DIV DIV DIV, .MainMenu_BreadcrumbActive TD DIV DIV DIV {line-height:0px;_line-height:1px;color:#FFF;font-size:8pt;background:url(nav2-active.gif) top repeat-x;font-weight:700;margin:0;padding:18px 10px 18px 10px;}
+/*-- not needed - main menu         --*/ .MainMenu_Idle TD IMG, .MainMenu_Selected TD IMG, .MainMenu_BreadcrumbActive TD IMG, .MainMenu_RootMenuArrow, .MainMenu_MenuIcon  { display: none; }
+/*-- module menu continer           --*/ .ModuleTitle_MenuContainer { color: #2c2c2c; }
+/*-- module menu bar                --*/ .ModuleTitle_MenuBar { cursor: pointer; cursor: hand;}
+/*-- module menu padding            --*/ .ModuleTitle_MenuItem, .ModuleTitle_MenuItemSel { padding: 0 25px 0 15px; }
+/*-- not needed - module menu       --*/ .MainMenuSeperator, .ModuleTitle_MenuArrow, .ModuleTitle_RootMenuArrow { display: none; }
+/*-- module menu icon               --*/ .ModuleTitle_MenuIcon { background: #FFF; border: 0px; border-bottom: 1px dotted #999; width:0px; height: 20px; padding: 0 0 0 0; margin: 0 0 0 0; font-size: 0px; }
+/*-- module menu icon image         --*/ .ModuleTitle_MenuIcon IMG { margin: 0 10px 0 10px; }
+/*-- removing seperator borders     --*/ .MainMenu_MenuBreak { border-top-style: none; border-right-style: none;	border-left-style: none; border-bottom-style: none; background:transparent;  vertical-align:top;}
+/*-- cell containing submenu arrows --*/ .MainMenu_MenuArrow { padding: 0 0 0 0; margin: 0 0 0 0; border-left:0px; border-right:0px; border-top:0px; border-bottom: 1px solid #ccc; }
+
+/*==========================================================*/
+/*  End Style Sheet                                         */
+/*==========================================================*/
+

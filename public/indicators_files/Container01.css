@@ -1,0 +1,92 @@
+/*========================================================*/
+/*             CSS for DotNetNuke Containers              */
+/*                  by Evan O'Neil                        */
+/*              http://www.NukeVille.com                  */
+/*========================================================*/
+
+/*========================================================*/
+/*     Container Design Elements    Cnt1                      */
+/*========================================================*/
+
+
+/*-- conatiner title token             --*/ .EON_MI_OCF01Title { font-size: 11px; font-family: tahoma; color: #FFF; font-weight: bold; }
+/*-- container title cell              --*/ .EON_MI_OCF01Titletd { width:100%; padding: 0;}
+/*-- container actions cell            --*/ .EON_MI_OCF01Actionstd { width:0%; padding: 0;}
+/*-- container content pane            --*/ .EON_MI_OCF01Content { font-size: 11px; font-family: tahoma; color: #444; padding: 5px 4px 15px 4px;}
+/*-- container Icons cell              --*/ .EON_MI_OCF01Icons { text-align:right; padding: 5px 0 7px 0; border-top: 1px solid #BBBBBB;}
+
+/*-- top center section                --*/ .EON_MI_OCF01T { background: url(01t_Minimalist.png) bottom left repeat-x; vertical-align:middle; height: 28px; padding: 0 0 1px 0; }
+/*-- top left section                  --*/ .EON_MI_OCF01TL { background: url(01tl_Minimalist.png) bottom left no-repeat; vertical-align:top; height: 28px; width:10px; padding: 0; }
+/*-- top right section                 --*/ .EON_MI_OCF01tr { background: url(01tr_Minimalist.png) bottom right no-repeat; height: 28px; width:22px; vertical-align:middle; text-align:left; padding: 0 0 2px 0; }
+
+/*========================================================*/
+/*     Container Design Elements   Biodiversity-Green                       */
+/*========================================================*/
+
+/*-- top center section                --*/ .titleBiodiversityGreen { background: url(Greent_Minimalist.png) bottom left repeat-x; vertical-align:middle; height: 28px; padding: 0 0 1px 0; }
+/*-- top left section                  --*/ .titleBiodiversityGreenTL { background: url(Greentl_Minimalist.png) bottom left no-repeat; vertical-align:top; height: 28px; width:10px; padding: 0; }
+/*-- top right section                 --*/ .titleBiodiversityGreenTR {background: url(Greentr_Minimalist.png) bottom right no-repeat; height: 28px; width:22px; vertical-align:middle; text-align:left; padding: 0 0 2px 0; }
+
+
+/*========================================================*/
+/*========================================================*/
+/*     Container Design Elements   Sustainable Use-Yellow                       */
+/*========================================================*/
+
+/*-- top center section                --*/ .titleSusYellow { background: url(Yellowt_Minimalist.png) bottom left repeat-x; vertical-align:middle; height: 28px; padding: 0 0 1px 0; }
+/*-- top left section                  --*/ .titleSusYellowTL { background: url(Yellowtl_Minimalist.png) bottom left no-repeat; vertical-align:top; height: 28px; width:10px; padding: 0; }
+/*-- top right section                 --*/ .titleSusYellowTR {background: url(Yellowtr_Minimalist.png) bottom right no-repeat; height: 28px; width:22px; vertical-align:middle; text-align:left; padding: 0 0 2px 0; }
+
+
+/*========================================================*/
+/*========================================================*/
+/*     Container Design Elements   Threats to Biodiversity-Red                       */
+/*========================================================*/
+
+/*-- top center section                --*/ .titleThreatsRed { background: url(Redt_Minimalist.png) bottom left repeat-x; vertical-align:middle; height: 28px; padding: 0 0 1px 0; }
+/*-- top left section                  --*/ .titleThreatsRedTL { background: url(Redtl_Minimalist.png) bottom left no-repeat; vertical-align:top; height: 28px; width:10px; padding: 0; }
+/*-- top right section                 --*/ .titleThreatsRTedTR {background: url(Redtr_Minimalist.png) bottom right no-repeat; height: 28px; width:22px; vertical-align:middle; text-align:left; padding: 0 0 2px 0; }
+
+
+/*========================================================*/
+
+/*========================================================*/
+/*     Container Design Elements   Ecosystem Integrity-Light BLue                       */
+/*========================================================*/
+
+/*-- top center section                --*/ .titleLBlue { background: url(LBluet_Minimalist.png) bottom left repeat-x; vertical-align:middle; height: 28px; padding: 0 0 1px 0; }
+/*-- top left section                  --*/ .titleLBlueTL { background: url(LBluetl_Minimalist.png) bottom left no-repeat; vertical-align:top; height: 28px; width:10px; padding: 0; }
+/*-- top right section                 --*/ .titleLBlueTR {background: url(LBluetr_Minimalist.png) bottom right no-repeat; height: 28px; width:22px; vertical-align:middle; text-align:left; padding: 0 0 2px 0; }
+
+
+/*========================================================*/
+/*========================================================*/
+/*     Container Design Elements   traditional knowledge Pink                       */
+/*========================================================*/
+
+/*-- top center section                --*/ .titleTradPink { background: url(Pinkt_Minimalist.png) bottom left repeat-x; vertical-align:middle; height: 28px; padding: 0 0 1px 0; }
+/*-- top left section                  --*/ .titleTradPinkTL { background: url(Pinktl_Minimalist.png) bottom left no-repeat; vertical-align:top; height: 28px; width:10px; padding: 0; }
+/*-- top right section                 --*/ .titleTradPinkTR {background: url(Pinktr_Minimalist.png) bottom right no-repeat; height: 28px; width:22px; vertical-align:middle; text-align:left; padding: 0 0 2px 0; }
+
+
+/*========================================================*/
+/*========================================================*/
+/*     Container Design Elements   access and benefit -Grey                       */
+/*========================================================*/
+
+/*-- top center section                --*/ .titleAccessGrey { background: url(Greyt_Minimalist.png) bottom left repeat-x; vertical-align:middle; height: 28px; padding: 0 0 1px 0; }
+/*-- top left section                  --*/ .titleAccessGreyTL { background: url(Greytl_Minimalist.png) bottom left no-repeat; vertical-align:top; height: 28px; width:10px; padding: 0; }
+/*-- top right section                 --*/ .titleAccessGreyTR {background: url(Greytr_Minimalist.png) bottom right no-repeat; height: 28px; width:22px; vertical-align:middle; text-align:left; padding: 0 0 2px 0; }
+
+
+/*========================================================*/
+/*========================================================*/
+/*========================================================*/
+/*     Container Design Elements   resource transfers -Grey Green                      */
+/*========================================================*/
+
+/*-- top center section                --*/ .titleTransfersGryGreen { background: url(GyGreent_Minimalist.png) bottom left repeat-x; vertical-align:middle; height: 28px; padding: 0 0 1px 0; }
+/*-- top left section                  --*/ .titleTransfersGryGreenTL { background: url(GyGreentl_Minimalist.png) bottom left no-repeat; vertical-align:top; height: 28px; width:10px; padding: 0; }
+/*-- top right section                 --*/ .titleTransfersGryGreenTR {background: url(GyGreentr_Minimalist.png) bottom right no-repeat; height: 28px; width:22px; vertical-align:middle; text-align:left; padding: 0 0 2px 0; }
+
+/*========================================================*/
