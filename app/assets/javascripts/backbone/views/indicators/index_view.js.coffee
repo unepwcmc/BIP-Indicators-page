@@ -5,13 +5,14 @@ class BIPIndicatorsPage.Views.Indicators.IndexView extends Backbone.View
 
   initialize: () ->
     @options.indicators.bind('reset', @addAll)
+    @options.indicators.bind('change', @render)
 
   addAll: () =>
     @options.indicators.each(@addOne)
 
   addOne: (indicator) =>
     view = new BIPIndicatorsPage.Views.Indicators.IndicatorView({model : indicator})
-    @$("tbody").append(view.render().el)
+    @$("#indicators-container").append(view.render().el)
 
   render: =>
     $(@el).html(@template(indicators: @options.indicators.toJSON() ))
