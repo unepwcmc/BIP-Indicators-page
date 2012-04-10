@@ -1,0 +1,20 @@
+BIPIndicatorsPage.Views.Indicators ||= {}
+
+class BIPIndicatorsPage.Views.Indicators.IndexView extends Backbone.View
+  template: JST["backbone/templates/indicators/index"]
+
+  initialize: () ->
+    @options.indicators.bind('reset', @addAll)
+
+  addAll: () =>
+    @options.indicators.each(@addOne)
+
+  addOne: (indicator) =>
+    view = new BIPIndicatorsPage.Views.Indicators.IndicatorView({model : indicator})
+    @$("tbody").append(view.render().el)
+
+  render: =>
+    $(@el).html(@template(indicators: @options.indicators.toJSON() ))
+    @addAll()
+
+    return this
