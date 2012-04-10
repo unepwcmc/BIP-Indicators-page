@@ -1,3 +1,3 @@
 class Goal < ActiveRecord::Base
-  has_many: targets
+  has_many :targets
 end
