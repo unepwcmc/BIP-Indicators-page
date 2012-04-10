@@ -4,14 +4,15 @@ class BIPIndicatorsPage.Views.Targets.TargetView extends Backbone.View
   template: JST["backbone/templates/targets/target"]
 
   events:
-    "click .destroy" : "destroy"
+    "click .select-target" : "select"
 
-  destroy: () ->
-    @model.destroy()
-    this.remove()
+  initialize: ->
+   @model.on('change', @render)
 
+  select: () ->
+    @model.select()
     return false
 
-  render: ->
+  render: =>
     $(@el).html(@template(@model.toJSON() ))
     return this
