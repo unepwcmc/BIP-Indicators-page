@@ -3,7 +3,6 @@ class BIPIndicatorsPage.Models.Indicator extends Backbone.Model
 
   defaults:
     headline_id: null
-    partner_id: null
     title: null
     position: null
 
