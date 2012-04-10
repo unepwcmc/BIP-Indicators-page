@@ -2,7 +2,7 @@
 
 <script type="text/javascript">
 $(function() {
-  window.router = new BIPIndicatorsPage.Routers.IndicatorsRouter({indicators: <%= @indicators.to_json.html_safe -%>});
+  window.router = new BIPIndicatorsPage.Routers.IndicatorsRouter({indicators: <%= @indicators.to_json.html_safe -%>, goals: <%= @goals.to_json.html_safe -%>, targets: <%= @targets.to_json.html_safe -%>, headlines: <%= @headlines.to_json.html_safe -%>, partners: <%= @partners.to_json.html_safe -%>});
   Backbone.history.start();
 });
 </script>
