@@ -88,6 +88,28 @@ indicators = [
 {:title => 'Official development assistance provided in support of the Convention', :position => 29}
 ]
 
+partners = [
+
+  {:name => 'BirdLife International'},
+  {:name => 'Convention on International Trade in Endangered Species'},
+  {:name => 'Food and Agriculture Organization of the United Nations'},
+  {:name => 'Global Footprint Network'},
+  {:name => 'Global Invasive Species Programme'},
+  {:name => 'International Nitrogen Initiative'},
+  {:name => 'IUCN Sustainable Use Specialist Group'},
+  {:name => 'Organisation for Economic Co-operation and Development'},
+  {:name => 'Royal Society for the Protection of Birds'},
+  {:name => 'The Nature Conservancy'},
+  {:name => 'The University of Queensland'},
+  {:name => 'TRAFFIC International'},
+  {:name => 'United Nations Educational, Scientific and Cultural Organization'},
+  {:name => 'United Nations Environment Programme World Conservation Monitoring Centre'},
+  {:name => 'United Nations Environment Programme GEMS/Water Programme'},
+  {:name => 'University of British Columbia Fisheries Centre'},
+  {:name => 'WWF'},
+  {:name => 'Zoological Society of London'}
+]
+
 #code => index
 goals_targets = {
   'A' => [1,2,3,4],
@@ -142,7 +164,34 @@ headlines_indicators = {
   17 => [29]
 }
 
+#ary index => position
+partners_indicators = {
+  0 => [4],
+  1 => [16],
+  2 => [1,2,10,11,13,14,26],
+  3 => [18],
+  4 => [20],
+  5 => [19],
+  6 => [17],
+  7 => [29],
+  8 => [4],
+  9 => [24],
+  10 => [8],
+  11 => [27],
+  12 => [28],
+  13 => [2,6,7,8,12,16,17,23,25],
+  14 => [22],
+  15 => [21],
+  16 => [3],
+  17 => [3,9]
+}
+
 indicators.each { |i| Indicator.create(i) }
+
+partners.each_with_index do |p,i|
+  partner = Partner.create(p)
+  partner.indicators = Indicator.find(partners_indicators[i])
+end
 
 headlines.each do |h|
   headline = Headline.create(h)
