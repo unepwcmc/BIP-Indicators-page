@@ -1,0 +1,24 @@
+@import "bootstrap-variables";
+@import "scss/bootstrap";
+
+body {
+  /* padding-top: $navbarHeight + 20px; */
+  padding-top: 20px !important;
+  padding-bottom: 40px;
+}
+
+@import "scss/responsive";
+
+.sidebar-nav {
+  padding: 9px 0;
+}
+
+.page-header {
+  a.btn {
+    float: right;
+  }
+
+  a.btn + a.btn {
+    margin-right: 8px;
+  }
+}
