@@ -40,6 +40,10 @@ class BIPIndicatorsPage.Routers.IndicatorsRouter extends Backbone.Router
         console.log("Error: #{found_goals.length} goals found. Should have found an unique goal for the given code.")
         return false
 
+    # Reset target selection and select all from the given goal
+    goal.deselectAllTargets()
+    goal.selectAllTargetsFromCurrentGoal()
+
     @indicators.filterByGoal(goal)
 
   filterByTarget: (target) ->
