@@ -1,0 +1,31 @@
+/*========================================================*/
+/*             CSS for DotNetNuke Containers              */
+/*                  by Evan O'Neil                        */
+/*              http://www.NukeVille.com                  */
+/*========================================================*/
+
+/*========================================================*/
+/*     Container Design Elements                          */
+/*========================================================*/
+
+
+/*-- conatiner title token             --*/ .EON_MI_OCF05Title { font-size: 11px; font-family: tahoma; color: #FFF; font-weight: bold; }
+/*-- container title cell              --*/ .EON_MI_OCF05Titletd { width:100%; padding: 0; text-align:center; vertical-align:text-top;}
+/*-- container actions cell            --*/ .EON_MI_OCF05Actionstd { width:0%; padding: 0;}
+/*-- container content pane            --*/ .EON_MI_OCF05Content { font-size: 11px; font-family: tahoma; color: #444; padding: 5px 0 0 0;}
+/*-- container Icons cell              --*/ .EON_MI_OCF05Icons { text-align:right; padding: 5px 0 7px 0; border-top: 1px solid #BBBBBB;}
+
+/*-- top center section                --*/ .YellowBrdr05T { background: url(05Oranget_Minimalist.png) top left repeat-x; vertical-align:middle; height: 28px; padding: 0 0 1px 0; }
+/*-- top left section                  --*/ .YellowBrdr05TL { background: url(05Orangetl_Minimalist.png) top left no-repeat; vertical-align:top; height: 28px; width:10px; padding: 0; }
+/*-- top right section                 --*/ .YellowBrdr05tr { background: url(05Orangetr_Minimalist.png) top right no-repeat; height: 28px; width:22px; vertical-align:top; text-align:center; padding: 0 0 2px 0; }
+
+/*-- mid center section                --*/ .YellowBrdr05M { background: url(05Orangem_Minimalist.png); vertical-align:top; padding: 0; }
+/*-- mid left section                  --*/ .YellowBrdr05ML { background: url(05Orangeml_Minimalist.png) bottom left repeat-y; vertical-align:top; width:10px; padding: 0; }
+/*-- mid right section                 --*/ .YellowBrdr05MR { background: url(05Orangemr_Minimalist.png) bottom right repeat-y; vertical-align:top; width:10px; padding: 0; }
+
+/*-- bottom center section             --*/ .YellowBrdr05B { background: url(05Orangeb_Minimalist.png) bottom left repeat-x; vertical-align:top; height: 17px; padding: 8px 0 0 0; }
+/*-- bottom left section               --*/ .YellowBrdr05BL { background: url(05Orangebl_Minimalist.png) bottom left no-repeat; vertical-align:top; height: 17px; width:10px; padding: 0; }
+/*-- bottom right section              --*/ .YellowBrdr05BR { background: url(05Orangebr_Minimalist.png) bottom right no-repeat; vertical-align:top; height: 17px; width:10px; padding: 0; }
+
+/*========================================================*/
+
