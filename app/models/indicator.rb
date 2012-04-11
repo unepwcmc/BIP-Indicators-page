@@ -6,9 +6,4 @@ class Indicator < ActiveRecord::Base
   def link
     "http://www.bipindicators.net/#{rel_link}"
   end
-
-  def as_json(options={})
-    super(:methods =>[:link])
-  end
-
 end

@@ -30,7 +30,8 @@ class BIPIndicatorsPage.Routers.IndicatorsRouter extends Backbone.Router
     $('a[data-toggle="tab"]').on('shown', @switchContext)
 
   switchContext: (e) ->
-    alert(e.target)
+    if($(e.target).attr('href') == '#matrix' || $(e.target).attr('href') == '#graphic')
+    else
 
   filterByHeadline: (headline) ->
     @indicators.filterByHeadline(headline)
