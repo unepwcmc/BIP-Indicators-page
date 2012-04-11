@@ -42,7 +42,7 @@ class BIPIndicatorsPage.Routers.IndicatorsRouter extends Backbone.Router
         if goal.targets.selected().length == 1
           @indicators.filterByTarget(goal.targets.selected()[0])
     else if($(e.target).attr('href') == '#graphic')
-      @filterByHeadline(@focal_areas.selected()[0])
+      @filterByFocalArea(@focal_areas.selected()[0])
     else
       @filterByHeadline(@headlines.selected()[0])
 
@@ -61,7 +61,7 @@ class BIPIndicatorsPage.Routers.IndicatorsRouter extends Backbone.Router
         return false
 
     # Force selection on model, as there is no view for the focal area
-    focalArea.select()
+    focalArea.select() if focalArea?
 
     @indicators.filterByFocalArea(focalArea)
 
