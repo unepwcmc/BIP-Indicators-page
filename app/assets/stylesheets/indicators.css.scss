@@ -16,6 +16,9 @@
 
 #targets-container {
   & > div {
+    cursor: pointer;
+    cursor: hand;
+
     float: left;
     width: 115px;
     height: 100px;
