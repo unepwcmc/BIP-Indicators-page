@@ -57,39 +57,45 @@ headlines = [
 ]
 
 indicators = [
-{:title => 'Extent of forests and forest types', :position => 1, :rel_link => 'forestextent'},
-{:title => 'Extent of assorted habitats', :position => 2, :rel_link => 'marinehabitats'},
-{:title => 'Living Planet Index', :position => 3, :rel_link => 'lpi'},
-{:title => 'Global Wild Bird Index', :position => 4, :rel_link => 'wbi'},
-{:title => 'Waterbird Indicator', :position => 5, :rel_link => ''},
-{:title => 'Coverage of Protected Areas', :position => 6, :rel_link => 'pacoverage'},
-{:title => 'Overlays with biodiversity', :position => 7, :rel_link => 'paoverlays'},
-{:title => 'Management effectiveness', :position => 8, :rel_link => 'pamanagement'},
-{:title => 'Red List Index and Sampled Red List Index', :position => 9, :rel_link => 'rli'},
-{:title => 'Ex situ crop collections', :position => 10, :rel_link => 'cropcollections'},
-{:title => 'Genetic diversity of terrestrial domesticated animals', :position => 11, :rel_link => 'domesticatedanimals'},
-{:title => 'Area of forest under sustainable management: certification', :position => 12, :rel_link => 'forestcertification'},
-{:title => 'Area of forest under sustainable management: degradation and deforestation', :position => 13, :rel_link => 'forestdegradation'},
-{:title => 'Area of agricultural ecosystems under sustainable management', :position => 14, :rel_link => 'sustainableagriculture'},
-{:title => 'Proportion of fish stocks in safe biological limits', :position => 15, :rel_link => ''},
-{:title => 'Status of species in trade', :position => 16, :rel_link => 'speciestrade'},
-{:title => 'Wild Commodities Index', :position => 17, :rel_link => 'wildcommoditiesindex'},
-{:title => 'Ecological Footprint and related concepts', :position => 18, :rel_link => 'ecologicalfootprint'},
-{:title => 'Nitrogen Deposition', :position => 19, :rel_link => 'nitrogendeposition'},
-{:title => 'Trends in Invasive Alien Species', :position => 20, :rel_link => 'invasivealienspecies'},
-{:title => 'Marine Trophic Index ', :position => 21, :rel_link => 'mti'},
-{:title => 'Water Quality Index for Biodiversity', :position => 22, :rel_link => 'wqib'},
-{:title => 'Forest Fragmentation', :position => 23, :rel_link => 'forestfragmentation'},
-{:title => 'River fragmentation and flow regulation', :position => 24, :rel_link => 'newindicatorspage/strategicgoalb/riverfragmentation'},
-{:title => 'Health and well being of communities directly dependant on ecosystem goods and services', :position => 25, :rel_link => 'healthofcommunities'},
-{:title => 'Nutritional status of biodiversity', :position => 26, :rel_link => 'nutritionindicators'},
-{:title => 'Biodiversity for food and medicine', :position => 27, :rel_link => 'foodandmedicine'},
-{:title => 'Status and trends of linguistic diversity and numbers of speakers of indigenous languages', :position => 28, :rel_link => 'linguisticdiversity'},
-{:title => 'Official development assistance provided in support of the Convention', :position => 29, :rel_link => 'oda'}
+  {:title => 'Extent of forests and forest types', :position => 1, :rel_link => 'forestextent'},
+  {:title => 'Extent of assorted habitats', :position => 2, :rel_link => 'marinehabitats'},
+  {:title => 'Living Planet Index', :position => 3, :rel_link => 'lpi'},
+  {:title => 'Global Wild Bird Index', :position => 4, :rel_link => 'wbi'},
+  {:title => 'Waterbird Indicator', :position => 5, :rel_link => ''},
+  {:title => 'Coverage of Protected Areas', :position => 6, :rel_link => 'pacoverage'},
+  {:title => 'Overlays with biodiversity', :position => 7, :rel_link => 'paoverlays'},
+  {:title => 'Management effectiveness', :position => 8, :rel_link => 'pamanagement'},
+  {:title => 'Red List Index and Sampled Red List Index', :position => 9, :rel_link => 'rli'},
+  {:title => 'Ex situ crop collections', :position => 10, :rel_link => 'cropcollections'},
+  {:title => 'Genetic diversity of terrestrial domesticated animals', :position => 11, :rel_link => 'domesticatedanimals'},
+  {:title => 'Area of forest under sustainable management: certification', :position => 12, :rel_link => 'forestcertification'},
+  {:title => 'Area of forest under sustainable management: degradation and deforestation', :position => 13, :rel_link => 'forestdegradation'},
+  {:title => 'Area of agricultural ecosystems under sustainable management', :position => 14, :rel_link => 'sustainableagriculture'},
+  {:title => 'Proportion of fish stocks in safe biological limits', :position => 15, :rel_link => ''},
+  {:title => 'Status of species in trade', :position => 16, :rel_link => 'speciestrade'},
+  {:title => 'Wild Commodities Index', :position => 17, :rel_link => 'wildcommoditiesindex'},
+  {:title => 'Ecological Footprint and related concepts', :position => 18, :rel_link => 'ecologicalfootprint'},
+  {:title => 'Nitrogen Deposition', :position => 19, :rel_link => 'nitrogendeposition'},
+  {:title => 'Trends in Invasive Alien Species', :position => 20, :rel_link => 'invasivealienspecies'},
+  {:title => 'Marine Trophic Index ', :position => 21, :rel_link => 'mti'},
+  {:title => 'Water Quality Index for Biodiversity', :position => 22, :rel_link => 'wqib'},
+  {:title => 'Forest Fragmentation', :position => 23, :rel_link => 'forestfragmentation'},
+  {:title => 'River fragmentation and flow regulation', :position => 24, :rel_link => 'newindicatorspage/strategicgoalb/riverfragmentation'},
+  {:title => 'Health and well being of communities directly dependant on ecosystem goods and services', :position => 25, :rel_link => 'healthofcommunities'},
+  {:title => 'Nutritional status of biodiversity', :position => 26, :rel_link => 'nutritionindicators'},
+  {:title => 'Biodiversity for food and medicine', :position => 27, :rel_link => 'foodandmedicine'},
+  {:title => 'Status and trends of linguistic diversity and numbers of speakers of indigenous languages', :position => 28, :rel_link => 'linguisticdiversity'},
+  {:title => 'Official development assistance provided in support of the Convention', :position => 29, :rel_link => 'oda'}
+]
+
+focal_areas = [
+  {:name => 'A'},
+  {:name => 'B'},
+  {:name => 'C'},
+  {:name => 'D'}
 ]
 
 partners = [
-
   {:name => 'BirdLife International'},
   {:name => 'Convention on International Trade in Endangered Species'},
   {:name => 'Food and Agriculture Organization of the United Nations'},
@@ -187,11 +193,24 @@ partners_indicators = {
   17 => [3,9]
 }
 
+#ary index => position
+focal_areas_indicators = {
+  0 => [1],
+  1 => [2],
+  2 => [3],
+  3 => [4]
+}
+
 indicators.each { |i| Indicator.create(i) }
 
 partners.each_with_index do |p,i|
   partner = Partner.create(p)
   partner.indicators = Indicator.find(partners_indicators[i])
+end
+
+focal_areas.each_with_index do |f,i|
+  focal_area = FocalArea.create(f)
+  focal_area.indicators = Indicator.find(focal_areas_indicators[i])
 end
 
 headlines.each do |h|

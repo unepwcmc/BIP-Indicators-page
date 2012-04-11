@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120411070154) do
+ActiveRecord::Schema.define(:version => 20120411135810) do
+
+  create_table "focal_areas", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "focal_areas_indicators", :id => false, :force => true do |t|
+    t.integer "focal_area_id"
+    t.integer "indicator_id"
+  end
 
   create_table "goals", :force => true do |t|
     t.string   "code"
