@@ -1,4 +1,6 @@
 class IndicatorsController < ApplicationController
+  caches_page :index
+
   def index
     @indicators = Indicator.all
     @goals = Goal.all
