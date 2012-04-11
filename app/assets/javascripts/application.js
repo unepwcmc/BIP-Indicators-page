@@ -16,4 +16,5 @@
 //= require backbone_rails_sync
 //= require backbone_datalink
 //= require backbone/bip_indicators_page
+//= require easyXDM.min
 //= require_tree .

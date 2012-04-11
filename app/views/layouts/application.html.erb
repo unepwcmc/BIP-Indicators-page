@@ -28,5 +28,14 @@
       <p>&copy; UNEP-WCMC 2012</p>
     </footer>
   </div>
+  <script type="text/javascript">
+    /* this creates a socket to communicate with the parent page */
+    /* the reason for using this is to be able to resize a cross domain iframe */
+    var socket = new easyXDM.Socket({
+      onReady: function(){
+        socket.postMessage(document.body.scrollHeight);
+      }
+    });
+  </script>
 </body>
 </html>
