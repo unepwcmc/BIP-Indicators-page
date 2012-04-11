@@ -50,3 +50,17 @@
     margin-bottom: 10px;
   }
 }
+
+#graphic {
+  img {
+    float: left;
+  }
+
+  button {
+    float: left;
+
+    &.first {
+      clear: both;
+    }
+  }
+}
