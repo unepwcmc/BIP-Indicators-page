@@ -28,3 +28,7 @@ class BIPIndicatorsPage.Collections.TargetsCollection extends Backbone.Collectio
   deselectAll: ->
     _.each @models, (target) ->
       target.deselect()
+
+  selected: ->
+    @filter (target) ->
+      target.get('selected')

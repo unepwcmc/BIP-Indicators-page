@@ -24,3 +24,7 @@ class BIPIndicatorsPage.Collections.HeadlinesCollection extends Backbone.Collect
   deselectAll: ->
     _.each @models, (target) ->
       target.deselect()
+
+  selected: ->
+    @filter (headline) ->
+      headline.get('selected')

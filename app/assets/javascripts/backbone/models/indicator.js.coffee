@@ -5,8 +5,8 @@ class BIPIndicatorsPage.Models.Indicator extends Backbone.Model
     headline_id: null
     title: null
     position: null
+    link: null
     targets: []
-    link: ''
     # extra fields for interface
     show: false
 
@@ -15,13 +15,21 @@ class BIPIndicatorsPage.Collections.IndicatorsCollection extends Backbone.Collec
   url: '/indicators'
 
   filterByHeadline: (headline) ->
-    _.each @models, (indicator) ->
-      indicator.set({'show': (indicator.get('headline_id') == headline.get('id') )})
+    if headline?
+      _.each @models, (indicator) ->
+        indicator.set({'show': (indicator.get('headline_id') == headline.get('id') )})
+    else
+      _.each @models, (indicator) ->
+        indicator.set({'show': false })
 
   filterByGoal: (goal) ->
     _.each @models, (indicator) ->
       indicator.set({'show': (_.intersection(_.pluck(indicator.get('targets'), 'id'), _.pluck(goal.get('targets'), 'id')).length > 0 ) })
 
   filterByTarget: (target) ->
-    _.each @models, (indicator) ->
-      indicator.set({'show': (_.pluck(indicator.get('targets'), 'id').indexOf(target.get('id')) != -1 ) })
+    if target?
+      _.each @models, (indicator) ->
+        indicator.set({'show': (_.pluck(indicator.get('targets'), 'id').indexOf(target.get('id')) != -1 ) })
+    else
+      _.each @models, (indicator) ->
+        indicator.set({'show': false })
