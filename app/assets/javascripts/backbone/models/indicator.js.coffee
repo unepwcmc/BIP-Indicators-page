@@ -6,6 +6,7 @@ class BIPIndicatorsPage.Models.Indicator extends Backbone.Model
     title: null
     position: null
     targets: []
+    link: ''
     # extra fields for interface
     show: false
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120410135753) do
+ActiveRecord::Schema.define(:version => 20120411070154) do
 
   create_table "goals", :force => true do |t|
     t.string   "code"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20120410135753) do
     t.integer  "position"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "rel_link"
   end
 
   create_table "indicators_partners", :id => false, :force => true do |t|
