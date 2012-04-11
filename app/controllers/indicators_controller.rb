@@ -6,6 +6,7 @@ class IndicatorsController < ApplicationController
     @goals = Goal.all
     @targets = Target.all
     @headlines = Headline.all
+    @focal_areas = FocalArea.all
     @partners = Partner.all
   end
 end
