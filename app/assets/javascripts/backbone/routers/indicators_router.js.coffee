@@ -29,9 +29,18 @@ class BIPIndicatorsPage.Routers.IndicatorsRouter extends Backbone.Router
     # Click event on tabs
     $('a[data-toggle="tab"]').on('shown', @switchContext)
 
-  switchContext: (e) ->
+  switchContext: (e) =>
     if($(e.target).attr('href') == '#matrix' || $(e.target).attr('href') == '#graphic')
+      # by default if deselect all the indicators
+      @indicators.filterByTarget()
+
+      _.each @goals.models, (goal) =>
+        if goal.targets.selected().length == 1
+          @indicators.filterByTarget(goal.targets.selected()[0])
+        else if goal.targets.selected().length > 1
+          @indicators.filterByGoal(goal)
     else
+      @filterByHeadline(@headlines.selected()[0])
 
   filterByHeadline: (headline) ->
     @indicators.filterByHeadline(headline)
