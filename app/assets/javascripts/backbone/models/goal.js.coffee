@@ -13,6 +13,9 @@ class BIPIndicatorsPage.Models.Goal extends Backbone.Model
     # Deselect all targets from all goals when selecting a target
     @targets.on 'unique:select:target', @deselectAllTargets
 
+  selectAllTargetsFromCurrentGoal: =>
+    @targets.selectAll()
+
   deselectAllTargets: =>
     _.each @collection.models, (goal) ->
       goal.targets.deselectAll()

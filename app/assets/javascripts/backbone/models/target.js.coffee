@@ -12,8 +12,6 @@ class BIPIndicatorsPage.Models.Target extends Backbone.Model
   select: ->
     @trigger('unique:select:target')
     @set({'selected': true})
-
-    # Filter indicators by headline
     router.filterByTarget(@)
 
   deselect: ->
@@ -22,6 +20,10 @@ class BIPIndicatorsPage.Models.Target extends Backbone.Model
 class BIPIndicatorsPage.Collections.TargetsCollection extends Backbone.Collection
   model: BIPIndicatorsPage.Models.Target
   url: '/targets'
+
+  selectAll: ->
+    _.each @models, (target) ->
+      target.set({'selected': true})
 
   deselectAll: ->
     _.each @models, (target) ->

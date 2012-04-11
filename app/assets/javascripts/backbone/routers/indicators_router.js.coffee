@@ -26,6 +26,12 @@ class BIPIndicatorsPage.Routers.IndicatorsRouter extends Backbone.Router
     @headlinesView = new BIPIndicatorsPage.Views.Headlines.IndexView(headlines: @headlines)
     $("#headlines").html(@headlinesView.render().el)
 
+    # Click event on tabs
+    $('a[data-toggle="tab"]').on('shown', @switchContext)
+
+  switchContext: (e) ->
+    alert(e.target)
+
   filterByHeadline: (headline) ->
     @indicators.filterByHeadline(headline)
 
@@ -40,7 +46,14 @@ class BIPIndicatorsPage.Routers.IndicatorsRouter extends Backbone.Router
         console.log("Error: #{found_goals.length} goals found. Should have found an unique goal for the given code.")
         return false
 
+    # Reset target selection and select all from the given goal
+    goal.deselectAllTargets()
+    goal.selectAllTargetsFromCurrentGoal()
+
     @indicators.filterByGoal(goal)
+
+    # Switch to first tab
+    $("ul.nav a:first").click()
 
   filterByTarget: (target) ->
     @indicators.filterByTarget(target)
