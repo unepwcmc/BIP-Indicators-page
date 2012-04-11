@@ -18,7 +18,7 @@
   /* iframe is embedded dynamically by easyXDM */
   /* the reason for using this is to be able to resize a cross domain iframe */
     new easyXDM.Socket({
-      remote : "http://localhost:3000",
+      remote : "http://bip.unepwcmc-005.vm.brightbox.net/",
       container : document.getElementById("container"),
       onMessage : function(message, origin) {
         this.container.getElementsByTagName("iframe")[0].style.height = message + "px";
