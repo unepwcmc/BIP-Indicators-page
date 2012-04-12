@@ -5,6 +5,7 @@ class BIPIndicatorsPage.Models.Indicator extends Backbone.Model
     headline_id: null
     title: null
     position: null
+    rel_link: null
     link: null
     targets: []
     focal_areas: []
