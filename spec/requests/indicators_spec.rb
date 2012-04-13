@@ -66,16 +66,127 @@ describe 'indicators' do
           visit '/'
           page.find('#matrix').should have_content('ABC')
         end
+
+        it 'shows indicators associated with the clicked target', js: true do
+          goal = FactoryGirl.create(:goal, code: 'ABBA')
+
+          target_1 = FactoryGirl.create(:target, keyword: 'ABC', goal: goal)
+          target_2 = FactoryGirl.create(:target, keyword: 'XYZ', goal: goal)
+
+          FactoryGirl.create(:indicator, title: 'This one should appear', targets: [target_1])
+          FactoryGirl.create(:indicator, title: 'This one should also appear', targets: [target_1])
+          FactoryGirl.create(:indicator, title: 'This one should not appear', targets: [target_2])
+
+          visit '/'
+          page.execute_script('$("div.keyword:contains(\'ABC\')").click()')
+          page.find('#indicators-container').should have_content('This one should appear')
+          page.find('#indicators-container').should have_content('This one should also appear')
+          page.find('#indicators-container').should_not have_content('This one should not appear')
+        end
       end
     end
 
     describe 'graph' do
+      it 'shows indicators associated with the clicked focal_area', js: true, :driver => :selenium do
+        focal_area_1 = FactoryGirl.create(:focal_area, name: 'A')
+        focal_area_2 = FactoryGirl.create(:focal_area, name: 'B')
+
+        FactoryGirl.create(:indicator, title: 'This one should appear', focal_areas: [focal_area_1])
+        FactoryGirl.create(:indicator, title: 'This one should also appear', focal_areas: [focal_area_1])
+        FactoryGirl.create(:indicator, title: 'This one should not appear', focal_areas: [focal_area_2])
+
+        visit '/'
+        click_link('Graphic')
+        # Workaround to test clicking on the image map
+        page.execute_script('window.router.filterByFocalArea("A");return false')
+        page.find('#indicators-container').should have_content('This one should appear')
+        page.find('#indicators-container').should have_content('This one should also appear')
+        page.find('#indicators-container').should_not have_content('This one should not appear')
+      end
     end
 
     describe 'headlines list' do
+      it 'shows indicators associated with the clicked headline', js: true do
+        headline_1 = FactoryGirl.create(:headline, title: 'The first headline ever')
+        headline_2 = FactoryGirl.create(:headline, title: 'The last headline ever')
+
+        FactoryGirl.create(:indicator, title: 'This one should appear', headline: headline_1)
+        FactoryGirl.create(:indicator, title: 'This one should also appear', headline: headline_1)
+        FactoryGirl.create(:indicator, title: 'This one should not appear', headline: headline_2)
+
+        visit '/'
+        click_link('Headlines')
+        page.execute_script('$(".title:contains(\'The first headline ever\')").siblings("button").click()')
+        page.find('#indicators-container').should have_content('This one should appear')
+        page.find('#indicators-container').should have_content('This one should also appear')
+        page.find('#indicators-container').should_not have_content('This one should not appear')
+      end
     end
 
-    describe 'indicators list' do
+    describe 'filters' do
+      describe 'partners select' do
+        it 'shows indicators associated with the selected target and partner', js: true do
+          goal = FactoryGirl.create(:goal, code: 'ABBA')
+
+          target_1 = FactoryGirl.create(:target, keyword: 'ABC', goal: goal)
+          target_2 = FactoryGirl.create(:target, keyword: 'XYZ', goal: goal)
+
+          partner_1 = FactoryGirl.create(:partner, name: 'Batman')
+          partner_2 = FactoryGirl.create(:partner, name: 'Robin')
+
+          FactoryGirl.create(:indicator, title: 'This one should appear', targets: [target_1], partners: [partner_1])
+          FactoryGirl.create(:indicator, title: 'This one should not appear', targets: [target_1], partners: [partner_2])
+          FactoryGirl.create(:indicator, title: 'This last one should not appear either', targets: [target_2], partners: [partner_1, partner_2])
+
+          visit '/'
+          page.execute_script('$("div.keyword:contains(\'ABC\')").click()')
+          select('Batman', from: 'Partner')
+          page.find('#indicators-container').should have_content('This one should appear')
+          page.find('#indicators-container').should_not have_content('This one should not appear')
+          page.find('#indicators-container').should_not have_content('This last one should not appear either')
+        end
+
+        it 'shows indicators associated with the selected focal_area and partner', js: true, :driver => :selenium do
+          focal_area_1 = FactoryGirl.create(:focal_area, name: 'A')
+          focal_area_2 = FactoryGirl.create(:focal_area, name: 'B')
+
+          partner_1 = FactoryGirl.create(:partner, name: 'Batman')
+          partner_2 = FactoryGirl.create(:partner, name: 'Robin')
+
+          FactoryGirl.create(:indicator, title: 'This one should appear', focal_areas: [focal_area_1], partners: [partner_1])
+          FactoryGirl.create(:indicator, title: 'This one should not appear', focal_areas: [focal_area_1], partners: [partner_2])
+          FactoryGirl.create(:indicator, title: 'This last one should not appear either', focal_areas: [focal_area_2], partners: [partner_1, partner_2])
+
+          visit '/'
+          click_link('Graphic')
+          # Workaround to test clicking on the image map
+          page.execute_script('window.router.filterByFocalArea("A");return false')
+          select('Batman', from: 'Partner')
+          page.find('#indicators-container').should have_content('This one should appear')
+          page.find('#indicators-container').should_not have_content('This one should not appear')
+          page.find('#indicators-container').should_not have_content('This last one should not appear either')
+        end
+
+        it 'shows indicators associated with the selected headline and partner', js: true, :driver => :selenium do
+          headline_1 = FactoryGirl.create(:headline, title: 'The first headline ever')
+          headline_2 = FactoryGirl.create(:headline, title: 'The last headline ever')
+
+          partner_1 = FactoryGirl.create(:partner, name: 'Batman')
+          partner_2 = FactoryGirl.create(:partner, name: 'Robin')
+
+          FactoryGirl.create(:indicator, title: 'This one should appear', headline: headline_1, partners: [partner_1])
+          FactoryGirl.create(:indicator, title: 'This one should not appear', headline: headline_1, partners: [partner_2])
+          FactoryGirl.create(:indicator, title: 'This last one should not appear either', headline: headline_2, partners: [partner_1, partner_2])
+
+          visit '/'
+          click_link('Headlines')
+          page.execute_script('$(".title:contains(\'The first headline ever\')").siblings("button").click()')
+          select('Batman', from: 'Partner')
+          page.find('#indicators-container').should have_content('This one should appear')
+          page.find('#indicators-container').should_not have_content('This one should not appear')
+          page.find('#indicators-container').should_not have_content('This last one should not appear either')
+        end
+      end
     end
   end
 end

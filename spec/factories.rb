@@ -1,10 +1,22 @@
 FactoryGirl.define do
+  # Focal area
+  factory :focal_area do
+  end
+
   # Goal
   factory :goal do
   end
 
+  # Headline
+  factory :headline do
+  end
+
   # Indicator
   factory :indicator do
+  end
+
+  # Partner
+  factory :partner do
   end
 
   # Target
