@@ -1,19 +1,40 @@
 class BIPIndicatorsPage.Routers.IndicatorsRouter extends Backbone.Router
   initialize: (options) ->
+    that = @
+    that.initializeData(options)
+    $.get '/timestamp', (data) ->
+      timestamp = data
+      previousTimestamp = localStorage.getItem('bip_timestamp')
+      if (previousTimestamp != timestamp)
+        #clear the local store
+        localStorage.clear()
+        localStorage.setItem('bip_timestamp', timestamp)
+        that.initializeData(options)
+
+  initializeData: (options) ->
+    # Indicators
     @indicators = new BIPIndicatorsPage.Collections.IndicatorsCollection()
     @indicators.reset options.indicators
 
+    # TODO check for a timestamp
+
     # Goals
     @goals = new BIPIndicatorsPage.Collections.GoalsCollection()
-    @goals.reset options.goals
+    @goals.fetch()
+    if @goals.length == 0
+      @goals.reset options.goals
+      @goals.saveAll()
 
     # Headlines
     @headlines = new BIPIndicatorsPage.Collections.HeadlinesCollection()
-    @headlines.reset options.headlines
-
+    @headlines.fetch()
+    if @headlines.length == 0
+      @headlines.reset options.headlines
     # Focal areas
     @focal_areas = new BIPIndicatorsPage.Collections.FocalAreasCollection()
-    @focal_areas.reset options.focal_areas
+    @focal_areas.fetch()
+    if @focal_areas.length == 0
+      @focal_areas.reset options.focal_areas
 
   routes:
     ".*"        : "index"
@@ -33,15 +54,28 @@ class BIPIndicatorsPage.Routers.IndicatorsRouter extends Backbone.Router
     # Click event on tabs
     $('a[data-toggle="tab"]').on('shown', @switchContext)
 
+    # Select previously active tab
+    console.log(localStorage.getItem('bip_active_tab'))
+    @activateTab(localStorage.getItem('bip_active_tab'))
+
+  activateTab: (tabStr) ->
+    if tabStr == null
+      tabStr = '#matrix'
+    @switchContext(tabStr)
+    $('a[href="'+ tabStr + '"]').click()
+
   switchContext: (e) =>
-    if($(e.target).attr('href') == '#matrix')
+    tabStr = e
+    if typeof e != 'string'
+      tabStr = $(e.target).attr('href')
+    localStorage.setItem('bip_active_tab', tabStr)
+    if(tabStr == '#matrix')
       # by default if deselect all the indicators
       @indicators.filterByTarget()
-
       _.each @goals.models, (goal) =>
         if goal.targets.selected().length == 1
           @indicators.filterByTarget(goal.targets.selected()[0])
-    else if($(e.target).attr('href') == '#graphic')
+    else if(tabStr == '#graphic')
       @filterByFocalArea(@focal_areas.selected()[0])
     else
       @filterByHeadline(@headlines.selected()[0])
