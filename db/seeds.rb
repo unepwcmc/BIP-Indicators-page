@@ -14,26 +14,26 @@ goals = [
 ]
 
 targets = [
-  {:index => 1, :title =>'Target 1 - People aware of the values of biodiversity and the steps they can take'},
-  {:index => 2, :title =>'Target 2 - Biodiversity values integrated into development strategies and planning processes'},
-  {:index => 3, :title =>'Target 3 - Harmful incentives phased out or reformed and positive incentives developed and applied'},
-  {:index => 4, :title =>'Target 4 - Plans for sustainable production and consumption implemented'},
-  {:index => 5, :title =>'Target 5 - The rate of loss of all natural habitats at least halved'},
-  {:index => 6, :title =>'Target 6 - Overfishing avoided, fisheries managed sustainably with no significant adverse impacts'},
-  {:index => 7, :title =>'Target 7 - Areas under agriculture, aquaculture and forestry managed sustainably'},
-  {:index => 8, :title =>'Target 8 - Pollution brought to levels that are not detrimental to biodiversity'},
-  {:index => 9, :title =>'Target 9 - Invasive alien species and pathways identified and controlled or eradicated'},
-  {:index => 10, :title =>'Target 10 - The multiple anthropogenic pressures on vulnerable ecosystems minimized'},
-  {:index => 11, :title =>'Target 11 - Terrestrial, inland water, and coastal and marine areas conserved through protected areas'},
-  {:index => 12, :title =>'Target 12 - The extinction of known threatened species prevented'},
-  {:index => 13, :title =>'Target 13 - Genetic diversity of cultivated plants and farmed and domesticated animals maintained'},
-  {:index => 14, :title =>'Target 14 - Ecosystems that provide essential services, are restored and safeguarded'},
-  {:index => 15, :title =>'Target 15 - Ecosystem resilience and carbon stocks enhanced through conservation and restoration'},
-  {:index => 16, :title =>'Target 16 - The Nagoya Protocol is in force and operational'},
-  {:index => 17, :title =>'Target 17 - National biodiversity strategy and action plans developed and implemented'},
-  {:index => 18, :title =>'Target 18 - Traditional knowledge and customary use respected and reflected in CBD implementation'},
-  {:index => 19, :title =>'Target 19 - Knowledge relating to biodiversity, improved, shared, transferred, and applied'},
-  {:index => 20, :title =>'Target 20 - The mobilization of financial resources increased substantially'}
+  {:index => 1, keyword: 1, :title =>'Target 1 - People aware of the values of biodiversity and the steps they can take'},
+  {:index => 2, keyword: 2, :title =>'Target 2 - Biodiversity values integrated into development strategies and planning processes'},
+  {:index => 3, keyword: 3, :title =>'Target 3 - Harmful incentives phased out or reformed and positive incentives developed and applied'},
+  {:index => 4, keyword: 4, :title =>'Target 4 - Plans for sustainable production and consumption implemented'},
+  {:index => 5, keyword: 5, :title =>'Target 5 - The rate of loss of all natural habitats at least halved'},
+  {:index => 6, keyword: 6, :title =>'Target 6 - Overfishing avoided, fisheries managed sustainably with no significant adverse impacts'},
+  {:index => 7, keyword: 7, :title =>'Target 7 - Areas under agriculture, aquaculture and forestry managed sustainably'},
+  {:index => 8, keyword: 8, :title =>'Target 8 - Pollution brought to levels that are not detrimental to biodiversity'},
+  {:index => 9, keyword: 9, :title =>'Target 9 - Invasive alien species and pathways identified and controlled or eradicated'},
+  {:index => 10, keyword: 10, :title =>'Target 10 - The multiple anthropogenic pressures on vulnerable ecosystems minimized'},
+  {:index => 11, keyword: 11, :title =>'Target 11 - Terrestrial, inland water, and coastal and marine areas conserved through protected areas'},
+  {:index => 12, keyword: 12, :title =>'Target 12 - The extinction of known threatened species prevented'},
+  {:index => 13, keyword: 13, :title =>'Target 13 - Genetic diversity of cultivated plants and farmed and domesticated animals maintained'},
+  {:index => 14, keyword: 14, :title =>'Target 14 - Ecosystems that provide essential services, are restored and safeguarded'},
+  {:index => 15, keyword: 15, :title =>'Target 15 - Ecosystem resilience and carbon stocks enhanced through conservation and restoration'},
+  {:index => 16, keyword: 16, :title =>'Target 16 - The Nagoya Protocol is in force and operational'},
+  {:index => 17, keyword: 17, :title =>'Target 17 - National biodiversity strategy and action plans developed and implemented'},
+  {:index => 18, keyword: 18, :title =>'Target 18 - Traditional knowledge and customary use respected and reflected in CBD implementation'},
+  {:index => 19, keyword: 19, :title =>'Target 19 - Knowledge relating to biodiversity, improved, shared, transferred, and applied'},
+  {:index => 20, keyword: 20, :title =>'Target 20 - The mobilization of financial resources increased substantially'}
 ]
 
 headlines = [

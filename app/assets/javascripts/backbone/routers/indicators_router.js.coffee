@@ -36,6 +36,10 @@ class BIPIndicatorsPage.Routers.IndicatorsRouter extends Backbone.Router
     if @focal_areas.length == 0
       @focal_areas.reset options.focal_areas
 
+    # Partners
+    @partners = new BIPIndicatorsPage.Collections.PartnersCollection()
+    @partners.reset options.partners
+
   routes:
     ".*"        : "index"
 
@@ -50,6 +54,10 @@ class BIPIndicatorsPage.Routers.IndicatorsRouter extends Backbone.Router
     # Headlines
     @headlinesView = new BIPIndicatorsPage.Views.Headlines.IndexView(headlines: @headlines)
     $("#headlines").html(@headlinesView.render().el)
+
+    # Partners
+    @partnersView = new BIPIndicatorsPage.Views.Partners.IndexView(partners: @partners)
+    $("#partners").append(@partnersView.render().el)
 
     # Click event on tabs
     $('a[data-toggle="tab"]').on('shown', @switchContext)
@@ -118,3 +126,7 @@ class BIPIndicatorsPage.Routers.IndicatorsRouter extends Backbone.Router
 
   filterByTarget: (target) ->
     @indicators.filterByTarget(target)
+
+  filterByPartner: (partnerId) ->
+    partner = @partners.get(partnerId)
+    @indicators.filterByPartner(partner)
