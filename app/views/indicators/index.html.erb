@@ -1,3 +1,10 @@
+<div id="filters" class="well">
+  <h3>Filter</h3>
+  <div id="partners">
+    <label for="partner">Partner</label>
+  </div>
+</div>
+
 <ul class="nav nav-tabs">
   <li class="active"><a href="#matrix" data-toggle="tab">Matrix</a></li>
   <li><a href="#graphic" data-toggle="tab">Graphic</a></li>
@@ -33,7 +40,7 @@
 
 <script type="text/javascript">
 $(function() {
-  window.router = new BIPIndicatorsPage.Routers.IndicatorsRouter({indicators: <%= @indicators.to_json(:include => [:targets, :focal_areas], :methods => :link).html_safe -%>, goals: <%= @goals.to_json(:include => :targets).html_safe -%>, headlines: <%= @headlines.to_json.html_safe -%>, focal_areas: <%= @focal_areas.to_json.html_safe -%>, partners: <%= @partners.to_json.html_safe -%>});
+  window.router = new BIPIndicatorsPage.Routers.IndicatorsRouter({indicators: <%= @indicators.to_json(:include => [:targets, :focal_areas, :partners], :methods => :link).html_safe -%>, goals: <%= @goals.to_json(:include => :targets).html_safe -%>, headlines: <%= @headlines.to_json.html_safe -%>, focal_areas: <%= @focal_areas.to_json.html_safe -%>, partners: <%= @partners.to_json.html_safe -%>});
   Backbone.history.start();
 });
 </script>
