@@ -15,6 +15,10 @@ FactoryGirl.define do
   factory :indicator do
   end
 
+  # Partner
+  factory :partner do
+  end
+
   # Target
   factory :target do
   end
