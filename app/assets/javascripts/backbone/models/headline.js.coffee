@@ -9,17 +9,16 @@ class BIPIndicatorsPage.Models.Headline extends Backbone.Model
 
   select: ->
     @collection.deselectAll()
-    @set({'selected': true})
-
+    @save({'selected': true})
     # Filter indicators by headline
     router.filterByHeadline(@)
 
   deselect: ->
-    @set({'selected': false})
+    @save({'selected': false})
 
 class BIPIndicatorsPage.Collections.HeadlinesCollection extends Backbone.Collection
   model: BIPIndicatorsPage.Models.Headline
-  url: '/headlines'
+  localStorage: new Store("bip_headlines")
 
   deselectAll: ->
     _.each @models, (target) ->

@@ -13,7 +13,7 @@
 //= require jquery
 //= require underscore
 //= require backbone
-//= require backbone_rails_sync
+//= require backbone.localStorage
 //= require backbone_datalink
 //= require backbone/bip_indicators_page
 //= require easyXDM.min

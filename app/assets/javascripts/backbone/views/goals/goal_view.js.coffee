@@ -14,7 +14,6 @@ class BIPIndicatorsPage.Views.Goals.GoalView extends Backbone.View
 
   render: ->
     $(@el).html(@template(@model.toJSON() ))
-
     # Targets
     @targetsView = new BIPIndicatorsPage.Views.Targets.IndexView(targets: @model.targets)
     $(@el).find(".targets").html(@targetsView.render().el)
