@@ -8,14 +8,14 @@ class BIPIndicatorsPage.Models.FocalArea extends Backbone.Model
 
   select: ->
     @collection.deselectAll()
-    @set({'selected': true})
+    @save({'selected': true})
 
   deselect: ->
-    @set({'selected': false})
+    @save({'selected': false})
 
 class BIPIndicatorsPage.Collections.FocalAreasCollection extends Backbone.Collection
   model: BIPIndicatorsPage.Models.FocalArea
-  url: '/focal_areas'
+  localStorage: new Store("bip_focal_areas")
 
   deselectAll: ->
     _.each @models, (target) ->

@@ -22,4 +22,8 @@ class BIPIndicatorsPage.Models.Goal extends Backbone.Model
 
 class BIPIndicatorsPage.Collections.GoalsCollection extends Backbone.Collection
   model: BIPIndicatorsPage.Models.Goal
-  url: '/goals'
+  localStorage: new Store("bip_goals")
+
+  saveAll: ->
+    _.each @models, (goal) ->
+      goal.save()
