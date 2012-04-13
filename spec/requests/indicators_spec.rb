@@ -66,16 +66,61 @@ describe 'indicators' do
           visit '/'
           page.find('#matrix').should have_content('ABC')
         end
+
+        it 'shows indicators associated with the clicked target', js: true do
+          goal = FactoryGirl.create(:goal, code: 'ABBA')
+
+          target_1 = FactoryGirl.create(:target, keyword: 'ABC', goal: goal)
+          target_2 = FactoryGirl.create(:target, keyword: 'XYZ', goal: goal)
+
+          FactoryGirl.create(:indicator, title: 'This one should appear', targets: [target_1])
+          FactoryGirl.create(:indicator, title: 'This one should also appear', targets: [target_1])
+          FactoryGirl.create(:indicator, title: 'This one should not', targets: [target_2])
+
+          visit '/'
+          page.execute_script('$("div.keyword:contains(\'ABC\')").click()')
+          page.find('#indicators-container').should have_content('This one should appear')
+          page.find('#indicators-container').should have_content('This one should also appear')
+          page.find('#indicators-container').should_not have_content('This one should not appear')
+        end
       end
     end
 
     describe 'graph' do
+      it 'shows indicators associated with the clicked focal_area', js: true, :driver => :selenium do
+        focal_area_1 = FactoryGirl.create(:focal_area, name: 'A')
+        focal_area_2 = FactoryGirl.create(:focal_area, name: 'B')
+
+        FactoryGirl.create(:indicator, title: 'This one should appear', focal_areas: [focal_area_1])
+        FactoryGirl.create(:indicator, title: 'This one should also appear', focal_areas: [focal_area_1])
+        FactoryGirl.create(:indicator, title: 'This one should not', focal_areas: [focal_area_2])
+
+        visit '/'
+        click_link('Graphic')
+        # Workaround to test clicking on the image map
+        page.execute_script('window.router.filterByFocalArea("A");return false')
+        page.find('#indicators-container').should have_content('This one should appear')
+        page.find('#indicators-container').should have_content('This one should also appear')
+        page.find('#indicators-container').should_not have_content('This one should not appear')
+      end
     end
 
     describe 'headlines list' do
-    end
+      it 'shows indicators associated with the clicked headline', js: true do
+        headline_1 = FactoryGirl.create(:headline, title: 'The first headline ever')
+        headline_2 = FactoryGirl.create(:headline, title: 'The last headline ever')
 
-    describe 'indicators list' do
+        FactoryGirl.create(:indicator, title: 'This one should appear', headline: headline_1)
+        FactoryGirl.create(:indicator, title: 'This one should also appear', headline: headline_1)
+        FactoryGirl.create(:indicator, title: 'This one should not', headline: headline_2)
+
+        visit '/'
+        click_link('Headlines')
+        page.execute_script('$(".title:contains(\'The first headline ever\')").siblings("button").click()')
+        page.find('#indicators-container').should have_content('This one should appear')
+        page.find('#indicators-container').should have_content('This one should also appear')
+        page.find('#indicators-container').should_not have_content('This one should not appear')
+      end
     end
   end
 end

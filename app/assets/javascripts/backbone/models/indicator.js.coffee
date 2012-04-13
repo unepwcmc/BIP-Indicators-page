@@ -9,12 +9,20 @@ class BIPIndicatorsPage.Models.Indicator extends Backbone.Model
     link: null
     targets: []
     focal_areas: []
+    partners: []
     # extra fields for interface
     show: false
 
 class BIPIndicatorsPage.Collections.IndicatorsCollection extends Backbone.Collection
   model: BIPIndicatorsPage.Models.Indicator
   url: '/indicators'
+
+  filters:
+    headline: null
+    focalArea: null
+    goal: null
+    target: null
+    partner: null
 
   filterByHeadline: (headline) ->
     if headline?
@@ -43,3 +51,7 @@ class BIPIndicatorsPage.Collections.IndicatorsCollection extends Backbone.Collec
     else
       _.each @models, (indicator) ->
         indicator.set({'show': false })
+
+  filterByPartner: (partner) ->
+    _.each @models, (indicator) ->
+      indicator.set({'show': (_.pluck(indicator.get('partners'), 'id').indexOf(partner.get('id')) != -1 ) })
