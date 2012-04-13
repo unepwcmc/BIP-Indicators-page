@@ -1,22 +1,15 @@
 class BIPIndicatorsPage.Routers.IndicatorsRouter extends Backbone.Router
   initialize: (options) ->
-    that = @
-    that.initializeData(options)
-    $.get '/timestamp', (data) ->
-      timestamp = data
-      previousTimestamp = localStorage.getItem('bip_timestamp')
-      if (previousTimestamp != timestamp)
-        #clear the local store
-        localStorage.clear()
-        localStorage.setItem('bip_timestamp', timestamp)
-        that.initializeData(options)
-
-  initializeData: (options) ->
     # Indicators
     @indicators = new BIPIndicatorsPage.Collections.IndicatorsCollection()
     @indicators.reset options.indicators
 
     # TODO check for a timestamp
+    previousTimestamp = localStorage.getItem('bip_timestamp')
+    if (previousTimestamp != options.timestamp)
+      #clear the local store
+      localStorage.clear()
+      localStorage.setItem('bip_timestamp', options.timestamp)
 
     # Goals
     @goals = new BIPIndicatorsPage.Collections.GoalsCollection()
@@ -63,14 +56,11 @@ class BIPIndicatorsPage.Routers.IndicatorsRouter extends Backbone.Router
     $('a[data-toggle="tab"]').on('shown', @switchContext)
 
     # Select previously active tab
-    console.log(localStorage.getItem('bip_active_tab'))
     @activateTab(localStorage.getItem('bip_active_tab'))
 
-  activateTab: (tabStr) ->
-    if tabStr == null
-      tabStr = '#matrix'
+  activateTab: (tabStr = '#matrix') ->
     @switchContext(tabStr)
-    $('a[href="'+ tabStr + '"]').click()
+    $("a[href='#{tabStr}']").click()
 
   switchContext: (e) =>
     tabStr = e

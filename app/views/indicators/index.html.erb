@@ -40,7 +40,7 @@
 
 <script type="text/javascript">
 $(function() {
-  window.router = new BIPIndicatorsPage.Routers.IndicatorsRouter({indicators: <%= @indicators.to_json(:include => [:targets, :focal_areas, :partners], :methods => :link).html_safe -%>, goals: <%= @goals.to_json(:include => :targets).html_safe -%>, headlines: <%= @headlines.to_json.html_safe -%>, focal_areas: <%= @focal_areas.to_json.html_safe -%>, partners: <%= @partners.to_json.html_safe -%>});
+  window.router = new BIPIndicatorsPage.Routers.IndicatorsRouter({timestamp: '<%= @timestamp %>', indicators: <%= @indicators.to_json(:include => [:targets, :focal_areas, :partners], :methods => :link).html_safe -%>, goals: <%= @goals.to_json(:include => :targets).html_safe -%>, headlines: <%= @headlines.to_json.html_safe -%>, focal_areas: <%= @focal_areas.to_json.html_safe -%>, partners: <%= @partners.to_json.html_safe -%>});
   Backbone.history.start();
 });
 </script>

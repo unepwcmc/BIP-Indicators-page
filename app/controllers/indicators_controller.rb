@@ -8,9 +8,7 @@ class IndicatorsController < ApplicationController
     @headlines = Headline.all
     @focal_areas = FocalArea.all
     @partners = Partner.all
-  end
 
-  def timestamp
     @timestamp = [
       Indicator.maximum(:updated_at),
       Goal.maximum(:updated_at),
@@ -19,7 +17,5 @@ class IndicatorsController < ApplicationController
       FocalArea.maximum(:updated_at),
       Partner.maximum(:updated_at)
     ].max
-    render :json => @timestamp
   end
-
 end
