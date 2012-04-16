@@ -17,17 +17,17 @@
   </div>
   <div class="tab-pane" id="graphic">
     <map name="graph-map">
-      <area shape="rect" coords="118,161,377,283" href="javascript:window.router.filterByFocalArea('A')" alt="" title="" />
-      <area shape="rect" coords="596,161,832,285" href="javascript:window.router.filterByFocalArea('B')" alt="" title="" />
-      <area shape="rect" coords="620,452,833,576" href="javascript:window.router.filterByFocalArea('C')" alt="" title="" />
-      <area shape="rect" coords="118,453,357,577" href="javascript:window.router.filterByFocalArea('D')" alt="" title="" />
+      <area shape="rect" coords="118,161,377,283" href="javascript:window.router.filterByFocalArea('Responses')" alt="" title="" />
+      <area shape="rect" coords="596,161,832,285" href="javascript:window.router.filterByFocalArea('Pressures')" alt="" title="" />
+      <area shape="rect" coords="620,452,833,576" href="javascript:window.router.filterByFocalArea('State')" alt="" title="" />
+      <area shape="rect" coords="118,453,357,577" href="javascript:window.router.filterByFocalArea('Benefits')" alt="" title="" />
     </map>
     <%= image_tag 'graph.png', :usemap => "#graph-map" %>
 
-    <button class="btn first" onclick="window.router.filterByFocalArea('A');return false">A</button>
-    <button class="btn" onclick="window.router.filterByFocalArea('B');return false">B</button>
-    <button class="btn" onclick="window.router.filterByFocalArea('C');return false">C</button>
-    <button class="btn" onclick="window.router.filterByFocalArea('D');return false">D</button>
+    <button class="btn first" onclick="window.router.filterByFocalArea('Responses');return false">Responses</button>
+    <button class="btn" onclick="window.router.filterByFocalArea('Pressures');return false">Pressures</button>
+    <button class="btn" onclick="window.router.filterByFocalArea('State');return false">State</button>
+    <button class="btn" onclick="window.router.filterByFocalArea('Benefits');return false">Benefits</button>
   </div>
   <div class="tab-pane" id="headlines">
     <div id="headlines"></div>

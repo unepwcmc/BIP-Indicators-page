@@ -2,6 +2,7 @@ class BIPIndicatorsPage.Models.Headline extends Backbone.Model
   paramRoot: 'headline'
 
   defaults:
+    code: null
     title: null
     position: null
     # extra fields for interface

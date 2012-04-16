@@ -2,7 +2,9 @@ class BIPIndicatorsPage.Models.FocalArea extends Backbone.Model
   paramRoot: 'focal_area'
 
   defaults:
+    code: null
     name: null
+    question: null
     # extra fields for interface
     selected: false
 

@@ -11,12 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120411135810) do
+ActiveRecord::Schema.define(:version => 20120416122039) do
 
   create_table "focal_areas", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "code"
+    t.string   "question"
   end
 
   create_table "focal_areas_indicators", :id => false, :force => true do |t|
@@ -36,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20120411135810) do
     t.integer  "position"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "code"
   end
 
   create_table "indicators", :force => true do |t|
@@ -57,19 +60,27 @@ ActiveRecord::Schema.define(:version => 20120411135810) do
     t.integer "indicator_id"
   end
 
-  create_table "partners", :force => true do |t|
-    t.string   "name"
+  create_table "operational_indicators", :force => true do |t|
+    t.integer  "code"
+    t.string   "title"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
+  create_table "partners", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "code"
+  end
+
   create_table "targets", :force => true do |t|
     t.integer  "goal_id"
-    t.integer  "index"
     t.string   "keyword"
     t.string   "title"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "code"
   end
 
 end

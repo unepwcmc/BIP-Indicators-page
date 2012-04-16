@@ -3,7 +3,7 @@ class BIPIndicatorsPage.Models.Target extends Backbone.Model
 
   defaults:
     goal_id: null
-    index: null
+    code: null
     keyword: null
     title: null
     # extra fields for interface
