@@ -44,7 +44,8 @@ gem 'ejs'
 gem 'rspec-rails', '~> 2.6', :group => [:development, :test]
 group :test do
   gem 'capybara'
-  gem 'capybara-webkit'
+  # LocalStorage support: https://github.com/thoughtbot/capybara-webkit/pull/310
+  gem 'capybara-webkit', :git => 'git://github.com/chrisfarber/capybara-webkit.git'
   gem 'headless'
   gem 'database_cleaner'
 

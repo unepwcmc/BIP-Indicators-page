@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/chrisfarber/capybara-webkit.git
+  revision: 17c0c3481186208bbe99eb88a31d081c2d80b3fa
+  specs:
+    capybara-webkit (0.11.0)
+      capybara (>= 1.0.0, < 1.2)
+      json
+
+GIT
   remote: git://github.com/decioferreira/bootstrap-generators.git
   revision: abaa1484065764f0d18a34c9d8d6ad4002cf1eda
   specs:
@@ -51,9 +59,6 @@ GEM
       rack-test (>= 0.5.4)
       selenium-webdriver (~> 2.0)
       xpath (~> 0.1.4)
-    capybara-webkit (0.11.0)
-      capybara (>= 1.0.0, < 1.2)
-      json
     childprocess (0.3.1)
       ffi (~> 1.0.6)
     coffee-rails (3.2.2)
@@ -194,7 +199,7 @@ DEPENDENCIES
   bootstrap-generators (~> 2.0)!
   capistrano
   capybara
-  capybara-webkit
+  capybara-webkit!
   coffee-rails (~> 3.2.1)
   database_cleaner
   ejs

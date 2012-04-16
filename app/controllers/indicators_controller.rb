@@ -9,6 +9,7 @@ class IndicatorsController < ApplicationController
     @focal_areas = FocalArea.all
     @partners = Partner.all
 
+    # FIXME
     @timestamp = [
       Indicator.maximum(:updated_at),
       Goal.maximum(:updated_at),
@@ -16,6 +17,6 @@ class IndicatorsController < ApplicationController
       Headline.maximum(:updated_at),
       FocalArea.maximum(:updated_at),
       Partner.maximum(:updated_at)
-    ].max
+    ].compact.max
   end
 end
