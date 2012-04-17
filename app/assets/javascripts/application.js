@@ -11,10 +11,12 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require indexOf
+//= require json2
 //= require jquery
 //= require underscore
 //= require backbone
-//= require backbone.localStorage
+//= require amplify.store
+//= require backbone.amplify
 //= require backbone_datalink
 //= require backbone/bip_indicators_page
 //= require easyXDM.min
