@@ -1,5 +1,6 @@
 class IndicatorsController < ApplicationController
-  #caches_page :index
+  caches_page :index
+  cache_sweeper :indicator_sweeper
 
   def index
     @indicators = Indicator.all
