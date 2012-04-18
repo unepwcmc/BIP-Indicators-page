@@ -224,7 +224,14 @@ partners = [
   {:code => 29, :name => 'Terralingua'},
   {:code => 30, :name => 'Sapienza Universitá di Roma'},
   {:code => 31, :name => 'Wildlife Conservation Society (WCS)'},
-  {:code => 32, :name => 'World Health Organization (WHO)'}
+  {:code => 32, :name => 'World Health Organization (WHO)'},
+  {:code => 33, :name => 'DST-NRF Centre of Excellence for Invasion Biology (CIB)'},
+  {:code => 34, :name => 'European Environment Agency (EEA)'},
+  {:code => 35, :name => 'Umea University'},
+  {:code => 36, :name => 'Scope'},
+  {:code => 37, :name => 'IGBP'},
+  {:code => 38, :name => 'GEF'},
+  {:code => 39, :name => 'Alliance for Zero Extinction (AZE)'}
 ]
 
 #code => index
