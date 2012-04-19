@@ -1,16 +1,56 @@
+body {
+  font-size: 11px;
+  font-family: Arial;
+}
+
+.grey-font {
+  color: #666666;
+}
+
+.indicator-cnt-0 {
+  background-color: #ffffff;
+  color: #666666;
+}
+
+.indicator-cnt-1 {
+  background-color: #dbe4ed;
+  color: #666666;
+}
+
+.indicator-cnt-2 {
+  background-color: #91adc7;
+  color: #ffffff;
+}
+
+.indicator-cnt-3 {
+  background-color: #5e87ae;
+  color: #ffffff;
+}
+
+.indicator-cnt-4 {
+  background-color: #296093;
+  color: #ffffff;
+}
+
 #goals-container {
   & > div {
     clear: both;
   }
 
-  .code {
+  .goal_code {
     float: left;
-    text-align: center;
-    width: 60px;
-    height: 100px;
-    margin: 10px;
-    line-height: 87px;
-    font-size: 22px;
+    width: 15%;
+    line-height: 32px;
+    font-size: 32px;
+    vertical-align: top;
+    @extend .grey-font;
+  }
+
+  .goal_title {
+    float: left;
+    width: 85%;
+    line-height: 18px;
+    font-size: 11px;
   }
 }
 
@@ -18,34 +58,31 @@
   & > div {
     cursor: pointer;
     cursor: hand;
-
     float: left;
-    width: 115px;
-    height: 100px;
-    margin: 10px;
+    width: 80px;
+    height: 80px;
+    padding: 5px;
   }
 
-  .keyword {
-    float: left;
-    text-align: center;
-    width: 100%;
-    height: 87px;
-    line-height: 87px;
-    font-size: 22px;
-
-    &.selected {
-      background: $linkColor;
-    }
+  & > div.selected {
+    background: #000000;
   }
 
-  .title {
+  .code {
     width: 100%;
+    text-align: right;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size: 11px;
-    line-height: 13px;
+    font-size: 22px;
+    line-height: 40px;
   }
+
+  .keyword {
+    width: 100%;
+    font-size: 11px;
+  }
+
 }
 
 #headlines-container {

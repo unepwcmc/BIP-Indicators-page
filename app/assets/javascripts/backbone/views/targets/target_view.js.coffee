@@ -15,4 +15,9 @@ class BIPIndicatorsPage.Views.Targets.TargetView extends Backbone.View
 
   render: =>
     $(@el).html(@template(@model.toJSON() ))
+    $(@el).addClass("indicator-cnt-#{@model.get('indicatorCntClass')}")
+    if (@model.get('selected'))
+      $(@el).addClass("selected")
+    else
+      $(@el).removeClass("selected")
     return this

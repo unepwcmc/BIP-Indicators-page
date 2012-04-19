@@ -9,3 +9,20 @@ window.BIPIndicatorsPage =
   Collections: {}
   Routers: {}
   Views: {}
+
+  #to facilitate color coding indicator density
+  defaults: {
+    indicatorMinCnt: 0
+    indicatorMaxCnt: 29
+    indicatorClassCnt: 5
+  }
+  indicatorCntClassIdx: (indicatorCnt) ->
+    @cntClassIdx(indicatorCnt, @defaults.indicatorMinCnt, @defaults.indicatorMaxCnt, @defaults.indicatorClassCnt)
+
+  cntClassIdx: (itemCnt, itemMinCnt, itemMaxCnt, classCnt) ->
+    span = itemMaxCnt - itemMinCnt
+    classOffset = Math.floor((span - span % (classCnt - 1)) / (classCnt - 1))
+    classIdx = 0
+    while (itemMinCnt + classIdx * classOffset) < itemCnt
+      classIdx += 1
+    return classIdx
