@@ -4,26 +4,20 @@ class BIPIndicatorsPage.Models.Goal extends Backbone.Model
   defaults:
     code: null
     title: null
-    targets: []
 
   initialize: ->
     @targets = new BIPIndicatorsPage.Collections.TargetsCollection()
-    @targets.reset @get('targets')
-
-    # Deselect all targets from all goals when selecting a target
-    @targets.on 'unique:select:target', @deselectAllTargets
-
-  selectAllTargetsFromCurrentGoal: =>
-    @targets.selectAll()
-
-  deselectAllTargets: =>
-    _.each @collection.models, (goal) ->
-      goal.targets.deselectAll()
+    @targets.fetch()
+    @targets.on 'unique:select:target', @collection.deselectAllTargets
+    that = @
+    @filteredTargets = @targets.filter (target) ->
+      target.attributes.goal_id == that.id
+    @targets.reset(@filteredTargets)
 
 class BIPIndicatorsPage.Collections.GoalsCollection extends Backbone.Collection
   model: BIPIndicatorsPage.Models.Goal
   localStorage: new Store("bip_goals")
 
-  saveAll: ->
+  deselectAllTargets: =>
     _.each @models, (goal) ->
-      goal.save()
+      goal.targets.deselectAll()

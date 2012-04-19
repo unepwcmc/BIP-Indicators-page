@@ -4,20 +4,27 @@ class BIPIndicatorsPage.Routers.IndicatorsRouter extends Backbone.Router
     @indicators = new BIPIndicatorsPage.Collections.IndicatorsCollection()
     @indicators.reset options.indicators
 
-    # TODO check for a timestamp
-    previousTimestamp = localStorage.getItem('bip_timestamp')
+    previousTimestamp = amplify.store('bip_timestamp')
     if (previousTimestamp != options.timestamp)
       #clear the local store
-      localStorage.clear()
-      localStorage.setItem('bip_timestamp', options.timestamp)
+      amplify.store('bip_goals', null)
+      amplify.store('bip_targets', null)
+      amplify.store('bip_headlines', null)
+      amplify.store('bip_focal_areas', null)
+      amplify.store('bip_partners', null)
+      amplify.store('bip_timestamp', options.timestamp)
 
+    # Targets
+    @targets = new BIPIndicatorsPage.Collections.TargetsCollection()
+    @targets.fetch()
+    if @targets.length == 0
+      @targets.reset options.targets
+      @targets.saveAll()
     # Goals
     @goals = new BIPIndicatorsPage.Collections.GoalsCollection()
     @goals.fetch()
     if @goals.length == 0
       @goals.reset options.goals
-      @goals.saveAll()
-
     # Headlines
     @headlines = new BIPIndicatorsPage.Collections.HeadlinesCollection()
     @headlines.fetch()
@@ -56,7 +63,7 @@ class BIPIndicatorsPage.Routers.IndicatorsRouter extends Backbone.Router
     $('a[data-toggle="tab"]').on('shown', @switchContext)
 
     # Select previously active tab
-    @activateTab(localStorage.getItem('bip_active_tab'))
+    @activateTab(amplify.store('bip_active_tab'))
 
   activateTab: (tabStr = '#matrix') ->
     @switchContext(tabStr)
@@ -66,7 +73,7 @@ class BIPIndicatorsPage.Routers.IndicatorsRouter extends Backbone.Router
     tabStr = e
     if typeof e != 'string'
       tabStr = $(e.target).attr('href')
-    localStorage.setItem('bip_active_tab', tabStr)
+    amplify.store('bip_active_tab', tabStr)
     if(tabStr == '#matrix')
       # by default if deselect all the indicators
       @indicators.filterByTarget()
