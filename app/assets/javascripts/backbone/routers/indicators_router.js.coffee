@@ -30,6 +30,7 @@ class BIPIndicatorsPage.Routers.IndicatorsRouter extends Backbone.Router
     @headlines.fetch()
     if @headlines.length == 0
       @headlines.reset options.headlines
+    @headlines.applyIndicatorCntAll()
     # Focal areas
     @focal_areas = new BIPIndicatorsPage.Collections.FocalAreasCollection()
     @focal_areas.fetch()

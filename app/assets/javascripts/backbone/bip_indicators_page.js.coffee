@@ -14,15 +14,15 @@ window.BIPIndicatorsPage =
   defaults: {
     indicatorMinCnt: 0
     indicatorMaxCnt: 29
-    indicatorClassCnt: 5
+    indicatorClassCnt: 4
   }
   indicatorCntClassIdx: (indicatorCnt) ->
     @cntClassIdx(indicatorCnt, @defaults.indicatorMinCnt, @defaults.indicatorMaxCnt, @defaults.indicatorClassCnt)
 
   cntClassIdx: (itemCnt, itemMinCnt, itemMaxCnt, classCnt) ->
     span = itemMaxCnt - itemMinCnt
-    classOffset = Math.floor((span - span % (classCnt - 1)) / (classCnt - 1))
+    classOffset = Math.floor((span - span % classCnt) / classCnt) + 1
     classIdx = 0
-    while (itemMinCnt + classIdx * classOffset) < itemCnt
+    while (itemMinCnt + (classIdx + 1) * classOffset) < itemCnt
       classIdx += 1
     return classIdx

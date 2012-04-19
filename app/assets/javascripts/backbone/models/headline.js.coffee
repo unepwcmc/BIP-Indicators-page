@@ -7,6 +7,8 @@ class BIPIndicatorsPage.Models.Headline extends Backbone.Model
     position: null
     # extra fields for interface
     selected: false
+    indicatorCnt: 0
+    indicatorCntClass: 0
 
   select: ->
     @collection.deselectAll()
@@ -17,9 +19,17 @@ class BIPIndicatorsPage.Models.Headline extends Backbone.Model
   deselect: ->
     @save({'selected': false})
 
+  applyIndicatorCnt: (cnt) ->
+    @save({'indicatorCnt': cnt})
+    @save({'indicatorCntClass': window.BIPIndicatorsPage.indicatorCntClassIdx(@get('indicatorCnt'))})
+
 class BIPIndicatorsPage.Collections.HeadlinesCollection extends Backbone.Collection
   model: BIPIndicatorsPage.Models.Headline
   localStorage: new Store("bip_headlines")
+
+  applyIndicatorCntAll: ->
+    _.each @models, (target) ->
+      target.applyIndicatorCnt(Math.floor(Math.random()*29))
 
   deselectAll: ->
     _.each @models, (target) ->

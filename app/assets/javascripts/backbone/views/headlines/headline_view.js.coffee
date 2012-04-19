@@ -15,4 +15,5 @@ class BIPIndicatorsPage.Views.Headlines.HeadlineView extends Backbone.View
 
   render: =>
     $(@el).html(@template(@model.toJSON() ))
+    $(@el).addClass("indicator-cnt-#{@model.get('indicatorCntClass')}")
     return this
