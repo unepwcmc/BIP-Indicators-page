@@ -50,12 +50,7 @@
   </div>
 </div>
 <div class="span4">
-  <div id="search">
-    <div class="input-prepend">
-      <span class="add-on"><i class="icon-search"></i></span>
-      <input type="text" id="inputIcon" class="span3" placeholder="Search for indicator, goal, target or headline">
-    </div>
-  </div>
+  <div id="search"></div>
   <div id="filters-and-results">
   <div id="filters" class="row-fluid">
       <div id="partners" class="span6"></div>
@@ -69,7 +64,15 @@
 </div>
 <script type="text/javascript">
 $(function() {
-  window.router = new BIPIndicatorsPage.Routers.IndicatorsRouter({timestamp: '<%= @timestamp %>', indicators: <%= @indicators.to_json(:include => [:targets, :focal_areas, :partners], :methods => :link).html_safe -%>, goals: <%= @goals.to_json.html_safe -%>, targets: <%= @targets.to_json.html_safe -%>, headlines: <%= @headlines.to_json.html_safe -%>, focal_areas: <%= @focal_areas.to_json.html_safe -%>, partners: <%= @partners.to_json.html_safe -%>});
+  window.router = new BIPIndicatorsPage.Routers.IndicatorsRouter({
+    timestamp: '<%= @timestamp %>',
+    fts_data: '<%= @fts_data.to_json.html_safe %>',
+    indicators: <%= @indicators.to_json(:include => [:targets, :focal_areas, :partners], :methods => :link).html_safe -%>,
+    goals: <%= @goals.to_json.html_safe -%>,
+    targets: <%= @targets.to_json.html_safe -%>,
+    headlines: <%= @headlines.to_json.html_safe -%>,
+    focal_areas: <%= @focal_areas.to_json.html_safe -%>,
+    partners: <%= @partners.to_json.html_safe -%>});
   Backbone.history.start();
 });
 </script>

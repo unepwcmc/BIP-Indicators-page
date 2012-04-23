@@ -134,6 +134,17 @@ $matrix-target-width: $matrix-target-height;
   height: 70px;
 }
 
+.ui-autocomplete {
+  background: #FFFFFF;
+}
+
+.ui-autocomplete-category {
+  font-weight: bold;
+  padding: .2em .4em;
+  margin: .8em 0 .2em;
+  line-height: 1.5;
+}
+
 #filters-and-results {
   @extend .blue-border;
 

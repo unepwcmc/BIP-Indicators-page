@@ -1,8 +1,11 @@
 class BIPIndicatorsPage.Routers.IndicatorsRouter extends Backbone.Router
   initialize: (options) ->
+    that = @
+    @ftsData = []
     # Indicators
     @indicators = new BIPIndicatorsPage.Collections.IndicatorsCollection()
     @indicators.reset options.indicators
+    @indicators.each (item) -> that.ftsData.push({id: item.id, label: item.attributes.title, category: 'indicator', rel_link: item.attributes.rel_link})
 
     previousTimestamp = amplify.store('bip_timestamp')
     if (previousTimestamp != options.timestamp)
@@ -20,17 +23,20 @@ class BIPIndicatorsPage.Routers.IndicatorsRouter extends Backbone.Router
     if @targets.length == 0
       @targets.reset options.targets
       @targets.saveAll()
+    @targets.each (item) -> that.ftsData.push({id: item.id, label: item.attributes.title, category: 'target', tab_id: '#matrix'})
     # Goals
     @goals = new BIPIndicatorsPage.Collections.GoalsCollection()
     @goals.fetch()
     if @goals.length == 0
       @goals.reset options.goals
+    @goals.each (item) -> that.ftsData.push({id: item.id, label: item.attributes.title, category: 'goal', tab_id: '#matrix'})
     # Headlines
     @headlines = new BIPIndicatorsPage.Collections.HeadlinesCollection()
     @headlines.fetch()
     if @headlines.length == 0
       @headlines.reset options.headlines
     @headlines.applyIndicatorCntAll()
+    @headlines.each (item) -> that.ftsData.push({id: item.id, label: item.attributes.title, category: 'headline', tab_id: '#headlines'})
     # Focal areas
     @focal_areas = new BIPIndicatorsPage.Collections.FocalAreasCollection()
     @focal_areas.fetch()
@@ -40,6 +46,8 @@ class BIPIndicatorsPage.Routers.IndicatorsRouter extends Backbone.Router
     # Partners
     @partners = new BIPIndicatorsPage.Collections.PartnersCollection()
     @partners.reset options.partners
+
+    @fts_data = JSON.parse(options.fts_data)
 
   routes:
     ".*"        : "index"
@@ -60,13 +68,40 @@ class BIPIndicatorsPage.Routers.IndicatorsRouter extends Backbone.Router
     @partnersView = new BIPIndicatorsPage.Views.Partners.IndexView(partners: @partners)
     $("#partners").append(@partnersView.render().el)
 
+    # Full text search
+    @searchView = new BIPIndicatorsPage.Views.SearchView(ftsData: @ftsData)
+    $("#search").append(@searchView.render().el)
+
     # Click event on tabs
     $('a[data-toggle="tab"]').on('shown', @switchContext)
 
     # Select previously active tab
     @activateTab(amplify.store('bip_active_tab'))
 
-  activateTab: (tabStr = '#matrix') ->
+  activateByCategory: (category, itemId) =>
+    if category == 'goal'
+      @activateGoal(itemId)
+    else if category == 'target'
+      @activateTarget(itemId)
+    else
+      @activateHeadline(itemId)
+
+  activateGoal: (goalId = null) =>
+    @activateTab('#matrix')
+
+  activateTarget: (targetId) =>
+    @activateTab('#matrix')
+    t = @targets.find((t) -> t.id == targetId)
+    t.select()
+    #TODO click target
+
+  activateHeadline: (headlineId) =>
+    @activateTab('#headlines')
+    h = @headlines.find((h) -> h.id == headlineId)
+    h.select()
+    #TODO click headline
+
+  activateTab: (tabStr = '#matrix') =>
     @switchContext(tabStr)
     $("a[href='#{tabStr}']").click()
 
