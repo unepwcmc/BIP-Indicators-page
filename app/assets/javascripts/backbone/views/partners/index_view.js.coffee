@@ -10,12 +10,14 @@ class BIPIndicatorsPage.Views.Partners.IndexView extends Backbone.View
 
   initialize: () ->
     @options.partners.bind('reset', @addAll)
+    @options.partners.bind('change', @render)
 
   addAll: () =>
     @options.partners.each(@addOne)
 
   addOne: (partner) =>
     view = new BIPIndicatorsPage.Views.Partners.PartnerView({model : partner})
+    $(view.el).attr('selected','selected') if partner.selected
     @$el.append(view.render().el)
 
   render: =>
@@ -27,4 +29,7 @@ class BIPIndicatorsPage.Views.Partners.IndexView extends Backbone.View
 
   select: =>
     partnerId = @$el.find("option:selected").val()
-    router.filterByPartner(partnerId)
+    partner = @options.partners.get(p.id)
+    @$el.find("option").attr("selected",null)
+    partner.select()
+    router.filterByPartner(partner)

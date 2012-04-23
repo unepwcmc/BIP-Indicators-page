@@ -2,7 +2,6 @@ class BIPIndicatorsPage.Views.SearchView extends Backbone.View
   template: JST["backbone/templates/search"]
 
   initialize: ->
-    console.log(@options.ftsData)
     $.widget("custom.catcomplete", $.ui.autocomplete, {
     _renderMenu: ( ul, items ) ->
       self = this
@@ -14,9 +13,12 @@ class BIPIndicatorsPage.Views.SearchView extends Backbone.View
         self._renderItem( ul, item )
       )
     _renderItem: ( ul, item ) ->
-      return $( "<li data-id = " + item.id + " data-category = '" + item.category + "'></li>" )
+      link = "<a>" + item.label + "</a>"
+      if item.category == 'indicator'
+        link = "<a href = " + item.link + ">" + item.label + "</a>"
+      return $( "<li data-id = " + item.id + " data-category = '" + item.category + "'" + " data-link = '" + item.link + "'></li>" )
         .data( "item.autocomplete", item )
-        .append( "<a>" + item.label + "</a>" )
+        .append(link)
         .appendTo( ul );
     })
 
@@ -27,10 +29,8 @@ class BIPIndicatorsPage.Views.SearchView extends Backbone.View
       source: @options.ftsData,
       select: (event, ui) ->
         if ui.item.category == 'indicator'
-          #TODO go directly to the indicator's page
-          console.log('indicator')
+          window.location = ui.item.link
         else
-          console.log('sth else')
           router.activateByCategory(ui.item.category, ui.item.id)
     });
     return this

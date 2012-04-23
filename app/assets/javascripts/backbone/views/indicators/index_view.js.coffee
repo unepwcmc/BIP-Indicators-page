@@ -3,6 +3,10 @@ BIPIndicatorsPage.Views.Indicators ||= {}
 class BIPIndicatorsPage.Views.Indicators.IndexView extends Backbone.View
   template: JST["backbone/templates/indicators/index"]
 
+  events: {
+    'click .reset-filters' : 'resetFilters'
+  }
+
   initialize: () ->
     @options.indicators.bind('reset', @addAll)
     @options.indicators.bind('change', @render)
@@ -27,3 +31,8 @@ class BIPIndicatorsPage.Views.Indicators.IndexView extends Backbone.View
       socket.postMessage(document.body.scrollHeight)
 
     return this
+
+  resetFilters: ->
+    @options.indicators.resetFilters()
+    @options.indicators.applyFilter()
+    router.resetFilters()

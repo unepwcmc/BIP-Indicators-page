@@ -30,6 +30,10 @@ class BIPIndicatorsPage.Collections.IndicatorsCollection extends Backbone.Collec
     @filters.goal = null
     @filters.target = null
 
+  resetFilters: ->
+    @resetTabFilters()
+    @filters.partner = null
+
   applyFilter: ->
     _.each @models, (indicator) =>
       indicator.set

@@ -7,5 +7,7 @@ class BIPIndicatorsPage.Views.Partners.PartnerView extends Backbone.View
 
   render: ->
     @$el.val(@model.get('id'))
+    if @model.get('selected')
+      @$el.attr('selected', 'selected')
     @$el.html(@template(@model.toJSON() ))
     return this
