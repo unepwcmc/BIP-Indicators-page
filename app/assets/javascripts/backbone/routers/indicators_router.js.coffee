@@ -5,7 +5,7 @@ class BIPIndicatorsPage.Routers.IndicatorsRouter extends Backbone.Router
     # Indicators
     @indicators = new BIPIndicatorsPage.Collections.IndicatorsCollection()
     @indicators.reset options.indicators
-    @indicators.each (item) -> that.ftsData.push({id: item.id, label: item.attributes.title, category: 'indicator', rel_link: item.attributes.rel_link})
+    @indicators.each (item) -> that.ftsData.push({id: item.id, label: item.attributes.title, category: 'indicator', link: item.attributes.link})
 
     previousTimestamp = amplify.store('bip_timestamp')
     if (previousTimestamp != options.timestamp)
@@ -23,25 +23,26 @@ class BIPIndicatorsPage.Routers.IndicatorsRouter extends Backbone.Router
     if @targets.length == 0
       @targets.reset options.targets
       @targets.saveAll()
-    @targets.each (item) -> that.ftsData.push({id: item.id, label: item.attributes.title, category: 'target', tab_id: '#matrix'})
+    @targets.each (item) -> that.ftsData.push({id: item.id, label: item.attributes.title, category: 'target'})
     # Goals
     @goals = new BIPIndicatorsPage.Collections.GoalsCollection()
     @goals.fetch()
     if @goals.length == 0
       @goals.reset options.goals
-    @goals.each (item) -> that.ftsData.push({id: item.id, label: item.attributes.title, category: 'goal', tab_id: '#matrix'})
+    @goals.each (item) -> that.ftsData.push({id: item.id, label: item.attributes.title, category: 'goal'})
     # Headlines
     @headlines = new BIPIndicatorsPage.Collections.HeadlinesCollection()
     @headlines.fetch()
     if @headlines.length == 0
       @headlines.reset options.headlines
     @headlines.applyIndicatorCntAll()
-    @headlines.each (item) -> that.ftsData.push({id: item.id, label: item.attributes.title, category: 'headline', tab_id: '#headlines'})
+    @headlines.each (item) -> that.ftsData.push({id: item.id, label: item.attributes.title, category: 'headline'})
     # Focal areas
     @focal_areas = new BIPIndicatorsPage.Collections.FocalAreasCollection()
     @focal_areas.fetch()
     if @focal_areas.length == 0
       @focal_areas.reset options.focal_areas
+    @focal_areas.each (item) -> that.ftsData.push({id: item.id, label: item.attributes.name + ' ' + item.attributes.question, category: 'framework'})
 
     # Partners
     @partners = new BIPIndicatorsPage.Collections.PartnersCollection()
@@ -83,8 +84,10 @@ class BIPIndicatorsPage.Routers.IndicatorsRouter extends Backbone.Router
       @activateGoal(itemId)
     else if category == 'target'
       @activateTarget(itemId)
-    else
+    else if category == 'headline'
       @activateHeadline(itemId)
+    else
+      @activateFocalArea(itemId)
 
   activateGoal: (goalId = null) =>
     @activateTab('#matrix')
@@ -99,7 +102,11 @@ class BIPIndicatorsPage.Routers.IndicatorsRouter extends Backbone.Router
     @activateTab('#headlines')
     h = @headlines.find((h) -> h.id == headlineId)
     h.select()
-    #TODO click headline
+
+  activateFocalArea: (focalAreaId) =>
+    @activateTab('#graphic')
+    f = @focal_areas.find((f) -> f.id == focalAreaId)
+    f.select()
 
   activateTab: (tabStr = '#matrix') =>
     @switchContext(tabStr)
