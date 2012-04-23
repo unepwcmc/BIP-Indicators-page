@@ -28,12 +28,12 @@ class BIPIndicatorsPage.Collections.HeadlinesCollection extends Backbone.Collect
   localStorage: new Store("bip_headlines")
 
   applyIndicatorCntAll: ->
-    _.each @models, (target) ->
-      target.applyIndicatorCnt(Math.floor(Math.random()*29))
+    _.each @models, (headline) ->
+      headline.applyIndicatorCnt(Math.floor(Math.random()*29))
 
   deselectAll: ->
-    _.each @models, (target) ->
-      target.deselect()
+    _.each @models, (headline) ->
+      headline.deselect()
 
   selected: ->
     @filter (headline) ->
