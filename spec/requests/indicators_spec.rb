@@ -17,7 +17,7 @@ describe 'indicators' do
       page.driver.browser.set_attribute(:local_storage_enabled, true)
 
       visit '/'
-      click_link('Graphic')
+      click_link('Framework')
       page.find('ul.nav li + li')['class'].should eq('active')
       page.find('#graphic')['class'].should eq('tab-pane active')
     end
@@ -26,7 +26,7 @@ describe 'indicators' do
       page.driver.browser.set_attribute(:local_storage_enabled, true)
 
       visit '/'
-      click_link('Headlines')
+      click_link('Headline Indicators')
       page.find('ul.nav li:last')['class'].should eq('active')
       page.find('#headlines')['class'].should eq('tab-pane active')
     end
@@ -46,7 +46,7 @@ describe 'indicators' do
       FactoryGirl.create(:indicator, title: 'The most indicator of the world')
 
       visit '/'
-      click_link('Graphic')
+      click_link('Framework')
       page.find('#indicators').should_not have_content('The most indicator of the world')
     end
 
@@ -56,7 +56,7 @@ describe 'indicators' do
       FactoryGirl.create(:indicator, title: 'The most indicator of the world')
 
       visit '/'
-      click_link('Headlines')
+      click_link('Headline Indicators')
       page.find('#indicators').should_not have_content('The most indicator of the world')
     end
 
@@ -113,7 +113,7 @@ describe 'indicators' do
         FactoryGirl.create(:indicator, title: 'This one should not appear', focal_areas: [focal_area_2])
 
         visit '/'
-        click_link('Graphic')
+        click_link('Framework')
         # Workaround to test clicking on the image map
         page.execute_script('window.router.filterByFocalArea("A");return false')
         page.find('#indicators-container').should have_content('This one should appear')
@@ -134,7 +134,7 @@ describe 'indicators' do
         FactoryGirl.create(:indicator, title: 'This one should not appear', headline: headline_2)
 
         visit '/'
-        click_link('Headlines')
+        click_link('Headline Indicators')
         page.execute_script('$(".title:contains(\'The first headline ever\')").siblings("button").click()')
         page.find('#indicators-container').should have_content('This one should appear')
         page.find('#indicators-container').should have_content('This one should also appear')
@@ -161,7 +161,7 @@ describe 'indicators' do
 
           visit '/'
           page.execute_script('$("div.keyword:contains(\'ABC\')").click()')
-          select('Batman', from: 'Partner')
+          select('Batman', from: 'partner')
           page.find('#indicators-container').should have_content('This one should appear')
           page.find('#indicators-container').should_not have_content('This one should not appear')
           page.find('#indicators-container').should_not have_content('This last one should not appear either')
@@ -179,10 +179,10 @@ describe 'indicators' do
           FactoryGirl.create(:indicator, title: 'This last one should not appear either', focal_areas: [focal_area_2], partners: [partner_1, partner_2])
 
           visit '/'
-          click_link('Graphic')
+          click_link('Framework')
           # Workaround to test clicking on the image map
           page.execute_script('window.router.filterByFocalArea("A");return false')
-          select('Batman', from: 'Partner')
+          select('Batman', from: 'partner')
           page.find('#indicators-container').should have_content('This one should appear')
           page.find('#indicators-container').should_not have_content('This one should not appear')
           page.find('#indicators-container').should_not have_content('This last one should not appear either')
@@ -200,9 +200,9 @@ describe 'indicators' do
           FactoryGirl.create(:indicator, title: 'This last one should not appear either', headline: headline_2, partners: [partner_1, partner_2])
 
           visit '/'
-          click_link('Headlines')
+          click_link('Headline Indicators')
           page.execute_script('$(".title:contains(\'The first headline ever\')").siblings("button").click()')
-          select('Batman', from: 'Partner')
+          select('Batman', from: 'partner')
           page.find('#indicators-container').should have_content('This one should appear')
           page.find('#indicators-container').should_not have_content('This one should not appear')
           page.find('#indicators-container').should_not have_content('This last one should not appear either')
