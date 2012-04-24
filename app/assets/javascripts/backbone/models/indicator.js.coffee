@@ -46,30 +46,6 @@ class BIPIndicatorsPage.Collections.IndicatorsCollection extends Backbone.Collec
     @resetTabFilters()
     @filters.partner = null
 
-  getCountPerTarget: (target) ->
-    res = 0
-    _.each @models, (indicator) =>
-     # if it belongs to this target and and matches the current partner selection
-     if indicator.belongsToTarget(target.id) && (!@filters.partner? || indicator.belongsToPartner(@filters.partner.get('id')))
-       res += 1
-    return res
-
-  getCountPerHeadline: (headline) ->
-    res = 0
-    _.each @models, (indicator) =>
-     # if it belongs to this target and and matches the current partner selection
-     if indicator.belongsToHeadline(headline.id) && (!@filters.partner? || indicator.belongsToPartner(@filters.partner.get('id')))
-       res += 1
-    return res
-
-  getCountPerFocalArea: (focalArea) ->
-    res = 0
-    _.each @models, (indicator) =>
-     # if it belongs to this focal area and and matches the current partner selection
-     if indicator.belongsToFocalArea(focalArea.id) && (!@filters.partner? || indicator.belongsToPartner(@filters.partner.get('id')))
-       res += 1
-    return res
-
   applyFilter: ->
     _.each @models, (indicator) =>
       indicator.set
@@ -105,16 +81,61 @@ class BIPIndicatorsPage.Collections.IndicatorsCollection extends Backbone.Collec
     @updateIndicatorCounts()
     @applyFilter()
 
+  getStatsPerObject: (obj) ->
+    res = 0
+    _.each @models, (indicator) =>
+      cond = false
+      if obj instanceof BIPIndicatorsPage.Models.Target
+        cond = indicator.belongsToTarget(obj.id)
+      else if obj instanceof BIPIndicatorsPage.Models.Headline
+        cond = indicator.belongsToHeadline(obj.id)
+      else
+        cond = indicator.belongsToFocalArea(obj.id)
+      # if it belongs to this object and and matches the current partner selection
+      if cond && (!@filters.partner? || indicator.belongsToPartner(@filters.partner.get('id')))
+        res += 1
+    return {
+      cnt : res,
+      cntClass : @indicatorCntClassIdx(res)
+    }
+
   updateIndicatorCounts: ->
     targets = new BIPIndicatorsPage.Collections.TargetsCollection()
     targets.fetch()
     targets.each (item) =>
-      item.applyIndicatorCnt(@getCountPerTarget(item))
+      item.applyIndicatorCnt(@getStatsPerObject(item))
     headlines = new BIPIndicatorsPage.Collections.HeadlinesCollection()
     headlines.fetch()
     headlines.each (item) =>
-      item.applyIndicatorCnt(@getCountPerHeadline(item))
+      item.applyIndicatorCnt(@getStatsPerObject(item))
     focalAreas = new BIPIndicatorsPage.Collections.FocalAreasCollection()
     focalAreas.fetch()
     focalAreas.each (item) =>
-      item.applyIndicatorCnt(@getCountPerFocalArea(item))
+      item.applyIndicatorCnt(@getStatsPerObject(item))
+
+  #to facilitate color coding indicator density
+  defaults: {
+    indicatorClasses: {
+      0: [0, 0]
+      1: [1, 2]
+      2: [3, 8]
+      3: [9, 29]
+    }
+  }
+
+  indicatorCntClassIdx: (indicatorCnt) ->
+    for classIdx, classRange of @defaults.indicatorClasses
+      if indicatorCnt >= classRange[0] && indicatorCnt <= classRange[1]
+        break
+    return classIdx
+
+  indicatorCntClassLegend: ->
+    legend = {}
+    totalElements = 30
+    for classIdx, classRange of @defaults.indicatorClasses
+      elCnt = 1 + classRange[1] - classRange[0]
+      legend[classIdx] = {
+        percent: Math.round((elCnt / totalElements) * 100),
+        label: classRange[1]
+      }
+    return legend

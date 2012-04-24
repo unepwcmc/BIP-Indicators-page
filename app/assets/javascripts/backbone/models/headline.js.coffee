@@ -19,9 +19,8 @@ class BIPIndicatorsPage.Models.Headline extends Backbone.Model
   deselect: ->
     @save({'selected': false})
 
-  applyIndicatorCnt: (cnt) ->
-    @save({'indicatorCnt': cnt})
-    @save({'indicatorCntClass': window.BIPIndicatorsPage.indicatorCntClassIdx(@get('indicatorCnt'))})
+  applyIndicatorCnt: (stats) ->
+    @save({'indicatorCnt': stats['cnt'], 'indicatorCntClass': stats['cntClass']})
 
 class BIPIndicatorsPage.Collections.HeadlinesCollection extends Backbone.Collection
   model: BIPIndicatorsPage.Models.Headline

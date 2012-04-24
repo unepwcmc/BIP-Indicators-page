@@ -19,9 +19,8 @@ class BIPIndicatorsPage.Models.Target extends Backbone.Model
   deselect: ->
     @save({'selected': false})
 
-  applyIndicatorCnt: (cnt) ->
-    @save({'indicatorCnt': cnt})
-    @save({'indicatorCntClass': window.BIPIndicatorsPage.indicatorCntClassIdx(@get('indicatorCnt'))})
+  applyIndicatorCnt: (stats) ->
+    @save({'indicatorCnt': stats['cnt'], 'indicatorCntClass': stats['cntClass']})
 
 class BIPIndicatorsPage.Collections.TargetsCollection extends Backbone.Collection
   model: BIPIndicatorsPage.Models.Target

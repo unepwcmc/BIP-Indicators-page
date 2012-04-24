@@ -7,6 +7,8 @@ class BIPIndicatorsPage.Models.FocalArea extends Backbone.Model
     question: null
     # extra fields for interface
     selected: false
+    indicatorCnt: 0
+    indicatorCntClass: 0
 
   select: ->
     @collection.deselectAll()
@@ -15,9 +17,8 @@ class BIPIndicatorsPage.Models.FocalArea extends Backbone.Model
   deselect: ->
     @save({'selected': false})
 
-  applyIndicatorCnt: (cnt) ->
-    @save({'indicatorCnt': cnt})
-    @save({'indicatorCntClass': window.BIPIndicatorsPage.indicatorCntClassIdx(@get('indicatorCnt'))})
+  applyIndicatorCnt: (stats) ->
+    @save({'indicatorCnt': stats['cnt'], 'indicatorCntClass': stats['cntClass']})
 
 class BIPIndicatorsPage.Collections.FocalAreasCollection extends Backbone.Collection
   model: BIPIndicatorsPage.Models.FocalArea

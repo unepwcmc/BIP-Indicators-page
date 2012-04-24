@@ -20,18 +20,17 @@ class BIPIndicatorsPage.Views.Indicators.IndexView extends Backbone.View
 
   render: =>
     $(@el).html(@template(indicators: @options.indicators.toJSON() ))
-    @addAll()
-
     indicatorCnt = @options.indicators.filter((ele) -> (ele.get('show') ? 1 : 0)).length
     counterEl = $(@el).find('#indicators-count')
-    counterEl.addClass("indicator-cnt-#{window.BIPIndicatorsPage.indicatorCntClassIdx(indicatorCnt)}")
+    counterEl.addClass("indicator-cnt-#{@options.indicators.indicatorCntClassIdx(indicatorCnt)}")
     counterValEl = $(counterEl).find('span')
     counterValEl.text(indicatorCnt)
-    countLegendEl = $('#indicators-count-legend')
-    legend = window.BIPIndicatorsPage.indicatorCntClassLegend()
+    countLegendEl = $(@el).find('#indicators-count-legend')
+    legend = @options.indicators.indicatorCntClassLegend()
     for classIdx, classProperties of legend
       div = "<div style='width:#{classProperties['percent']}%' class='indicator-cnt-#{classIdx}'>#{classProperties['label']}</div>"
       countLegendEl.append(div)
+    @addAll()
     if socket
       socket.postMessage(document.body.scrollHeight)
 
