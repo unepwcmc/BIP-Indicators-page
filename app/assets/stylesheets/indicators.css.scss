@@ -129,10 +129,14 @@ $matrix-target-width: $matrix-target-height;
 }
 
 #graphic {
-  img {
-    float: left;
+  focal-areas-container {
+    clear: both;
   }
-
+  .focal-area-indicators-count {
+    float: left;
+    width: 30px;
+    height: 30px;
+  }
   button {
     float: left;
 

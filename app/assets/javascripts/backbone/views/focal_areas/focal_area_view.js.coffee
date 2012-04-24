@@ -6,8 +6,6 @@ class BIPIndicatorsPage.Views.FocalAreas.FocalAreaView extends Backbone.View
   events:
     "click .destroy" : "destroy"
 
-  tagName: "tr"
-
   destroy: () ->
     @model.destroy()
     this.remove()
@@ -16,4 +14,5 @@ class BIPIndicatorsPage.Views.FocalAreas.FocalAreaView extends Backbone.View
 
   render: ->
     $(@el).html(@template(@model.toJSON() ))
+    $(@el).find('div').addClass("indicator-cnt-#{@model.get('indicatorCntClass')}")
     return this

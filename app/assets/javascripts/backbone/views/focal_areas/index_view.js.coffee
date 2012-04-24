@@ -11,7 +11,7 @@ class BIPIndicatorsPage.Views.FocalAreas.IndexView extends Backbone.View
 
   addOne: (focalArea) =>
     view = new BIPIndicatorsPage.Views.FocalAreas.FocalAreaView({model : focalArea})
-    @$("tbody").append(view.render().el)
+    @$("#focal-areas-container").append(view.render().el)
 
   render: =>
     $(@el).html(@template(focalAreas: @options.focalAreas.toJSON() ))

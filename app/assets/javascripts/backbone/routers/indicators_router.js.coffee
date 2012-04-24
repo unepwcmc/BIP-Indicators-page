@@ -65,6 +65,10 @@ class BIPIndicatorsPage.Routers.IndicatorsRouter extends Backbone.Router
     @headlinesView = new BIPIndicatorsPage.Views.Headlines.IndexView(headlines: @headlines)
     $("#headlines").html(@headlinesView.render().el)
 
+    # Focal areas
+    @focalAreasView = new BIPIndicatorsPage.Views.FocalAreas.IndexView(focalAreas: @focal_areas)
+    $("#graphic").html(@focalAreasView.render().el)
+
     # Partners
     @partnersView = new BIPIndicatorsPage.Views.Partners.IndexView(partners: @partners)
     $("#partners").append(@partnersView.render().el)
