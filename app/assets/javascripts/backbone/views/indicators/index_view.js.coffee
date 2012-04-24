@@ -27,6 +27,11 @@ class BIPIndicatorsPage.Views.Indicators.IndexView extends Backbone.View
     counterEl.addClass("indicator-cnt-#{window.BIPIndicatorsPage.indicatorCntClassIdx(indicatorCnt)}")
     counterValEl = $(counterEl).find('span')
     counterValEl.text(indicatorCnt)
+    countLegendEl = $('#indicators-count-legend')
+    legend = window.BIPIndicatorsPage.indicatorCntClassLegend()
+    for classIdx, classProperties of legend
+      div = "<div style='width:#{classProperties['percent']}%' class='indicator-cnt-#{classIdx}'>#{classProperties['label']}</div>"
+      countLegendEl.append(div)
     if socket
       socket.postMessage(document.body.scrollHeight)
 

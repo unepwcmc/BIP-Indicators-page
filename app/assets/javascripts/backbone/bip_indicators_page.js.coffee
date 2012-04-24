@@ -12,17 +12,26 @@ window.BIPIndicatorsPage =
 
   #to facilitate color coding indicator density
   defaults: {
-    indicatorMinCnt: 0
-    indicatorMaxCnt: 29
-    indicatorClassCnt: 4
+    indicatorClasses: {
+      0: [0, 0]
+      1: [1, 2]
+      2: [3, 8]
+      3: [9, 29]
+    }
   }
   indicatorCntClassIdx: (indicatorCnt) ->
-    @cntClassIdx(indicatorCnt, @defaults.indicatorMinCnt, @defaults.indicatorMaxCnt, @defaults.indicatorClassCnt)
-
-  cntClassIdx: (itemCnt, itemMinCnt, itemMaxCnt, classCnt) ->
-    span = itemMaxCnt - itemMinCnt
-    classOffset = Math.floor((span - span % classCnt) / classCnt) + 1
-    classIdx = 0
-    while (itemMinCnt + (classIdx + 1) * classOffset) < itemCnt
-      classIdx += 1
+    for classIdx, classRange of @defaults.indicatorClasses
+      if indicatorCnt >= classRange[0] && indicatorCnt <= classRange[1]
+        break
     return classIdx
+
+  indicatorCntClassLegend: ->
+    legend = {}
+    totalElements = 30
+    for classIdx, classRange of @defaults.indicatorClasses
+      elCnt = 1 + classRange[1] - classRange[0]
+      legend[classIdx] = {
+        percent: Math.round((elCnt / totalElements) * 100),
+        label: classRange[1]
+      }
+    return legend

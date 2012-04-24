@@ -15,6 +15,10 @@ class BIPIndicatorsPage.Models.FocalArea extends Backbone.Model
   deselect: ->
     @save({'selected': false})
 
+  applyIndicatorCnt: (cnt) ->
+    @save({'indicatorCnt': cnt})
+    @save({'indicatorCntClass': window.BIPIndicatorsPage.indicatorCntClassIdx(@get('indicatorCnt'))})
+
 class BIPIndicatorsPage.Collections.FocalAreasCollection extends Backbone.Collection
   model: BIPIndicatorsPage.Models.FocalArea
   localStorage: new Store("bip_focal_areas")

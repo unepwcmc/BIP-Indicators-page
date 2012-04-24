@@ -27,10 +27,6 @@ class BIPIndicatorsPage.Collections.TargetsCollection extends Backbone.Collectio
   model: BIPIndicatorsPage.Models.Target
   localStorage: new Store("bip_targets")
 
-  applyIndicatorCntAll: ->
-    _.each @models, (target) ->
-      target.applyIndicatorCnt(Math.floor(Math.random()*29))
-
   saveAll: ->
     _.each @models, (target) ->
       target.save()

@@ -13,7 +13,6 @@ class BIPIndicatorsPage.Models.Goal extends Backbone.Model
     @filteredTargets = @targets.filter (target) ->
       target.attributes.goal_id == that.id
     @targets.reset(@filteredTargets)
-    @targets.applyIndicatorCntAll()
 
 class BIPIndicatorsPage.Collections.GoalsCollection extends Backbone.Collection
   model: BIPIndicatorsPage.Models.Goal

@@ -30,6 +30,18 @@ $active-tab-color: #00417e;
   border: 1px solid $dark-blue1;
 }
 
+#indicators-count-legend {
+  @extend .blue-border;
+  height: 18px;
+  margin: 15px;
+  & > div {
+    float: left;
+    margin: 0;
+    padding: 0;
+    text-align: right;
+  }
+}
+
 .indicator-cnt-0 {
   background-color: $light-blue1;
   color: $light-grey;

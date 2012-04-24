@@ -35,7 +35,6 @@ class BIPIndicatorsPage.Routers.IndicatorsRouter extends Backbone.Router
     @headlines.fetch()
     if @headlines.length == 0
       @headlines.reset options.headlines
-    @headlines.applyIndicatorCntAll()
     @headlines.each (item) -> that.ftsData.push({id: item.id, label: item.attributes.title, category: 'headline'})
     # Focal areas
     @focal_areas = new BIPIndicatorsPage.Collections.FocalAreasCollection()
@@ -43,13 +42,12 @@ class BIPIndicatorsPage.Routers.IndicatorsRouter extends Backbone.Router
     if @focal_areas.length == 0
       @focal_areas.reset options.focal_areas
     @focal_areas.each (item) -> that.ftsData.push({id: item.id, label: item.attributes.name + ' ' + item.attributes.question, category: 'framework'})
-
     # Partners
     @partners = new BIPIndicatorsPage.Collections.PartnersCollection()
     @partners.fetch()
     if @partners.length == 0
       @partners.reset options.partners
-
+    @indicators.updateIndicatorCounts()
     @fts_data = JSON.parse(options.fts_data)
 
   routes:
