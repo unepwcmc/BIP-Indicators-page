@@ -129,6 +129,7 @@ class BIPIndicatorsPage.Routers.IndicatorsRouter extends Backbone.Router
       @filterByFocalArea(@focal_areas.selected()[0])
     else
       @filterByHeadline(@headlines.selected()[0])
+    @filterByPartner(@partners.selected()[0])
 
   filterByHeadline: (headline) ->
     @indicators.filterByHeadline(headline)

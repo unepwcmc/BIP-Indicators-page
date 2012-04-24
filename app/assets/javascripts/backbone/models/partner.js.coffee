@@ -10,6 +10,7 @@ class BIPIndicatorsPage.Models.Partner extends Backbone.Model
   select: ->
     @collection.deselectAll()
     @save({'selected': true})
+    router.filterByPartner(@)
 
   deselect: ->
     @save({'selected': false})
@@ -21,3 +22,7 @@ class BIPIndicatorsPage.Collections.PartnersCollection extends Backbone.Collecti
   deselectAll: ->
     _.each @models, (partner) ->
       partner.deselect()
+
+  selected: ->
+    @filter (partner) ->
+      partner.get('selected')
