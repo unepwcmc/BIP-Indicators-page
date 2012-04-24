@@ -98,9 +98,11 @@ class BIPIndicatorsPage.Routers.IndicatorsRouter extends Backbone.Router
 
   activateTarget: (targetId) =>
     @activateTab('#matrix')
-    t = @targets.find((t) -> t.id == targetId)
-    t.select()
-    #TODO click target
+    _.each @goals.models, (goal) ->
+      t = goal.targets.find((t) -> t.id == targetId)
+      if t
+        t.select()
+        return
 
   activateHeadline: (headlineId) =>
     @activateTab('#headlines')
