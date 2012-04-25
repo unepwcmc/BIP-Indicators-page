@@ -12,11 +12,13 @@ $light-blue3: #cfdbe7;
 $medium-blue1: #5e87ae;
 $medium-blue2: #296093;
 $medium-blue3: #7a9cbc;
+$medium-blue4: #7094b7;
 $dark-blue1: #42729f;
 $dark-blue2: #00417e;
+$dark-blue3: #19548b;
 $highlight-color: #abc0d5;
-$inactive-tab-color: #d9e3ec;
-$active-tab-color: #00417e;
+$inactive-tab-color: $medium-blue4;
+$active-tab-color: $dark-blue3;
 
 h1 {
   @extend .big-font;
@@ -271,29 +273,33 @@ $matrix-target-width: $matrix-target-height;
   li {
     width: 190px;
   }
-  a {
-    background-color: $inactive-tab-color;
-    display: block;
-    height: 50px;
-    @extend .medium-font;
-    @extend .grey-font;
-
-    & > div {
-      float: left;
-      width: 80px;
-    }
-  }
 
   .active > a, .active > a:hover {
     background-color: $active-tab-color;
   }
 
   img {
-    float: left;
+    float: right;
     margin-right: 10px;
-    -moz-box-shadow: 5px 5px 5px #888;
-    -webkit-box-shadow: 5px 5px 5px #888;
-    box-shadow: 5px 5px 5px #888;
+  }
+}
+
+.nav-pills {
+  & > li > a {
+    border-radius: 0;
+    margin-bottom: 0;
+    background-color: $inactive-tab-color;
+    display: block;
+    height: 30px;
+    margin-right: 0;
+    border-right: 1px solid $active-tab-color;
+    @extend .medium-font;
+    color: white;
+
+    & > div {
+      float: left;
+      width: 80px;
+    }
   }
 }
 
