@@ -9,6 +9,7 @@ $dark-grey: #333333;
 $light-blue1: #dbe4ed;
 $light-blue2: #91adc7;
 $light-blue3: #cfdbe7;
+$light-blue4: #94afc9;
 $medium-blue1: #5e87ae;
 $medium-blue2: #296093;
 $medium-blue3: #7a9cbc;
@@ -139,7 +140,31 @@ $matrix-target-width: $matrix-target-height;
 
 #headlines-container {
   & > div {
-    padding: 10px;
+    height: 40px;
+    border-bottom: 1px solid white;
+  }
+  .headline_code {
+    background-color: $light-blue4;
+    color: white;
+    @extend .medium-font;
+    text-align: center;
+    vertical-align: middle;
+    height: 100%;
+  }
+  .title {
+    background-color: $light-blue1;
+    height: 100%;
+    margin-left: 0;
+  }
+  .headline_code.selected {
+    background-color: $dark-blue2;
+  }
+  .title.selected {
+    background-color: $medium-blue3;
+  }
+  .headlines-indicator-count {
+    height: 100%;
+    margin-left: 0;
   }
 }
 
