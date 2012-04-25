@@ -24,7 +24,7 @@ class BIPIndicatorsPage.Models.Target extends Backbone.Model
 
 class BIPIndicatorsPage.Collections.TargetsCollection extends Backbone.Collection
   model: BIPIndicatorsPage.Models.Target
-  localStorage: new Store("bip_targets")
+  localStorage: new Store('bip_targets')
 
   saveAll: ->
     _.each @models, (target) ->

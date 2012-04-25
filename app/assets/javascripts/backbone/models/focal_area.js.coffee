@@ -25,6 +25,10 @@ class BIPIndicatorsPage.Collections.FocalAreasCollection extends Backbone.Collec
   model: BIPIndicatorsPage.Models.FocalArea
   localStorage: new Store("bip_focal_areas")
 
+  saveAll: ->
+    _.each @models, (target) ->
+      target.save()
+
   deselectAll: ->
     _.each @models, (target) ->
       target.deselect()

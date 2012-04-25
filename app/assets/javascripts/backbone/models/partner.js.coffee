@@ -19,6 +19,10 @@ class BIPIndicatorsPage.Collections.PartnersCollection extends Backbone.Collecti
   model: BIPIndicatorsPage.Models.Partner
   localStorage: new Store("bip_partners")
 
+  saveAll: ->
+    _.each @models, (target) ->
+      target.save()
+
   deselectAll: ->
     _.each @models, (partner) ->
       partner.deselect()

@@ -1,52 +1,69 @@
 class BIPIndicatorsPage.Routers.IndicatorsRouter extends Backbone.Router
   initialize: (options) ->
-    that = @
     @ftsData = []
+
+    previousTimestamp = amplify.store('bip_timestamp')
+    amplify.store('bip_timestamp', options.timestamp) if (previousTimestamp != options.timestamp)
+
     # Indicators
     @indicators = new BIPIndicatorsPage.Collections.IndicatorsCollection()
     @indicators.reset options.indicators
-    @indicators.each (item) -> that.ftsData.push({id: item.id, label: item.attributes.title, category: 'indicator', link: item.attributes.link})
 
-    previousTimestamp = amplify.store('bip_timestamp')
-    if (previousTimestamp != options.timestamp)
-      #clear the local store
-      amplify.store('bip_goals', null)
-      amplify.store('bip_targets', null)
-      amplify.store('bip_headlines', null)
-      amplify.store('bip_focal_areas', null)
-      amplify.store('bip_partners', null)
-      amplify.store('bip_timestamp', options.timestamp)
+    @indicators.each (item) =>
+      @ftsData.push({id: item.id, label: item.attributes.title, category: 'indicator', link: item.attributes.link})
 
     # Targets
     @targets = new BIPIndicatorsPage.Collections.TargetsCollection()
     @targets.fetch()
-    if @targets.length == 0
+    if (previousTimestamp != options.timestamp)
+      @targets.each (target) ->
+        target.destroy()
       @targets.reset options.targets
       @targets.saveAll()
-    @targets.each (item) -> that.ftsData.push({id: item.id, label: item.attributes.title, category: 'target'})
+
+    @targets.each (item) =>
+      @ftsData.push({id: item.id, label: item.attributes.title, category: 'target'})
+
     # Goals
     @goals = new BIPIndicatorsPage.Collections.GoalsCollection()
-    @goals.fetch()
-    if @goals.length == 0
-      @goals.reset options.goals
-    @goals.each (item) -> that.ftsData.push({id: item.id, label: item.attributes.title, category: 'goal'})
+    @goals.reset options.goals
+
+    @goals.each (item) =>
+      @ftsData.push({id: item.id, label: item.attributes.title, category: 'goal'})
+
     # Headlines
     @headlines = new BIPIndicatorsPage.Collections.HeadlinesCollection()
     @headlines.fetch()
-    if @headlines.length == 0
+    if (previousTimestamp != options.timestamp)
+      @headlines.each (headline) ->
+        headline.destroy()
       @headlines.reset options.headlines
-    @headlines.each (item) -> that.ftsData.push({id: item.id, label: item.attributes.title, category: 'headline'})
+      @headlines.saveAll()
+
+    @headlines.each (item) =>
+      @ftsData.push({id: item.id, label: item.attributes.title, category: 'headline'})
+
     # Focal areas
     @focal_areas = new BIPIndicatorsPage.Collections.FocalAreasCollection()
     @focal_areas.fetch()
-    if @focal_areas.length == 0
+    if (previousTimestamp != options.timestamp)
+      @focal_areas.each (focal_area) ->
+        focal_area.destroy()
       @focal_areas.reset options.focal_areas
-    @focal_areas.each (item) -> that.ftsData.push({id: item.id, label: item.attributes.name + ' ' + item.attributes.question, category: 'framework'})
+      @focal_areas.saveAll()
+
+    @focal_areas.each (item) =>
+      @ftsData.push({id: item.id, label: item.attributes.name + ' ' + item.attributes.question, category: 'framework'})
+
     # Partners
     @partners = new BIPIndicatorsPage.Collections.PartnersCollection()
     @partners.fetch()
-    if @partners.length == 0
+    if (previousTimestamp != options.timestamp)
+      @partners.each (partner) ->
+        partner.destroy()
       @partners.reset options.partners
+      @partners.saveAll()
+
     @resetIndicatorCounts()
     @fts_data = JSON.parse(options.fts_data)
 
