@@ -142,20 +142,39 @@ $matrix-target-width: $matrix-target-height;
 }
 
 #graphic {
-  focal-areas-container {
+  #focal-areas-container {
     clear: both;
-  }
-  .focal-area-indicators-count {
-    float: left;
-    width: 30px;
-    height: 30px;
+    div.focal-areas-indicator-count {
+      width: 25%;
+      text-align: center;
+      float: left;
+      padding: 5px 0;
+    }
   }
   button {
     float: left;
-
+    width: 75%;
+    border-radius: 0;
+    color: white;
+    text-transform: uppercase;
+    background-image: none;
+    padding: 14px 9px;
+    @extend .medium-font;
     &.first {
       clear: both;
     }
+  }
+  button.Responses {
+    background-color: #26963c;
+  }
+  button.Pressures {
+    background-color: #c71d22;
+  }
+  button.Benefits {
+    background-color: #6c68af;
+  }
+  button.State {
+    background-color: #f36f21;
   }
 }
 
@@ -280,4 +299,9 @@ $matrix-target-width: $matrix-target-height;
 
 .tab-content {
   @extend .blue-border;
+}
+
+.tab-content-main {
+  width: 95%;
+  margin: 0px auto 10px auto;
 }
