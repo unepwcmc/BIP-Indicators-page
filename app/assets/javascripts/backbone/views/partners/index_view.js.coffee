@@ -29,6 +29,9 @@ class BIPIndicatorsPage.Views.Partners.IndexView extends Backbone.View
 
   select: =>
     partnerId = @$el.find("option:selected").val()
-    partner = @options.partners.get(partnerId)
-    @$el.find("option").attr("selected",null)
-    partner.select()
+    if partnerId
+      partner = @options.partners.get(partnerId)
+      partner.select()
+    else
+      @options.partners.deselectAll()
+      router.filterByPartner()
