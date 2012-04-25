@@ -32,5 +32,8 @@ class BIPIndicatorsPage.Views.SearchView extends Backbone.View
           window.location = ui.item.link
         else
           router.activateByCategory(ui.item.category, ui.item.id)
+        return false
+      focus: (event, ui) ->
+        $('#search-input').val('')
     });
     return this
