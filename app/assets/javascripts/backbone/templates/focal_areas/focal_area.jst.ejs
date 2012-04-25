@@ -1,4 +1,4 @@
-<button class="btn" onclick="window.router.filterByFocalArea('<%= name %>');return false">
+<button class="btn btn-small select-focal-area<% if(selected) { %> btn-primary<% } %>">
   <%= name %>
 </button>
 <div class="focal-area-indicators-count"><%= indicatorCnt %></div>

@@ -149,9 +149,6 @@ class BIPIndicatorsPage.Routers.IndicatorsRouter extends Backbone.Router
         console.log("Error: #{found_focal_areas.length} focal areas found. Should have found an unique focal area for the given name.")
         return false
 
-    # Force selection on model, as there is no view for the focal area
-    focalArea.select() if focalArea?
-
     @indicators.filterByFocalArea(focalArea)
 
   filterByGoal: (goal) ->

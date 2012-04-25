@@ -13,6 +13,7 @@ class BIPIndicatorsPage.Models.FocalArea extends Backbone.Model
   select: ->
     @collection.deselectAll()
     @save({'selected': true})
+    router.filterByFocalArea(@)
 
   deselect: ->
     @save({'selected': false})

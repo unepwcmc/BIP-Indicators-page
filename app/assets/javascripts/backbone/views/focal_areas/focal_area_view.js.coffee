@@ -4,15 +4,16 @@ class BIPIndicatorsPage.Views.FocalAreas.FocalAreaView extends Backbone.View
   template: JST["backbone/templates/focal_areas/focal_area"]
 
   events:
-    "click .destroy" : "destroy"
+    "click .select-focal-area" : "select"
 
-  destroy: () ->
-    @model.destroy()
-    this.remove()
+  initialize: ->
+   @model.on('change', @render)
 
+  select: () ->
+    @model.select()
     return false
 
-  render: ->
+  render: =>
     $(@el).html(@template(@model.toJSON() ))
     $(@el).find('div').addClass("indicator-cnt-#{@model.get('indicatorCntClass')}")
     return this
