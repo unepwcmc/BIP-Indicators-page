@@ -47,7 +47,7 @@ class BIPIndicatorsPage.Routers.IndicatorsRouter extends Backbone.Router
     @partners.fetch()
     if @partners.length == 0
       @partners.reset options.partners
-    @indicators.updateIndicatorCounts()
+    @resetIndicatorCounts()
     @fts_data = JSON.parse(options.fts_data)
 
   routes:
@@ -173,9 +173,18 @@ class BIPIndicatorsPage.Routers.IndicatorsRouter extends Backbone.Router
 
   filterByPartner: (partner) ->
     @indicators.filterByPartner(partner)
+    @resetIndicatorCounts()
+
+  resetIndicatorCounts: ->
+    @indicators.updateIndicatorCounts({
+      goals: @goals,
+      headlines: @headlines,
+      focalAreas: @focal_areas
+    })
 
   resetFilters: ->
     @goals.deselectAllTargets()
     @headlines.deselectAll()
     @focal_areas.deselectAll()
     @partners.deselectAll()
+    @resetIndicatorCounts()

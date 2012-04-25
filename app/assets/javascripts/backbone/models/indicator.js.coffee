@@ -78,7 +78,6 @@ class BIPIndicatorsPage.Collections.IndicatorsCollection extends Backbone.Collec
 
   filterByPartner: (partner) ->
     @filters.partner = partner
-    @updateIndicatorCounts()
     @applyFilter()
 
   getStatsPerObject: (obj) ->
@@ -99,18 +98,13 @@ class BIPIndicatorsPage.Collections.IndicatorsCollection extends Backbone.Collec
       cntClass : @indicatorCntClassIdx(res)
     }
 
-  updateIndicatorCounts: ->
-    targets = new BIPIndicatorsPage.Collections.TargetsCollection()
-    targets.fetch()
-    targets.each (item) =>
+  updateIndicatorCounts: (objects) ->
+    objects['goals'].each (goal) =>
+      goal.targets.each (item) =>
+        item.applyIndicatorCnt(@getStatsPerObject(item))
+    objects['headlines'].each (item) =>
       item.applyIndicatorCnt(@getStatsPerObject(item))
-    headlines = new BIPIndicatorsPage.Collections.HeadlinesCollection()
-    headlines.fetch()
-    headlines.each (item) =>
-      item.applyIndicatorCnt(@getStatsPerObject(item))
-    focalAreas = new BIPIndicatorsPage.Collections.FocalAreasCollection()
-    focalAreas.fetch()
-    focalAreas.each (item) =>
+    objects['focalAreas'].each (item) =>
       item.applyIndicatorCnt(@getStatsPerObject(item))
 
   #to facilitate color coding indicator density
