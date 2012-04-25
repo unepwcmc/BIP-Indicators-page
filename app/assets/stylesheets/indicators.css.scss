@@ -4,18 +4,31 @@ body {
 }
 
 $light-grey: #666666;
+$medium-grey: #656565;
 $dark-grey: #333333;
 $light-blue1: #dbe4ed;
 $light-blue2: #91adc7;
+$light-blue3: #cfdbe7;
 $medium-blue1: #5e87ae;
 $medium-blue2: #296093;
+$medium-blue3: #7a9cbc;
 $dark-blue1: #42729f;
+$dark-blue2: #00417e;
 $highlight-color: #abc0d5;
 $inactive-tab-color: #d9e3ec;
 $active-tab-color: #00417e;
 
+h1 {
+  @extend .big-font;
+  border-bottom: 1px solid $light-blue3;
+  color: $dark-blue2;
+  margin-bottom: 10px;
+  padding: 0 15px;
+  font-weight: normal;
+}
+
 .big-font {
-  font-size: 22px;
+  font-size: 20px;
 }
 
 .medium-font {
@@ -33,7 +46,7 @@ $active-tab-color: #00417e;
 #indicators-count-legend {
   @extend .blue-border;
   height: 18px;
-  margin: 15px;
+  margin-bottom: 15px;
   & > div {
     float: left;
     margin: 0;
@@ -163,11 +176,6 @@ $matrix-target-width: $matrix-target-height;
 
 #filters-and-results {
   @extend .blue-border;
-
-  hr {
-    margin: 0 15px;
-    border-top: 1px solid $dark-blue1;
-  }
 }
 
 #filters {
@@ -186,30 +194,32 @@ $matrix-target-width: $matrix-target-height;
   }
 }
 
+.sidebar-div {
+  clear: both;
+  color: $dark-grey;
+  padding: 0 15px;
+}
+
 #indicators-results-controls {
   height: 60px;
   clear: both;
-  color: $dark-grey;
-  & > div:nth-child(2){
-    @extend .medium-font;
-    margin-top: 15px;
+  a {
+    position: relative;
+    top: -90%;
+    left: 90%;
+    color: $medium-grey;
   }
-  & > div:nth-child(3){
-    text-align: right;
-    a {
-      margin-right:15px;
-      color: #666666;
-    }
-  }
-  #indicators-count {
-    margin-left: 15px;
-    width: 60px;
-    height: 35px;
-    padding-top: 15px;
-    float: left;
-    span {
-      @extend .big-font;
-    }
+}
+
+#indicators-count {
+  width: 60px;
+  height: 35px;
+  padding-top: 15px;
+  padding-right: 15px;
+  text-align: right;
+  float: right;
+  span {
+    @extend .big-font;
   }
 }
 
@@ -218,7 +228,7 @@ $matrix-target-width: $matrix-target-height;
     text-decoration: none;
     color: $dark-grey;
   }
-  border-top: 1px solid $dark-blue1;
+
   padding-top: 15px;
   margin: 0 15px;
   span.title {
@@ -226,6 +236,14 @@ $matrix-target-width: $matrix-target-height;
   }
   & > div.highlighted {
     background-color: $highlight-color;
+  }
+  div.little-square {
+    height: 10px;
+    width: 10px;
+    float: left;
+    background-color: $medium-blue3;
+    margin-top: 5px;
+    margin-right: 5px;
   }
 }
 
