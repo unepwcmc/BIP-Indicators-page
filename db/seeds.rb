@@ -8,11 +8,11 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 goals = [
-  {:code => 'A', :title => 'Strategic Goal A: Address the underlying causes of biodiversity loss by mainstreaming biodiversity across government and society'},
-  {:code => 'B', :title => 'Strategic Goal B: Reduce the direct pressures on biodiversity and promote sustainable use'},
-  {:code => 'C', :title => 'Strategic Goal C: To improve the status of biodiversity by safeguarding ecosystems, species and genetic diversity'},
-  {:code => 'D', :title => 'Strategic Goal D: Enhance the benefits to all from biodiversity and ecosystem services'},
-  {:code => 'E', :title => 'Strategic Goal E: Enhance implementation through participatory planning, knowledge management and capacity building'}
+  {:code => 'A', :title => 'Address the underlying causes of biodiversity loss by mainstreaming biodiversity across government and society'},
+  {:code => 'B', :title => 'Reduce the direct pressures on biodiversity and promote sustainable use'},
+  {:code => 'C', :title => 'To improve the status of biodiversity by safeguarding ecosystems, species and genetic diversity'},
+  {:code => 'D', :title => 'Enhance the benefits to all from biodiversity and ecosystem services'},
+  {:code => 'E', :title => 'Enhance implementation through participatory planning, knowledge management and capacity building'}
 ]
 
 targets = [

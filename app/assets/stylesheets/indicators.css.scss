@@ -101,8 +101,6 @@ $matrix-target-width: $matrix-target-height;
     line-height: 18px;
     font-size: 11px;
     overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
     height: $matrix-target-height + 10px;
   }
 }
