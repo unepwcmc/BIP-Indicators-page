@@ -7,7 +7,7 @@ class BIPIndicatorsPage.Views.Targets.IndexView extends Backbone.View
     @options.targets.bind('reset', @addAll)
 
   addAll: () =>
-    @options.targets.each(@addOne)
+    @options.targets.sort({silent: true}).each(@addOne)
 
   addOne: (target) =>
     view = new BIPIndicatorsPage.Views.Targets.TargetView({model : target})

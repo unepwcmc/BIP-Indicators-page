@@ -3,10 +3,9 @@ BIPIndicatorsPage.Views.Indicators ||= {}
 class BIPIndicatorsPage.Views.Indicators.IndicatorView extends Backbone.View
   template: JST["backbone/templates/indicators/indicator"]
 
-  events: {
-    "mouseover" : "highlight",
-    "mouseout" : "dehighlight"
-  }
+  events:
+    "mouseover": "highlight",
+    "mouseout": "dehighlight"
 
   highlight: ->
     $(@el).addClass('highlighted')
