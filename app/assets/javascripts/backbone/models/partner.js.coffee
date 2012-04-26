@@ -30,3 +30,7 @@ class BIPIndicatorsPage.Collections.PartnersCollection extends Backbone.Collecti
   selected: ->
     @filter (partner) ->
       partner.get('selected')
+
+  valid: ->
+    @filter (partner) ->
+      partner.get('indicators').length > 0

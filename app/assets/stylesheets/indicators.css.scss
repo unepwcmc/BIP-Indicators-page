@@ -274,10 +274,9 @@ $matrix-target-width: 60px;
   height: 60px;
   clear: both;
   a {
-    position: relative;
-    top: -90%;
-    left: 90%;
     color: $medium-grey;
+    float: right;
+    margin: -10px 15px 0 0;
   }
 }
 
@@ -294,26 +293,35 @@ $matrix-target-width: 60px;
 }
 
 #indicators-container {
+  margin: 0 15px 10px;
+  float: left;
+
   a, a:hover {
     text-decoration: none;
     color: $dark-grey;
   }
 
-  padding-top: 15px;
-  margin: 0 15px;
   span.title {
     line-height: 22px;
+    float: left;
+    padding-left: 20px;
   }
-  & > div.highlighted {
-    background-color: $highlight-color;
+  & > div {
+    position: relative;
+    float: left;
+    width: 100%;
+
+    &.highlighted {
+      background-color: $highlight-color;
+    }
   }
   div.little-square {
     height: 10px;
     width: 10px;
     float: left;
     background-color: $medium-blue3;
-    margin-top: 5px;
-    margin-right: 5px;
+    margin: 5px;
+    position: absolute
   }
 }
 

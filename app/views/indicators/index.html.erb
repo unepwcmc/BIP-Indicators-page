@@ -54,7 +54,7 @@ $(function() {
     targets: <%= @targets.to_json.html_safe -%>,
     headlines: <%= @headlines.to_json.html_safe -%>,
     focal_areas: <%= @focal_areas.to_json.html_safe -%>,
-    partners: <%= @partners.to_json.html_safe -%>});
+    partners: <%= @partners.to_json(:include => :indicators).html_safe -%>});
   Backbone.history.start();
 });
 </script>
