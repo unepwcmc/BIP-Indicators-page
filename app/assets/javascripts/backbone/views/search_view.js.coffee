@@ -13,13 +13,13 @@ class BIPIndicatorsPage.Views.SearchView extends Backbone.View
         self._renderItem( ul, item )
       )
     _renderItem: ( ul, item ) ->
-      link = "<a>" + item.label + "</a>"
+      link = "<a href=\"#\">#{item.label}</a>"
       if item.category == 'indicator'
-        link = "<a href = " + item.link + ">" + item.label + "</a>"
-      return $( "<li data-id = " + item.id + " data-category = '" + item.category + "'" + " data-link = '" + item.link + "'></li>" )
+        link = "<a href=\"#\" onclick=\"window.top.location.href='#{item.link}'; return false;\">#{item.label}</a>"
+      return $("<li data-id=\"#{item.id}\" data-category=\"#{item.category}\" data-link=\"#{item.link}\"></li>")
         .data( "item.autocomplete", item )
         .append(link)
-        .appendTo( ul );
+        .appendTo(ul)
     })
 
   render: =>
