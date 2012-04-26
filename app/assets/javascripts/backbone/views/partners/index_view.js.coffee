@@ -13,7 +13,7 @@ class BIPIndicatorsPage.Views.Partners.IndexView extends Backbone.View
     @options.partners.bind('change', @render)
 
   addAll: () =>
-    @options.partners.each(@addOne)
+    _.each(@options.partners.valid(), @addOne)
 
   addOne: (partner) =>
     view = new BIPIndicatorsPage.Views.Partners.PartnerView({model : partner})
