@@ -151,7 +151,7 @@ default_run_options[:pty] = true
 # NB. This just affects the default recipes unless you use the
 # 'try_sudo' command to run your commands.
 set :use_sudo, true
-# set :runner, user## Passenger Configuration
+set :runner, "rails"## Passenger Configuration
 # Set the method of restarting passenger
 # Defaults to :hard which is used to instantly free up database connections
 # :soft uses the standard touch tmp/restart.txt which leaves database connections
