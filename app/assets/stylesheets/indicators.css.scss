@@ -226,7 +226,7 @@ $matrix-target-width: 60px;
 }
 
 #search {
-  height: $tab-nav-height + 16px;
+  height: $tab-nav-height + 18px;
 }
 
 .ui-autocomplete {
@@ -242,6 +242,8 @@ $matrix-target-width: 60px;
 
 #filters-and-results {
   @extend .blue-border;
+  min-height: 660px;
+  position: relative;
 }
 
 #filters {
@@ -268,6 +270,19 @@ $matrix-target-width: 60px;
   clear: both;
   color: $dark-grey;
   padding: 0 15px;
+
+  &.indicators-count-wrapper {
+    position: absolute;
+    bottom: 53px;
+    right: 0;
+  }
+
+  &.legend-for-indicators {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
 }
 
 #indicators-results-controls {
@@ -362,6 +377,10 @@ $matrix-target-width: 60px;
 
 .tab-content {
   @extend .blue-border;
+
+  & > .tab-pane {
+    min-height: 650px;
+  }
 }
 
 .tab-content-main {
