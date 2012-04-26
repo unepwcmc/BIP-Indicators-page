@@ -3,6 +3,10 @@ body {
   font-family: Arial;
 }
 
+.right {
+  float: right;
+}
+
 $light-grey: #666666;
 $medium-grey: #656565;
 $dark-grey: #333333;
@@ -29,6 +33,51 @@ h1 {
   margin-bottom: 10px;
   padding: 0 15px;
   font-weight: normal;
+}
+
+.goal_A {
+  .goal_code {
+    background-color: #247C24;
+  }
+  .goal_title {
+    background-color: #C4DCC4;
+  }
+}
+
+.goal_B {
+  .goal_code {
+    background-color: #247CA7;
+  }
+  .goal_title {
+    background-color: #C4DCE7;
+  }
+}
+
+.goal_C {
+  .goal_code {
+    background-color: #7A4951;
+  }
+  .goal_title {
+    background-color: #DFCCCC;
+  }
+}
+
+.goal_D {
+  .goal_code {
+    background-color: #7A4990;
+  }
+  .goal_title {
+    background-color: #DFCCE0;
+  }
+}
+
+.goal_E {
+  .goal_code {
+    background-color: #B96951;
+  }
+  .goal_title {
+    background-color: #F6DFD7;
+  }
 }
 
 .big-font {
@@ -90,10 +139,12 @@ $matrix-target-width: 60px;
   .goal_code {
     float: left;
     width: 20%;
-    line-height: 32px;
+    height: 90px;
+    line-height: 90px;
     font-size: 32px;
     vertical-align: top;
-    @extend .grey-font;
+    color: #FFF;
+    text-align: center;
   }
 
   .goal_title {
@@ -103,6 +154,10 @@ $matrix-target-width: 60px;
     font-size: 11px;
     overflow: hidden;
     height: $matrix-target-height + 10px;
+
+    .title_field {
+      padding:2px;
+    }
   }
 }
 
