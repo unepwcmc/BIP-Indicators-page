@@ -254,6 +254,10 @@ $matrix-target-width: 60px;
     margin-top: 2px;
     margin-left: 2px;
     width: 100%;
+
+    option {
+      background-color: $dark-blue1;
+    }
   }
   button {
     margin-top: 5px;
