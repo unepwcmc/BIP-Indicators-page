@@ -79,8 +79,8 @@ h1 {
   color: #ffffff;
 }
 
-$matrix-target-height: 60px;
-$matrix-target-width: $matrix-target-height;
+$matrix-target-height: 80px;
+$matrix-target-width: 60px;
 
 #goals-container {
   & > div {
@@ -89,7 +89,7 @@ $matrix-target-width: $matrix-target-height;
 
   .goal_code {
     float: left;
-    width: 15%;
+    width: 20%;
     line-height: 32px;
     font-size: 32px;
     vertical-align: top;
@@ -98,7 +98,7 @@ $matrix-target-width: $matrix-target-height;
 
   .goal_title {
     float: left;
-    width: 85%;
+    width: 80%;
     line-height: 18px;
     font-size: 11px;
     overflow: hidden;
@@ -111,8 +111,8 @@ $matrix-target-width: $matrix-target-height;
     cursor: pointer;
     cursor: hand;
     float: left;
-    width: $matrix-target-height;
-    height: $matrix-target-width;
+    width: $matrix-target-width;
+    height: $matrix-target-height;
     padding: 5px;
   }
 
