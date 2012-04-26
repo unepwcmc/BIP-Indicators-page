@@ -26,6 +26,9 @@ class BIPIndicatorsPage.Collections.TargetsCollection extends Backbone.Collectio
   model: BIPIndicatorsPage.Models.Target
   localStorage: new Store('bip_targets')
 
+  comparator: (target) ->
+    target.get('code')
+
   saveAll: ->
     _.each @models, (target) ->
       target.save()
