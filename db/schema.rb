@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120426130049) do
+ActiveRecord::Schema.define(:version => 20120426132652) do
 
   create_table "focal_areas", :force => true do |t|
     t.string   "name"
@@ -47,11 +47,10 @@ ActiveRecord::Schema.define(:version => 20120426130049) do
   end
 
   create_table "indicators", :force => true do |t|
-    t.integer  "headline_id"
     t.string   "title"
     t.integer  "position"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.string   "rel_link"
   end
 
