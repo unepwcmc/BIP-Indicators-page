@@ -20,6 +20,7 @@ $dark-blue3: #19548b;
 $highlight-color: #abc0d5;
 $inactive-tab-color: $medium-blue4;
 $active-tab-color: $dark-blue3;
+$tab-nav-height: 30px;
 
 h1 {
   @extend .big-font;
@@ -143,28 +144,46 @@ $matrix-target-width: $matrix-target-height;
     height: 40px;
     border-bottom: 1px solid white;
   }
-  .headline_code {
-    background-color: $light-blue4;
-    color: white;
-    @extend .medium-font;
-    text-align: center;
-    vertical-align: middle;
-    height: 100%;
-  }
-  .title {
-    background-color: $light-blue1;
-    height: 100%;
-    margin-left: 0;
-  }
-  .headline_code.selected {
-    background-color: $dark-blue2;
-  }
-  .title.selected {
-    background-color: $medium-blue3;
-  }
-  .headlines-indicator-count {
-    height: 100%;
-    margin-left: 0;
+  .headline {
+    clear: both;
+    .code {
+      background-color: $light-blue4;
+      color: white;
+      @extend .medium-font;
+      text-align: center;
+      height: 100%;
+      line-height: 40px;
+      width: 6%;
+      float: left;
+    }
+    .code.selected {
+      background-color: $dark-blue2;
+    }
+    .title {
+      background-color: $light-blue1;
+      height: 100%;
+      width: 76%;
+      float: left;
+      padding-left: 1%;
+    }
+    .title.selected {
+      background-color: $medium-blue3;
+    }
+    .title-inner {
+      height: 100%;
+
+    }
+    .indicator-count {
+      text-align: center;
+      height: 100%;
+      line-height: 40px;
+      width: 16%;
+      margin-left: 1%;
+      float: left;
+      span {
+        @extend .medium-font;
+      }
+    }
   }
 }
 
@@ -206,7 +225,7 @@ $matrix-target-width: $matrix-target-height;
 }
 
 #search {
-  height: 70px;
+  height: $tab-nav-height + 16px;
 }
 
 .ui-autocomplete {
@@ -315,7 +334,7 @@ $matrix-target-width: $matrix-target-height;
     margin-bottom: 0;
     background-color: $inactive-tab-color;
     display: block;
-    height: 30px;
+    height: $tab-nav-height;
     margin-right: 0;
     border-right: 1px solid $active-tab-color;
     @extend .medium-font;
