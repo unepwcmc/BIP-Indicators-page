@@ -16,6 +16,5 @@ class BIPIndicatorsPage.Views.Targets.IndexView extends Backbone.View
   render: =>
     $(@el).html(@template(targets: @options.targets.toJSON() ))
     @addAll()
-    $(@el).find(".keyword").tooltip();
 
     return this
