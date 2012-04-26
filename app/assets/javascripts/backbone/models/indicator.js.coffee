@@ -2,12 +2,12 @@ class BIPIndicatorsPage.Models.Indicator extends Backbone.Model
   paramRoot: 'indicator'
 
   defaults:
-    headline_id: null
     title: null
     position: null
     rel_link: null
     link: null
     targets: []
+    headlines: []
     focal_areas: []
     partners: []
     # extra fields for interface
@@ -17,7 +17,7 @@ class BIPIndicatorsPage.Models.Indicator extends Backbone.Model
     _.pluck(@get('targets'), 'id').indexOf(targetId) != -1
 
   belongsToHeadline: (headlineId) ->
-    @get('headline_id') == headlineId
+    _.pluck(@get('headlines'), 'id').indexOf(headlineId) != -1
 
   belongsToFocalArea: (focalAreaId) ->
     _.pluck(@get('focal_areas'), 'id').indexOf(focalAreaId) != -1

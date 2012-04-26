@@ -49,7 +49,7 @@ $(function() {
   window.router = new BIPIndicatorsPage.Routers.IndicatorsRouter({
     timestamp: '<%= Time.now %>',
     fts_data: '<%= @fts_data.to_json.html_safe %>',
-    indicators: <%= @indicators.to_json(:include => [:targets, :focal_areas, :partners], :methods => :link).html_safe -%>,
+    indicators: <%= @indicators.to_json(:include => [:targets, :focal_areas, :partners, :headlines], :methods => :link).html_safe -%>,
     goals: <%= @goals.to_json.html_safe -%>,
     targets: <%= @targets.to_json.html_safe -%>,
     headlines: <%= @headlines.to_json.html_safe -%>,

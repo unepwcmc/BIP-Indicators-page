@@ -1,3 +1,3 @@
 class Headline < ActiveRecord::Base
-  has_many :indicators
+  has_and_belongs_to_many :indicators
 end

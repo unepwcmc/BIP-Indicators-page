@@ -270,7 +270,7 @@ targets_indicators = {
 
 #code => position
 headlines_indicators = {
-  1 => [1,2,3],
+  1 => [1,2,3,4],
   2 => [4,5],
   3 => [6,7,8],
   4 => [9],
