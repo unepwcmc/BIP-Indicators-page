@@ -1,4 +1,4 @@
 <button class="btn btn-small select-focal-area<% if(selected) { %> btn-primary<% } %> <%= name %>">
   <%= name %>
 </button>
-<div><%= indicatorCnt %> indicators</div>
+<div class="indicator-count"><span><%= indicatorCnt %></span> indicator<% if(indicatorCnt!=1) { %>s <% } %></div>

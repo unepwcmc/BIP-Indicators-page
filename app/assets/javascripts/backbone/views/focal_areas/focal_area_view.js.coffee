@@ -17,5 +17,5 @@ class BIPIndicatorsPage.Views.FocalAreas.FocalAreaView extends Backbone.View
     $(@el).html(@template(@model.toJSON() ))
     $(@el).addClass('span3')
     $(@el).find('div').removeClass()
-    $(@el).find('div').addClass("indicator-cnt-#{@model.get('indicatorCntClass')} focal-areas-indicator-count")
+    $(@el).find('div').addClass("indicator-cnt-#{@model.get('indicatorCntClass')} indicator-count")
     return this
