@@ -4,8 +4,13 @@ class BIPIndicatorsPage.Models.Partner extends Backbone.Model
   defaults:
     code: null
     name: null
+    indicators: []
+    indicators_ids: ''
     # extra fields for interface
     selected: false
+
+  initialize: ->
+    @set({indicators_ids: _.pluck(@get('indicators'), 'id').join(',')})
 
   select: ->
     @collection.deselectAll()
@@ -33,4 +38,4 @@ class BIPIndicatorsPage.Collections.PartnersCollection extends Backbone.Collecti
 
   valid: ->
     @filter (partner) ->
-      partner.get('indicators').length > 0
+      partner.get('indicators_ids').split(',').length > 0
