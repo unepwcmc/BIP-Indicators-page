@@ -348,10 +348,17 @@ $matrix-target-width: 60px;
   select, button {
     @extend .normal-font;
   }
-  button[disabled="disabled"] {
+  .disabled-button {
+    cursor: default;
+    opacity: 0.65;
     background-color: $medium-grey;
     color: white;
     border: 1px solid $dark-blue2;
+    border-radius: 4px 4px 4px 4px;
+    display: inline-block;
+    padding: 2px 6px;
+    margin-top: 3px;
+    margin-right: 3px;
   }
 }
 

@@ -100,6 +100,8 @@ class BIPIndicatorsPage.Routers.IndicatorsRouter extends Backbone.Router
     # Select previously active tab
     @activateTab(amplify.store('bip_active_tab'))
 
+    $('#toggles').tooltip({title: 'These filters will be implemented in later iterations of the tool.'})
+
   activateByCategory: (category, itemId) =>
     if category == 'goal'
       @activateGoal(itemId)
