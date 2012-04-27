@@ -18,6 +18,6 @@ class BIPIndicatorsPage.Views.Indicators.IndexView extends Backbone.View
     $(@el).html(@template(indicators: @options.indicators.toJSON() ))
     @addAll()
     if socket
-      socket.postMessage(document.body.scrollHeight);
+      socket.postMessage(document.body.scrollHeight)
 
     return this

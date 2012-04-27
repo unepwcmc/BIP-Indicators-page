@@ -22,7 +22,12 @@
       remote : "http://bip.unepwcmc-005.vm.brightbox.net/",
       container : document.getElementById("container"),
       onMessage : function(message, origin) {
-        this.container.getElementsByTagName("iframe")[0].style.height = message + "px";
+        var iframe = this.container.getElementsByTagName("iframe")[0];
+        currentHeight = iframe.style.height;
+        currentHeight = (currentHeight === '' ? 0 : parseInt(currentHeight.replace(/px$/,'')));
+        if (currentHeight < parseInt(message)){
+          iframe.style.height = message + "px";
+        }
       }
     });
   </script>
