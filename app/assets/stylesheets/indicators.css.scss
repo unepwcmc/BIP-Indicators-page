@@ -81,11 +81,15 @@ h1 {
 }
 
 .big-font {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .medium-font {
   font-size: 14px;
+}
+
+.normal-font {
+  font-size: 11px;
 }
 
 .grey-font {
@@ -324,6 +328,14 @@ $matrix-target-width: 60px;
   @extend .blue-border;
   min-height: 660px;
   position: relative;
+  select, button {
+    @extend .normal-font;
+  }
+  button[disabled="disabled"] {
+    background-color: $medium-grey;
+    color: white;
+    border: 1px solid $dark-blue2;
+  }
 }
 
 #filters {
@@ -343,6 +355,10 @@ $matrix-target-width: 60px;
   }
   button {
     margin-top: 5px;
+    margin-right: 5px;
+  }
+  #toggles {
+    text-align: right;
   }
 }
 
