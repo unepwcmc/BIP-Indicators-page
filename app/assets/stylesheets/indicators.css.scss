@@ -136,6 +136,28 @@ h1 {
   color: #ffffff;
 }
 
+.targets {
+  .indicator-cnt-0:hover, .indicator-cnt-1:hover, .indicator-cnt-2:hover, .indicator-cnt-3:hover {
+    border-color: #FFC48C;
+  }
+
+  .indicator-cnt-0 {
+    border: 1px solid $light-blue1;
+  }
+
+  .indicator-cnt-1 {
+    border: 1px solid $light-blue2;
+  }
+
+  .indicator-cnt-2 {
+    border: 1px solid $medium-blue1;
+  }
+
+  .indicator-cnt-3 {
+    border: 1px solid $medium-blue2;
+  }
+}
+
 $matrix-target-height: 80px;
 $matrix-target-width: 60px;
 
@@ -156,8 +178,8 @@ $matrix-target-width: 60px;
   .goal_code {
     float: left;
     width: 20%;
-    height: 90px;
-    line-height: 90px;
+    height: 92px;
+    line-height: 92px;
     font-size: 32px;
     vertical-align: top;
     color: #FFF;
@@ -170,7 +192,7 @@ $matrix-target-width: 60px;
     line-height: 18px;
     font-size: 11px;
     overflow: hidden;
-    height: $matrix-target-height + 10px;
+    height: $matrix-target-height + 12px;
 
     .title_field {
       padding:2px;
@@ -189,7 +211,7 @@ $matrix-target-width: 60px;
   }
 
   & > div.selected {
-    background: #000000;
+    border-color: orange;
   }
 
   .code {
@@ -235,6 +257,8 @@ $matrix-target-width: 60px;
       width: 76%;
       float: left;
       padding-left: 1%;
+      cursor: pointer;
+      cursor: hand;
     }
     .title.selected {
       background-color: $medium-blue3;
