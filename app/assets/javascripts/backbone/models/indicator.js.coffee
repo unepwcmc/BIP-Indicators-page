@@ -51,10 +51,12 @@ class BIPIndicatorsPage.Collections.IndicatorsCollection extends Backbone.Collec
       indicator.set
         'show': (
           (
-            @filters.headline? && indicator.belongsToHeadline(@filters.headline.get('id')) ||
-            @filters.focalArea? && indicator.belongsToFocalArea(@filters.focalArea.get('id')) ||
-            @filters.target? && indicator.belongsToTarget(@filters.target.get('id'))
-          ) && (!@filters.partner? || indicator.belongsToPartner(@filters.partner.get('id')))
+            (
+              @filters.headline? && indicator.belongsToHeadline(@filters.headline.get('id')) ||
+              @filters.focalArea? && indicator.belongsToFocalArea(@filters.focalArea.get('id')) ||
+              @filters.target? && indicator.belongsToTarget(@filters.target.get('id'))
+            ) && (!@filters.partner? || indicator.belongsToPartner(@filters.partner.get('id')))
+          ) || (@filters.partner? && !@filters.headline? && !@filters.focalArea? && !@filters.target? && indicator.belongsToPartner(@filters.partner.get('id')))
         )
 
   filterByHeadline: (headline) ->
@@ -111,10 +113,10 @@ class BIPIndicatorsPage.Collections.IndicatorsCollection extends Backbone.Collec
   defaults:
     indicatorClasses:
       0: [0, 0]
-      1: [1, 2]
-      2: [3, 9]
-      3: [10, 19]
-      4: [20, 29]
+      1: [1, 1]
+      2: [2, 2]
+      3: [3, 3]
+      4: [4, 29]
 
   indicatorCntClassIdx: (indicatorCnt) ->
     for classIdx, classRange of @defaults.indicatorClasses
