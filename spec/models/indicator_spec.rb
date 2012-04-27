@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Indicator do
-  it { should belong_to(:headline) }
+  it { should have_and_belong_to_many(:headlines) }
   it { should have_and_belong_to_many(:targets) }
   it { should have_and_belong_to_many(:focal_areas) }
   it { should have_and_belong_to_many(:partners) }

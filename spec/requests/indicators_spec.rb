@@ -26,7 +26,7 @@ describe 'indicators' do
       page.driver.browser.set_attribute(:local_storage_enabled, true)
 
       visit '/'
-      click_link('Headline Indicators')
+      click_link('Proposed Headlines')
       page.find('ul.nav li:last')['class'].should eq('active')
       page.find('#headlines')['class'].should eq('tab-pane active')
     end
@@ -56,7 +56,7 @@ describe 'indicators' do
       FactoryGirl.create(:indicator, title: 'The most indicator of the world')
 
       visit '/'
-      click_link('Headline Indicators')
+      click_link('Proposed Headlines')
       page.find('#indicators').should_not have_content('The most indicator of the world')
     end
 
@@ -129,13 +129,13 @@ describe 'indicators' do
         headline_1 = FactoryGirl.create(:headline, title: 'The first headline ever')
         headline_2 = FactoryGirl.create(:headline, title: 'The last headline ever')
 
-        FactoryGirl.create(:indicator, title: 'This one should appear', headline: headline_1)
-        FactoryGirl.create(:indicator, title: 'This one should also appear', headline: headline_1)
-        FactoryGirl.create(:indicator, title: 'This one should not appear', headline: headline_2)
+        FactoryGirl.create(:indicator, title: 'This one should appear', headlines: [headline_1])
+        FactoryGirl.create(:indicator, title: 'This one should also appear', headlines: [headline_1])
+        FactoryGirl.create(:indicator, title: 'This one should not appear', headlines: [headline_2])
 
         visit '/'
-        click_link('Headline Indicators')
-        page.execute_script('$(".title:contains(\'The first headline ever\')").siblings("button").click()')
+        click_link('Proposed Headlines')
+        page.execute_script('$(".title:contains(\'The first headline ever\')").click()')
         page.find('#indicators-container').should have_content('This one should appear')
         page.find('#indicators-container').should have_content('This one should also appear')
         page.find('#indicators-container').should_not have_content('This one should not appear')
@@ -195,13 +195,13 @@ describe 'indicators' do
           partner_1 = FactoryGirl.create(:partner, name: 'Batman')
           partner_2 = FactoryGirl.create(:partner, name: 'Robin')
 
-          FactoryGirl.create(:indicator, title: 'This one should appear', headline: headline_1, partners: [partner_1])
-          FactoryGirl.create(:indicator, title: 'This one should not appear', headline: headline_1, partners: [partner_2])
-          FactoryGirl.create(:indicator, title: 'This last one should not appear either', headline: headline_2, partners: [partner_1, partner_2])
+          FactoryGirl.create(:indicator, title: 'This one should appear', headlines: [headline_1], partners: [partner_1])
+          FactoryGirl.create(:indicator, title: 'This one should not appear', headlines: [headline_1], partners: [partner_2])
+          FactoryGirl.create(:indicator, title: 'This last one should not appear either', headlines: [headline_2], partners: [partner_1, partner_2])
 
           visit '/'
-          click_link('Headline Indicators')
-          page.execute_script('$(".title:contains(\'The first headline ever\')").siblings("button").click()')
+          click_link('Proposed Headlines')
+          page.execute_script('$(".title:contains(\'The first headline ever\')").click()')
           select('Batman', from: 'partner')
           page.find('#indicators-container').should have_content('This one should appear')
           page.find('#indicators-container').should_not have_content('This one should not appear')
