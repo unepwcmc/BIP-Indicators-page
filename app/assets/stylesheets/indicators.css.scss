@@ -3,6 +3,10 @@ body {
   font-family: Tahoma,Arial;
 }
 
+#search-input {
+  width: 245px;
+}
+
 .right {
   float: right;
 }
@@ -437,6 +441,9 @@ $matrix-target-width: 60px;
     color: $medium-grey;
     float: right;
     margin: -10px 15px 0 0;
+    position: absolute;
+    top: 45px;
+    right: 0;
   }
 }
 
