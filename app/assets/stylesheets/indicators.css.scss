@@ -237,6 +237,8 @@ $matrix-target-width: 60px;
     border-bottom: 1px solid white;
   }
   .headline {
+    cursor: pointer;
+    cursor: hand;
     clear: both;
     .code {
       background-color: $light-blue4;
@@ -257,8 +259,6 @@ $matrix-target-width: 60px;
       width: 76%;
       float: left;
       padding-left: 1%;
-      cursor: pointer;
-      cursor: hand;
     }
     .title.selected {
       background-color: $medium-blue3;
@@ -284,6 +284,10 @@ $matrix-target-width: 60px;
 #graphic {
   #focal-areas-container {
     clear: both;
+    .focal-area {
+      cursor: pointer;
+      cursor: hand;
+    }
     div.indicator-count {
       width: 30%;
       text-align: center;
