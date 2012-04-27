@@ -27,7 +27,7 @@ class BIPIndicatorsPage.Views.Indicators.IndexView extends Backbone.View
     countLegendEl = $(@el).find('#indicators-count-legend')
     legend = @options.indicators.indicatorCntClassLegend()
     for classIdx, classProperties of legend
-      div = "<div style='width:#{classProperties['percent']}%' class='indicator-cnt-#{classIdx}'>#{classProperties['label']}</div>"
+      div = "<div class='indicator-cnt-#{classIdx}'>#{classProperties['label']}</div>"
       countLegendEl.append(div)
     @addAll()
     if socket

@@ -10,14 +10,15 @@ body {
 $light-grey: #666666;
 $medium-grey: #656565;
 $dark-grey: #333333;
-$light-blue1: #dbe4ed;
-$light-blue2: #91adc7;
+$light-blue1: #ededed;
+$light-blue2: #94C885;
 $light-blue3: #cfdbe7;
 $light-blue4: #94afc9;
-$medium-blue1: #5e87ae;
-$medium-blue2: #296093;
+$medium-blue1: #66AE49;
+$medium-blue2: #438D1A;
 $medium-blue3: #7a9cbc;
 $medium-blue4: #7094b7;
+$medium-blue5: #367315;
 $dark-blue1: #42729f;
 $dark-blue2: #00417e;
 $dark-blue3: #19548b;
@@ -101,14 +102,15 @@ h1 {
 }
 
 #indicators-count-legend {
-  @extend .blue-border;
+  float: left;
   height: 18px;
   margin-bottom: 15px;
   & > div {
     float: left;
     margin: 0;
     padding: 0;
-    text-align: right;
+    text-align: center;
+    width: 18px;
   }
 }
 
@@ -132,8 +134,13 @@ h1 {
   color: #ffffff;
 }
 
+.indicator-cnt-4 {
+  background-color: $medium-blue5;
+  color: #ffffff;
+}
+
 .targets {
-  .indicator-cnt-0:hover, .indicator-cnt-1:hover, .indicator-cnt-2:hover, .indicator-cnt-3:hover {
+  .indicator-cnt-0:hover, .indicator-cnt-1:hover, .indicator-cnt-2:hover, .indicator-cnt-3:hover, .indicator-cnt-3:hover {
     border-color: #FFC48C;
   }
 
@@ -151,6 +158,10 @@ h1 {
 
   .indicator-cnt-3 {
     border: 1px solid $medium-blue2;
+  }
+
+  .indicator-cnt-4 {
+    border: 1px solid $medium-blue5;
   }
 }
 
@@ -369,13 +380,12 @@ $matrix-target-width: 60px;
 
   &.indicators-count-wrapper {
     position: absolute;
-    bottom: 53px;
+    bottom: 15px;
     right: 0;
   }
 
   &.legend-for-indicators {
     position: absolute;
-    right: 0;
     bottom: 0;
     left: 0;
   }

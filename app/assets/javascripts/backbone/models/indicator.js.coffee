@@ -108,14 +108,13 @@ class BIPIndicatorsPage.Collections.IndicatorsCollection extends Backbone.Collec
       item.applyIndicatorCnt(@getStatsPerObject(item))
 
   #to facilitate color coding indicator density
-  defaults: {
-    indicatorClasses: {
+  defaults:
+    indicatorClasses:
       0: [0, 0]
       1: [1, 2]
-      2: [3, 8]
-      3: [9, 29]
-    }
-  }
+      2: [3, 9]
+      3: [10, 19]
+      4: [20, 29]
 
   indicatorCntClassIdx: (indicatorCnt) ->
     for classIdx, classRange of @defaults.indicatorClasses
