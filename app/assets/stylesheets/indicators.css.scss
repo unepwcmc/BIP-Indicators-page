@@ -1,6 +1,6 @@
 body {
   font-size: 11px;
-  font-family: Arial;
+  font-family: Tahoma,Arial;
 }
 
 .right {
@@ -27,12 +27,16 @@ $active-tab-color: $dark-blue3;
 $tab-nav-height: 30px;
 
 h1 {
-  @extend .big-font;
+  @extend .medium-font;
   border-bottom: 1px solid $light-blue3;
   color: $dark-blue2;
   margin-bottom: 10px;
   padding: 0 15px;
   font-weight: normal;
+}
+
+.goal {
+  width: 25%;
 }
 
 .goal_A {
@@ -135,9 +139,18 @@ h1 {
 $matrix-target-height: 80px;
 $matrix-target-width: 60px;
 
+#goals-header {
+  @extend .medium-font;
+  color: $dark-blue2;
+  font-weight: bold;
+  padding: 0 15px;
+}
+
 #goals-container {
+  border: 1px solid #cfd9e5;
   & > div {
     clear: both;
+    margin-bottom: 1px;
   }
 
   .goal_code {
