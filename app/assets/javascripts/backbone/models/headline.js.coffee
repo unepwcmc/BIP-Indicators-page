@@ -26,6 +26,9 @@ class BIPIndicatorsPage.Collections.HeadlinesCollection extends Backbone.Collect
   model: BIPIndicatorsPage.Models.Headline
   localStorage: new Store("bip_headlines")
 
+  comparator: (headline) ->
+    headline.get('code')
+
   saveAll: ->
     _.each @models, (target) ->
       target.save()

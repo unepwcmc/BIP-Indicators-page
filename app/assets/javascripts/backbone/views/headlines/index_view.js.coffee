@@ -7,7 +7,7 @@ class BIPIndicatorsPage.Views.Headlines.IndexView extends Backbone.View
     @options.headlines.bind('reset', @addAll)
 
   addAll: () =>
-    @options.headlines.each(@addOne)
+    @options.headlines.sort({silent: true}).each(@addOne)
 
   addOne: (headline) =>
     view = new BIPIndicatorsPage.Views.Headlines.HeadlineView({model : headline})
