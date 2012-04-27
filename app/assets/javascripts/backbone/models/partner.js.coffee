@@ -38,4 +38,4 @@ class BIPIndicatorsPage.Collections.PartnersCollection extends Backbone.Collecti
 
   valid: ->
     @filter (partner) ->
-      partner.get('indicators_ids').split(',').length > 0
+      partner.get('indicators_ids').length > 0 && partner.get('indicators_ids').split(',').length > 0
