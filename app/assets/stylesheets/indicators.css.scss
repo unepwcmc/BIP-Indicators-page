@@ -240,6 +240,8 @@ $matrix-target-width: 60px;
       width: 76%;
       float: left;
       padding-left: 1%;
+      cursor: pointer;
+      cursor: hand;
     }
     .title.selected {
       background-color: $medium-blue3;
