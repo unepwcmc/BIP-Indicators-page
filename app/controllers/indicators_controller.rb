@@ -7,7 +7,12 @@ class IndicatorsController < ApplicationController
     @goals = Goal.all
     @targets = Target.all
     @headlines = Headline.all
-    @focal_areas = FocalArea.all
+    @focal_areas = [
+      FocalArea.find_by_name('Pressures'),
+      FocalArea.find_by_name('State'),
+      FocalArea.find_by_name('Benefits'),
+      FocalArea.find_by_name('Responses')
+    ]
     @partners = Partner.all
   end
 end
