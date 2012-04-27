@@ -359,6 +359,10 @@ $matrix-target-width: 60px;
   select, button {
     @extend .normal-font;
   }
+  button {
+    position: relative;
+    top: 10px;
+  }
   .disabled-button {
     cursor: default;
     opacity: 0.65;
@@ -439,7 +443,6 @@ $matrix-target-width: 60px;
 
 #indicators-container {
   margin: 0 15px 10px;
-  float: left;
 
   a, a:hover {
     text-decoration: none;
@@ -451,7 +454,7 @@ $matrix-target-width: 60px;
     float: left;
     padding-left: 20px;
   }
-  & > div {
+  & > .indicator {
     position: relative;
     float: left;
     width: 100%;
