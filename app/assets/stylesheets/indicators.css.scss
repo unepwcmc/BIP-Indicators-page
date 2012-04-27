@@ -180,7 +180,8 @@ $matrix-target-width: 60px;
   @extend .medium-font;
   color: $dark-blue2;
   font-weight: bold;
-  padding: 0 15px;
+  width: 98%;
+  margin: 0 auto;
 }
 
 #goals-container {
@@ -530,6 +531,6 @@ $matrix-target-width: 60px;
 }
 
 .tab-content-main {
-  width: 95%;
-  margin: 0px auto 10px auto;
+  width: 98%;
+  margin: 0 auto 10px auto;
 }
