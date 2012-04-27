@@ -209,6 +209,9 @@ $matrix-target-width: 60px;
     font-size: 11px;
     overflow: hidden;
     height: $matrix-target-height + 12px;
+    line-height: 12px;
+    font-size: 12px;
+    color: #535353;
 
     .title_field {
       padding:2px;
@@ -224,6 +227,7 @@ $matrix-target-width: 60px;
     width: $matrix-target-width;
     height: $matrix-target-height;
     padding: 5px;
+    overflow: hidden;
   }
 
   & > div.selected {
@@ -275,6 +279,7 @@ $matrix-target-width: 60px;
       width: 76%;
       float: left;
       padding-left: 1%;
+      font-size: 12px;
     }
     .title.selected {
       background-color: $medium-blue3;
