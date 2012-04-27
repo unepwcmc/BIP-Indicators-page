@@ -10,14 +10,15 @@ class BIPIndicatorsPage.Views.Targets.TargetView extends Backbone.View
    @model.on('change', @render)
 
   select: () ->
-    @$el.find('.keyword').tooltip('hide')
+    @$el.tooltip('hide')
     @model.select()
 
   render: =>
     @$el.html(@template(@model.toJSON() ))
     @$el.removeClass()
     @$el.addClass("indicator-cnt-#{@model.get('indicatorCntClass')}")
-    @$el.find('.keyword').tooltip({placement: 'right'})
+    @$el.attr('title',@model.get('title'))
+    @$el.tooltip({placement: 'right'})
     if (@model.get('selected'))
       @$el.addClass('selected')
     else

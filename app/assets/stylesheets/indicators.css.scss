@@ -1,6 +1,6 @@
 body {
   font-size: 11px;
-  font-family: Arial;
+  font-family: Tahoma,Arial;
 }
 
 .right {
@@ -28,12 +28,16 @@ $active-tab-color: $dark-blue3;
 $tab-nav-height: 30px;
 
 h1 {
-  @extend .big-font;
+  @extend .medium-font;
   border-bottom: 1px solid $light-blue3;
   color: $dark-blue2;
   margin-bottom: 10px;
   padding: 0 15px;
   font-weight: normal;
+}
+
+.goal {
+  width: 25%;
 }
 
 .goal_A {
@@ -168,9 +172,18 @@ h1 {
 $matrix-target-height: 80px;
 $matrix-target-width: 60px;
 
+#goals-header {
+  @extend .medium-font;
+  color: $dark-blue2;
+  font-weight: bold;
+  padding: 0 15px;
+}
+
 #goals-container {
+  border: 1px solid #cfd9e5;
   & > div {
     clear: both;
+    margin-bottom: 1px;
   }
 
   .goal_code {
@@ -235,6 +248,8 @@ $matrix-target-width: 60px;
     border-bottom: 1px solid white;
   }
   .headline {
+    cursor: pointer;
+    cursor: hand;
     clear: both;
     .code {
       background-color: $light-blue4;
@@ -255,8 +270,6 @@ $matrix-target-width: 60px;
       width: 76%;
       float: left;
       padding-left: 1%;
-      cursor: pointer;
-      cursor: hand;
     }
     .title.selected {
       background-color: $medium-blue3;
@@ -282,8 +295,12 @@ $matrix-target-width: 60px;
 #graphic {
   #focal-areas-container {
     clear: both;
+    .focal-area {
+      cursor: pointer;
+      cursor: hand;
+    }
     div.indicator-count {
-      width: 35%;
+      width: 30%;
       text-align: center;
       float: left;
       padding: 4px 0;
@@ -295,7 +312,7 @@ $matrix-target-width: 60px;
   }
   button {
     float: left;
-    width: 65%;
+    width: 70%;
     border-radius: 0;
     color: white;
     text-transform: uppercase;
@@ -342,10 +359,17 @@ $matrix-target-width: 60px;
   select, button {
     @extend .normal-font;
   }
-  button[disabled="disabled"] {
+  .disabled-button {
+    cursor: default;
+    opacity: 0.65;
     background-color: $medium-grey;
     color: white;
     border: 1px solid $dark-blue2;
+    border-radius: 4px 4px 4px 4px;
+    display: inline-block;
+    padding: 2px 6px;
+    margin-top: 3px;
+    margin-right: 3px;
   }
 }
 
@@ -402,10 +426,10 @@ $matrix-target-width: 60px;
 }
 
 #indicators-count {
-  width: 60px;
-  height: 35px;
-  padding-top: 15px;
-  padding-right: 15px;
+  width: 50px;
+  height: 26px;
+  padding-top: 7px;
+  padding-right: 10px;
   text-align: right;
   float: right;
   span {
@@ -435,6 +459,9 @@ $matrix-target-width: 60px;
     &.highlighted {
       background-color: $highlight-color;
     }
+  }
+  div.result {
+    border-bottom: 1px solid #d7d7d7;
   }
   div.little-square {
     height: 10px;
@@ -478,6 +505,9 @@ $matrix-target-width: 60px;
       float: left;
       width: 80px;
     }
+  }
+  & > li > a:hover {
+    color: #a4a4a4;
   }
 }
 

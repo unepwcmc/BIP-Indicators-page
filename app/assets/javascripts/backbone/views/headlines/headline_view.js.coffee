@@ -4,7 +4,7 @@ class BIPIndicatorsPage.Views.Headlines.HeadlineView extends Backbone.View
   template: JST["backbone/templates/headlines/headline"]
 
   events:
-    "click .select-headline" : "select"
+    "click" : "select"
 
   initialize: ->
    @model.on('change', @render)
