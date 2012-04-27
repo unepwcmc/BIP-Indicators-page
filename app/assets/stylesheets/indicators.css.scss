@@ -339,17 +339,28 @@ $matrix-target-width: 60px;
 
 #search {
   height: $tab-nav-height + 18px;
+  input {
+    @expand .normal-font;
+  }
 }
 
 .ui-autocomplete {
   background: #FFFFFF;
+  a, a:hover {
+    text-decoration: none;
+    color: $dark-grey;
+  }
+}
+
+.ui-menu-item {
+  border-bottom: 1px solid #d7d7d7;
 }
 
 .ui-autocomplete-category {
   font-weight: bold;
-  padding: .2em .4em;
-  margin: .8em 0 .2em;
-  line-height: 1.5;
+  @extend .medium-font;
+  color: $dark-blue2;
+  text-transform: uppercase;
 }
 
 #filters-and-results {
