@@ -17,6 +17,8 @@ class BIPIndicatorsPage.Views.Indicators.IndicatorView extends Backbone.View
     $(@el).removeClass('highlighted')
 
   render: =>
-    @$el.html(@template(@model.toJSON() )) if @model.get('show')
-    @$el.attr('href', @model.get('link')).attr('target', '_parent')
+    if @model.get('show')
+      @$el.html(@template(@model.toJSON() ))
+      @$el.show()
+      @$el.attr('href', @model.get('link')).attr('target', '_parent')
     return this
