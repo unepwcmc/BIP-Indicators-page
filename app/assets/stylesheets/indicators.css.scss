@@ -191,6 +191,14 @@ $matrix-target-width: 60px;
     margin-bottom: 1px;
   }
 
+  .goal {
+    float: left;
+  }
+
+  .targets {
+    float: left;
+  }
+
   .goal_code {
     float: left;
     width: 20%;
@@ -395,6 +403,7 @@ $matrix-target-width: 60px;
     padding: 2px 6px;
     margin-top: 3px;
     margin-right: 3px;
+    float: right;
   }
 }
 
