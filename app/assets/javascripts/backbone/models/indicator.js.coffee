@@ -131,6 +131,6 @@ class BIPIndicatorsPage.Collections.IndicatorsCollection extends Backbone.Collec
       elCnt = 1 + classRange[1] - classRange[0]
       legend[classIdx] = {
         percent: Math.round((elCnt / totalElements) * 100),
-        label: classRange[1]
+        label: `(classRange[1] == 29 ? "&gt;3" : classRange[1])`
       }
     return legend
