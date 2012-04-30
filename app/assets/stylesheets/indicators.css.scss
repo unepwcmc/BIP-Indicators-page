@@ -214,11 +214,10 @@ $matrix-target-width: 60px;
     float: left;
     width: 80%;
     line-height: 18px;
-    font-size: 11px;
     overflow: hidden;
     height: $matrix-target-height + 12px;
-    line-height: 12px;
-    font-size: 12px;
+    line-height: 11px;
+    font-size: 11px;
     color: #535353;
 
     .title_field {
@@ -383,7 +382,7 @@ $matrix-target-width: 60px;
 
 #filters-and-results {
   @extend .blue-border;
-  min-height: 660px;
+  min-height: 542px;
   position: relative;
   select, button {
     @extend .normal-font;
@@ -553,7 +552,7 @@ $matrix-target-width: 60px;
   @extend .blue-border;
 
   & > .tab-pane {
-    min-height: 650px;
+    min-height: 530px;
   }
 }
 
