@@ -9,7 +9,7 @@ set :domain, "unepwcmc-005.vm.brightbox.net"
 ## List of servers
 server "unepwcmc-005.vm.brightbox.net", :app, :web, :db, :primary => true
 
-set :branch, "master"
+set :branch, "development"
 
 ## Robots.txt to prevent google from indexing staging
 task :no_index_robots do
