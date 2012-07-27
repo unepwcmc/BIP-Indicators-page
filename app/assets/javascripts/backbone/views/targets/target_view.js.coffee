@@ -12,6 +12,7 @@ class BIPIndicatorsPage.Views.Targets.TargetView extends Backbone.View
   select: () ->
     @$el.tooltip('hide')
     @model.select()
+    @$el.removeAttr('title')
 
   render: =>
     @$el.html(@template(@model.toJSON() ))
