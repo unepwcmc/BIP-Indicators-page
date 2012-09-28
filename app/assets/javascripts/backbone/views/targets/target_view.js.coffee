@@ -6,7 +6,8 @@ class BIPIndicatorsPage.Views.Targets.TargetView extends Backbone.View
   events: ()->
     if window.BIPIndicatorsPage.isTouchDevice()
       "touchstart": "showPreview"
-      "touchend": "select"
+      "touchend": "hidePreview"
+      "click": "select"
     else
       "mouseenter": "showPreview"
       "mouseleave": "hidePreview"
