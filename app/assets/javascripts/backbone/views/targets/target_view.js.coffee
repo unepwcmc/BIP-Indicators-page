@@ -5,8 +5,7 @@ class BIPIndicatorsPage.Views.Targets.TargetView extends Backbone.View
 
   events: ()->
     if window.BIPIndicatorsPage.isTouchDevice()
-      "touchstart": "showPreview"
-      "touchstart": "select"
+      "touchstart": "showPreviewAndSelect"
     else
       "mouseenter": "showPreview"
       "mouseleave": "hidePreview"
@@ -15,23 +14,25 @@ class BIPIndicatorsPage.Views.Targets.TargetView extends Backbone.View
   initialize: ->
    @model.on('change', @render)
 
+  showPreviewAndSelect: () ->
+    @showPreview()
+    @select()
+
   showPreview: () ->
-    @$el.parent().children().tooltip('hide')
+    $('.indicator-cnt').tooltip('hide')
     @$el.tooltip('show')
 
   hidePreview: () ->
     @$el.tooltip('hide')
 
   select: () ->
-    if !window.BIPIndicatorsPage.isTouchDevice()
-      @$el.tooltip('hide')
     @model.select()
     @$el.removeAttr('title')
 
   render: =>
     @$el.html(@template(@model.toJSON() ))
     @$el.removeClass()
-    @$el.addClass("indicator-cnt-#{@model.get('indicatorCntClass')}")
+    @$el.addClass("indicator-cnt indicator-cnt-#{@model.get('indicatorCntClass')}")
     @$el.attr('title',@model.get('title'))
     @$el.tooltip({placement: 'right', trigger: 'manual'})
     if (@model.get('selected'))
