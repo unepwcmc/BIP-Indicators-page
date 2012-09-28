@@ -5,7 +5,9 @@ class BIPIndicatorsPage.Views.Targets.TargetView extends Backbone.View
 
   events: ()->
     if window.BIPIndicatorsPage.isTouchDevice()
-      "click": "showPreviewAndSelect"
+      "touchstart": "showPreview"
+      "touchend": "hidePreview"
+      "click": "select"
     else
       "mouseenter": "showPreview"
       "mouseleave": "hidePreview"
@@ -14,10 +16,6 @@ class BIPIndicatorsPage.Views.Targets.TargetView extends Backbone.View
   initialize: ->
    @model.on('change', @render)
 
-  showPreviewAndSelect: () ->
-    @showPreview()
-    @select()
-
   showPreview: () ->
     @$el.tooltip('show')
 
@@ -25,7 +23,7 @@ class BIPIndicatorsPage.Views.Targets.TargetView extends Backbone.View
     @$el.tooltip('hide')
 
   select: () ->
-    @hidePreview()
+    @$el.tooltip('hide')
     @model.select()
     @$el.removeAttr('title')
 
