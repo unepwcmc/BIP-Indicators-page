@@ -5,7 +5,7 @@ class BIPIndicatorsPage.Views.Targets.TargetView extends Backbone.View
 
   events: ()->
     if Modernizr.touch
-      "touchstart": "showPreviewAndSelect"
+      "click": "showPreviewAndSelect"
     else
       "mouseenter": "showPreview"
       "mouseleave": "hidePreview"
