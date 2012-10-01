@@ -19,7 +19,7 @@ class BIPIndicatorsPage.Views.Targets.TargetView extends Backbone.View
     @select()
 
   showPreview: () ->
-    $('.indicator-cnt').tooltip('hide')
+    $('.indicator-cnt .selected').tooltip('hide')
     @$el.tooltip('show')
 
   hidePreview: () ->
