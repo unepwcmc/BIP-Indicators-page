@@ -4,7 +4,7 @@ class BIPIndicatorsPage.Views.Targets.TargetView extends Backbone.View
   template: JST["backbone/templates/targets/target"]
 
   events: ()->
-    if window.BIPIndicatorsPage.isTouchDevice()
+    if Modernizr.touch
       "touchstart": "showPreviewAndSelect"
     else
       "mouseenter": "showPreview"

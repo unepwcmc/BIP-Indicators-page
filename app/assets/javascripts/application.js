@@ -14,6 +14,7 @@
 //= require json2
 //= require jquery
 //= require jquery-ui-1.8.19.custom.min
+//= require modernizr.touch
 //= require underscore
 //= require backbone
 //= require amplify.store

@@ -9,5 +9,3 @@ window.BIPIndicatorsPage =
   Collections: {}
   Routers: {}
   Views: {}
-  isTouchDevice: () ->
-    return !!('ontouchstart' in window);
