@@ -9,7 +9,7 @@ set :default_stage, 'staging'
 load 'deploy/assets'
 
 set :application, "bip"
-
+set :rake, 'bundle exec rake' #atm asset compilation fails without this
 # If you are using Passenger mod_rails uncomment this:
 # namespace :deploy do
 #   task :start do ; end
