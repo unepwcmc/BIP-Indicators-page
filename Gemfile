@@ -42,6 +42,9 @@ gem 'jquery-rails'
 gem 'ejs'
 
 gem 'rspec-rails', '~> 2.6', :group => [:development, :test]
+
+gem 'brightbox', '>=2.3.9', :group => [:development]
+
 group :test do
   gem 'capybara'
   # LocalStorage support: https://github.com/thoughtbot/capybara-webkit/pull/310
