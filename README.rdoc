@@ -1,5 +1,9 @@
 == BIP
 
-To populate the database from the indicators spreadsheet use the following rake task:
+To add / remove / amend indicators the process is as folows:
+1. get fresh import spreadsheet from db/bip.xls
+2. make amendments on the spreadsheet
+3. don't forget to commit the changes
+4. run the import script:
 
   rake bip:import_spreadsheet
