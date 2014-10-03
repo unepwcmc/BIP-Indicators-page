@@ -7,3 +7,4 @@ To add / remove / amend indicators the process is as folows:
 4. run the import script:
 
   rake bip:import_spreadsheet
+5. delete public/index.html to force refreshing
