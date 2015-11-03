@@ -10,6 +10,7 @@ gem 'sqlite3'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
+  gem 'sass', '~> 3.1.18'
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
 
@@ -48,7 +49,7 @@ gem 'brightbox', '>=2.3.9', :group => [:development]
 group :test do
   gem 'capybara'
   # LocalStorage support: https://github.com/thoughtbot/capybara-webkit/pull/310
-  gem 'capybara-webkit', :git => 'git://github.com/chrisfarber/capybara-webkit.git'
+  gem 'capybara-webkit', "~> 0.13.1"
   gem 'headless'
   gem 'guard-rspec'
   gem 'shoulda'
