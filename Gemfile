@@ -50,8 +50,6 @@ group :test do
   # LocalStorage support: https://github.com/thoughtbot/capybara-webkit/pull/310
   gem 'capybara-webkit', :git => 'git://github.com/chrisfarber/capybara-webkit.git'
   gem 'headless'
-  gem 'database_cleaner'
-
   gem 'guard-rspec'
   gem 'shoulda'
   gem 'factory_girl_rails'
