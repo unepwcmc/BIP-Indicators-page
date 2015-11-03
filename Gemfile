@@ -20,7 +20,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'rails-backbone'
+gem 'rails-backbone', '~> 0.8.0'
 
 gem 'bootstrap-generators', '~> 2.0', :git => 'git://github.com/decioferreira/bootstrap-generators.git'
 
@@ -39,7 +39,7 @@ gem 'capistrano'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 2.1.3'
 gem 'ejs'
 
 gem 'rspec-rails', '~> 2.6', :group => [:development, :test]
