@@ -33,7 +33,6 @@ gem 'bootstrap-generators', '~> 2.0', :git => 'git://github.com/decioferreira/bo
 # gem 'unicorn'
 
 # Deploy with Capistrano
-gem 'capistrano'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
@@ -42,8 +41,6 @@ gem 'jquery-rails', '~> 2.1.3'
 gem 'ejs'
 
 gem 'rspec-rails', '~> 2.6', :group => [:development, :test]
-
-gem 'brightbox', '>=2.3.9', :group => [:development]
 
 group :test do
   gem 'minitest' # compat
@@ -56,6 +53,15 @@ group :test do
   gem 'factory_girl_rails'
   gem 'database_cleaner'
   gem 'launchy'
+end
+
+group :development do
+  gem 'capistrano', '~> 3.4', require: false
+  gem 'capistrano-rails',   '~> 1.1', require: false
+  gem 'capistrano-bundler', '~> 1.1', require: false
+  gem 'capistrano-rvm',   '~> 0.1', require: false
+  gem 'capistrano-passenger', '~> 0.1.1', require: false
+
 end
 
 gem 'spreadsheet'
