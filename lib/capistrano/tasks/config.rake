@@ -7,7 +7,7 @@ namespace :config do
 setup_config = <<-EOF
 #{fetch(:rails_env)}:
 adapter: sqlite3
-database: db/#{rails_env}.sqlite3
+database: db/#{fetch(:rails_env)}.sqlite3
 pool => 5,
 timeout => 5000
 username: #{fetch(:db_user)}

@@ -1,6 +1,7 @@
 # config valid only for current version of Capistrano
 lock '3.4.0'
 
+
 set :application, 'bip'
 set :repo_url, 'git@github.com:unepwcmc/BIP-Indicators-page.git'
 set :branch, 'LinodeCap3Deploy'
