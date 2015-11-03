@@ -46,6 +46,7 @@ gem 'rspec-rails', '~> 2.6', :group => [:development, :test]
 gem 'brightbox', '>=2.3.9', :group => [:development]
 
 group :test do
+  gem 'minitest' # compat
   gem 'capybara'
   # LocalStorage support: https://github.com/thoughtbot/capybara-webkit/pull/310
   gem 'capybara-webkit', "~> 0.13.1"
@@ -58,3 +59,5 @@ group :test do
 end
 
 gem 'spreadsheet'
+
+gem 'test-unit', '~> 3.1' # annoyingly, rails console won't start without it in staging / production
