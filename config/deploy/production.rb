@@ -3,8 +3,8 @@ set :stage, :production
 
 server "web-production.linode.unep-wcmc.org", user: 'wcmc', roles: %w{app web db}
 
-set :application, "bip"
-set :server_name, "bip-production.linode.unep-wcmc.org"
+set :application, "bip-search"
+set :server_name, "bip-search.web-production.linode.unep-wcmc.org"
 set :sudo_user, "wcmc"
 set :app_port, "80"
 

@@ -2,7 +2,7 @@
 lock '3.4.0'
 
 
-set :application, 'bip'
+set :application, 'bip-search'
 set :repo_url, 'git@github.com:unepwcmc/BIP-Indicators-page.git'
 set :branch, 'master'
 
